@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stato fonti · PBEE benchmark</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1>Stato fonti dati</h1>
+          <p class="subtitle">Verifica connettività delle API pubbliche</p>
+        </div>
+        <nav class="nav">
+          <a href="{{ url_for('index') }}">Dashboard</a>
+          <a href="{{ url_for('gallery') }}">Grafici</a>
+          <a href="{{ url_for('sources_page') }}" class="active">Fonti</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h3>Fonti integrate nella pipeline</h3>
+      <table class="sources-table">
+        <thead>
+          <tr>
+            <th>Fonte</th>
+            <th>Uso nella pipeline</th>
+            <th>Stato</th>
+          </tr>
+        </thead>
+        <tbody id="sources-tbody">
+          <tr>
+            <td><strong>RCSB PDB</strong><br><small>Search + Data API (GraphQL)</small></td>
+            <td>Ricerca complessi Ab-Ag, metadati, risoluzione</td>
+            <td><span class="badge badge-gray" data-endpoint="rcsb">verifica…</span></td>
+          </tr>
+          <tr>
+            <td><strong>PubMed</strong><br><small>NCBI E-utilities</small></td>
+            <td>Abstract articoli + estrazione Kd via regex</td>
+            <td><span class="badge badge-gray" data-endpoint="pubmed">verifica…</span></td>
+          </tr>
+          <tr>
+            <td><strong>SAbDab</strong><br><small>Summary TSV (Oxford OPIG)</small></td>
+            <td>DB curato anticorpi con valori Kd</td>
+            <td><span class="badge badge-gray" data-endpoint="sabdab">verifica…</span></td>
+          </tr>
+          <tr>
+            <td><strong>BindingDB</strong><br><small>REST API</small></td>
+            <td>Dati affinità complementari per PDB id</td>
+            <td><span class="badge badge-gray" data-endpoint="bindingdb">verifica…</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="btn-recheck" style="margin-top: 12px;">Ricontrolla</button>
+    </div>
+
+    <div class="card">
+      <h3>Comandi pipeline</h3>
+      <p class="hint">Esegui da terminale per popolare il dataset con dati reali:</p>
+      <pre># Online (API reali, con cache su disco)
+python scripts/01_build_dataset.py --mode online --n 50
+
+# Offline (simulato, riproducibile)
+python scripts/01_build_dataset.py --mode simulated --n 48
+
+# Da file SAbDab locale
+python scripts/01_build_dataset.py --mode sabdab --sabdab-path /path/to/summary.tsv</pre>
+    </div>
+
+    <div class="card">
+      <h3>Nota sui calcoli PBEE</h3>
+      <p>
+        La modalità <code>simulated</code> di <code>04_compute_pbee.py</code> genera ΔG
+        predetti coerenti con la letteratura MMPBSA (bias ~−0.4 kcal/mol, σ ~1.2).
+        Per calcoli PBEE reali è necessario installare
+        <a href="https://www.poissonboltzmann.org" target="_blank" rel="noopener">APBS</a>
+        e PDB2PQR, e poi eseguire:
+      </p>
+      <pre>python scripts/04_compute_pbee.py --mode apbs</pre>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Tutte le chiamate di rete usano cache locale in <code>data/cache/</code></p>
+    </div>
+  </footer>
+
+  <script>
+    async function checkConnectivity() {
+      for (const b of document.querySelectorAll('.badge[data-endpoint]')) {
+        b.textContent = 'verifica…';
+        b.className = 'badge badge-gray';
+      }
+      try {
+        const res = await fetch('/api/connectivity').then(r => r.json());
+        const status = res.status || {};
+        for (const b of document.querySelectorAll('.badge[data-endpoint]')) {
+          const ep = b.dataset.endpoint;
+          if (status[ep] === true) {
+            b.textContent = 'raggiungibile';
+            b.className = 'badge badge-good';
+          } else if (status[ep] === false) {
+            b.textContent = 'non raggiungibile';
+            b.className = 'badge badge-bad';
+          } else {
+            b.textContent = 'sconosciuto';
+            b.className = 'badge badge-gray';
+          }
+        }
+      } catch (e) {
+        for (const b of document.querySelectorAll('.badge[data-endpoint]')) {
+          b.textContent = 'errore';
+          b.className = 'badge badge-bad';
+        }
+      }
+    }
+    document.getElementById('btn-recheck').addEventListener('click', checkConnectivity);
+    checkConnectivity();
+  </script>
+</body>
+</html>

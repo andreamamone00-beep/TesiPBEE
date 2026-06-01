@@ -1,0 +1,30 @@
+{
+  "n_complexes": 50,
+  "rmse_kcal_mol": 2.175,
+  "mae_kcal_mol": 1.815,
+  "pearson_r": 0.751,
+  "spearman_rho": 0.718,
+  "kendall_tau": 0.571,
+  "bias_mean": -0.975,
+  "bias_std": 1.963,
+  "by_affinity_class": {
+    "alta": {
+      "n": 23,
+      "mae": 1.967,
+      "rmse": 2.371,
+      "bias": -0.503
+    },
+    "media": {
+      "n": 11,
+      "mae": 2.267,
+      "rmse": 2.588,
+      "bias": -2.039
+    },
+    "bassa": {
+      "n": 16,
+      "mae": 1.285,
+      "rmse": 1.446,
+      "bias": -0.922
+    }
+  }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dataset Ab/ScFv–Ag · PBEE benchmark</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1>Dataset Ab/ScFv–Ag · PBEE benchmark</h1>
+          <p class="subtitle">Prototipo di tesi · Andrea Mamone</p>
+        </div>
+        <nav class="nav">
+          <a href="{{ url_for('index') }}" class="active">Dashboard</a>
+          <a href="{{ url_for('gallery') }}">Grafici</a>
+          <a href="{{ url_for('sources_page') }}">Fonti</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="empty-state" class="empty hidden">
+      <h2>Dataset non disponibile</h2>
+      <p>Esegui la pipeline per generare <code>data/dataset.csv</code>:</p>
+      <pre>python scripts/01_build_dataset.py
+python scripts/02_curate_structures.py
+python scripts/03_normalize_affinity.py
+python scripts/04_compute_pbee.py
+python scripts/05_analyze_results.py</pre>
+      <p>Oppure lancia lo script unico: <code>./run.sh</code> (Linux/macOS) o <code>run.bat</code> (Windows).</p>
+    </div>
+
+    <section id="content" class="hidden">
+      <div class="metrics">
+        <div class="metric-card"><div class="label">Complessi</div><div class="value" id="m-count">—</div></div>
+        <div class="metric-card"><div class="label">RMSE (kcal/mol)</div><div class="value" id="m-rmse">—</div></div>
+        <div class="metric-card"><div class="label">MAE (kcal/mol)</div><div class="value" id="m-mae">—</div></div>
+        <div class="metric-card"><div class="label">Pearson r</div><div class="value" id="m-pearson">—</div></div>
+        <div class="metric-card"><div class="label">Spearman ρ</div><div class="value" id="m-spearman">—</div></div>
+        <div class="metric-card"><div class="label">Kendall τ</div><div class="value" id="m-kendall">—</div></div>
+        <div class="metric-card"><div class="label">Bias medio</div><div class="value" id="m-bias">—</div></div>
+      </div>
+
+      <div class="card filters">
+        <h3>Filtri</h3>
+        <div class="filter-grid">
+          <div class="filter">
+            <label for="f-format">Formato anticorpo</label>
+            <select id="f-format"><option value="all">Tutti</option></select>
+          </div>
+          <div class="filter">
+            <label for="f-method">Tecnica sperimentale</label>
+            <select id="f-method"><option value="all">Tutte</option></select>
+          </div>
+          <div class="filter">
+            <label for="f-source">Fonte dati</label>
+            <select id="f-source"><option value="all">Tutte</option></select>
+          </div>
+          <div class="filter">
+            <label for="f-res">Risoluzione max (Å): <span id="res-out">3.5</span></label>
+            <input type="range" id="f-res" min="1.5" max="3.5" step="0.1" value="3.5" />
+          </div>
+          <div class="filter">
+            <label for="f-kd-max">Kd max (nM): <span id="kd-out">tutti</span></label>
+            <input type="range" id="f-kd-max" min="1" max="10000" step="10" value="10000" />
+          </div>
+          <div class="filter filter-action">
+            <button id="btn-reset">Reset</button>
+            <a id="btn-export" href="/api/export.csv" class="btn">Esporta CSV</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Gestione SAbDab e cronologia dataset</h3>
+        <div class="management-grid">
+          <div>
+            <p><strong>Dataset finale:</strong> <span id="mg-dataset-status">—</span></p>
+            <p><strong>Summary SAbDab:</strong> <span id="mg-summary-status">—</span></p>
+            <p><strong>Righe summary:</strong> <span id="mg-summary-rows">—</span></p>
+            <div class="mg-actions">
+              <button id="btn-fetch-summary">Scarica summary SAbDab</button>
+              <button id="btn-run-pipeline">Esegui pipeline completa</button>
+              <button id="btn-save-version">Salva versione</button>
+              <a id="btn-export-dataset" href="/api/export.csv" class="btn">Esporta dataset</a>
+            </div>
+            <p class="hint" id="mg-message"></p>
+          </div>
+          <div>
+            <h4>Cronologia</h4>
+            <div id="history-list" class="history-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="card">
+          <h3>ΔG predetto (PBEE) vs sperimentale</h3>
+          <p class="hint">linea tratteggiata: y = x (predizione perfetta)</p>
+          <div class="chart-wrap"><canvas id="scatter"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Residui (ΔG<sub>pred</sub> − ΔG<sub>exp</sub>)</h3>
+          <p class="hint">istogramma degli errori · centro atteso: 0</p>
+          <div class="chart-wrap"><canvas id="residuals"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-header">
+          <h3>Complessi (<span id="tbl-n">—</span>)</h3>
+          <p class="hint">ordinati per Kd crescente · colore del Δ: verde &lt;1, arancione 1-2, rosso &gt;2 kcal/mol</p>
+        </div>
+        <div class="table-wrap">
+          <table id="tbl">
+            <thead>
+              <tr>
+                <th>PDB</th>
+                <th>Formato</th>
+                <th>Antigene</th>
+                <th class="num">Kd (nM)</th>
+                <th class="num">ΔG exp</th>
+                <th class="num">ΔG PBEE</th>
+                <th class="num">Δ</th>
+                <th>Metodo</th>
+                <th>Fonte</th>
+                <th class="num">Res (Å)</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Prototipo · pipeline (RCSB/PubMed/BindingDB/SAbDab) + dashboard · vedi <code>README.md</code></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    if (typeof Chart === "undefined") {
+      document.write('<script src="{{ url_for("static", filename="chart.umd.min.js") }}"><\/script>');
+    }
+  </script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

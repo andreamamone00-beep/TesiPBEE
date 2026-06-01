@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grafici di ricerca · PBEE benchmark</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1>Grafici di ricerca</h1>
+          <p class="subtitle">Generati da <code>scripts/05_analyze_results.py</code></p>
+        </div>
+        <nav class="nav">
+          <a href="{{ url_for('index') }}">Dashboard</a>
+          <a href="{{ url_for('gallery') }}" class="active">Grafici</a>
+          <a href="{{ url_for('sources_page') }}">Fonti</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="empty" class="empty hidden">
+      <h2>Nessun grafico trovato</h2>
+      <p>Esegui prima la pipeline: <code>python scripts/05_analyze_results.py</code></p>
+    </div>
+
+    <div id="gallery" class="gallery"></div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden" onclick="this.classList.add('hidden')">
+      <img id="lightbox-img" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Clicca su un grafico per ingrandirlo. Tutti i file PNG sono in <code>results/</code></p>
+    </div>
+  </footer>
+
+  <script>
+    async function loadGallery() {
+      const res = await fetch("/api/plots").then(r => r.json());
+      const container = document.getElementById("gallery");
+      if (!res.plots || !res.plots.length) {
+        document.getElementById("empty").classList.remove("hidden");
+        return;
+      }
+      for (const p of res.plots) {
+        const fig = document.createElement("figure");
+        fig.className = "plot";
+        fig.innerHTML = `
+          <img src="${p.url}" alt="${p.description}" loading="lazy" />
+          <figcaption>
+            <strong>${p.filename}</strong>
+            <p>${p.description}</p>
+          </figcaption>
+        `;
+        fig.querySelector("img").addEventListener("click", () => {
+          document.getElementById("lightbox-img").src = p.url;
+          document.getElementById("lightbox-caption").textContent = p.description;
+          document.getElementById("lightbox").classList.remove("hidden");
+        });
+        container.appendChild(fig);
+      }
+    }
+    loadGallery();
+  </script>
+</body>
+</html>

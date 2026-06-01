@@ -1,0 +1,51 @@
+pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubmed_id,curated,curation_source,n_residues_ab,n_residues_ag,heteroatoms_removed,missing_loops_modeled,clashes_fixed,hydrogens_added,interface_area_A2
+5ivn,Fab,cadherin derived peptide,1.4,X-RAY DIFFRACTION,SAbDab,1.0,298.15,7.4,homo,26791954,True,biopython,133,100,True,False,False,True,1598
+2p45,Fab,ribonuclease pancreatic,116.0,X-RAY DIFFRACTION,SAbDab,1.1,298.15,7.4,bos,18445622,True,biopython,240,100,True,False,False,True,2240
+5imm,Fab,protein vsig4,3.5,X-RAY DIFFRACTION,SAbDab,1.2,298.15,7.4,camelidae,27889311,True,biopython,245,100,False,False,False,True,2270
+4qyo,Fab,merozoite surface antigen 2,6.0,X-RAY DIFFRACTION,SAbDab,1.208,298.15,7.4,plasmodium,25965408,True,biopython,225,9,True,False,False,True,2150
+5imk,Fab,v-set and immunoglobulin domain-containing protein 4,850.0,X-RAY DIFFRACTION,SAbDab,1.227,298.15,7.4,homo,27889311,True,biopython,243,100,False,False,False,True,2258
+6ddm,Fab,mhc class i polypeptide-related sequence a,0.42,X-RAY DIFFRACTION,SAbDab,1.3,298.15,7.4,mus,30307368,True,biopython,431,88,False,False,False,True,3386
+4qy8,Fab,merozoite surface antigen 2,64.0,X-RAY DIFFRACTION,SAbDab,1.353,298.15,7.4,plasmodium,25965408,True,biopython,225,14,True,False,False,True,2150
+2xzc,Fab,8-METHYL-8-AZABICYCLO[3.2.1]OCTAN-3-YL PHENYLPHOSPHONATE,2300.0,X-RAY DIFFRACTION,SAbDab,1.36,298.15,7.4,homo,21896761,True,biopython,428,100,True,False,False,True,3368
+2p49,Fab,ribonuclease pancreatic,23.0,X-RAY DIFFRACTION,SAbDab,1.38,298.15,7.4,bos,17888451,True,biopython,242,100,True,False,False,True,2252
+5kvf,Fab,zika envelope diii,32.0,X-RAY DIFFRACTION,SAbDab,1.4,298.15,7.4,mus,27475895,True,biopython,440,105,True,False,False,True,3440
+5kvg,Fab,zika envelope diii,8.8,X-RAY DIFFRACTION,SAbDab,1.4,298.15,7.4,mus,27475895,True,biopython,432,107,True,False,False,True,3392
+2vxt,Fab,interleukin-18,0.533,X-RAY DIFFRACTION,SAbDab,1.49,298.15,7.4,mus,19553661,True,biopython,420,156,True,False,False,True,3320
+5myx,Fab,pyroglutamate-abeta pe3-18,6.85,X-RAY DIFFRACTION,SAbDab,1.492,298.15,7.4,homo,28623233,True,biopython,437,216,True,False,False,True,3422
+4z9k,VHH,ricin,2.2,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,ricinus,27159829,True,biopython,374,100,True,False,False,True,3044
+3kdm,Fab,TESTOSTERONE,100.0,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo,21360611,True,biopython,444,216,True,False,False,True,3464
+3ifl,Fab,amyloid beta a4 protein,8.4,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo,19923222,True,biopython,432,7,False,False,False,True,3392
+5e2w,Fab,tau-phosphopeptide,31.0,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo,26800003,True,biopython,424,5,True,False,False,True,3344
+4hpy,Fab,envelope glycoprotein gp160,0.12,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,human,23313589,True,biopython,432,11,True,False,False,True,3392
+3t0w,Fab,"1-(3-SULFOPROPYL)-4-[(1E,3E)-3-(1,3,3-TRIMETHYL-1,3-DIHYDRO-2H-INDOL-2-YLIDENE)PROP-1-EN-1-YL]QUINOLINIUM",50.0,X-RAY DIFFRACTION,SAbDab,1.501,298.15,7.4,homo,22390683,True,biopython,220,100,True,False,False,True,2120
+3zkq,Fab,beta-secretase 2,1.2,X-RAY DIFFRACTION,SAbDab,1.51,298.15,7.4,homo,23695257,True,biopython,489,100,True,False,False,True,3734
+4cmh,Fab,adp-ribosyl cyclase 1,0.2,X-RAY DIFFRACTION,SAbDab,1.53,298.15,7.4,homo,24987056,True,biopython,456,213,False,False,False,True,3536
+4hs6,Fab,e2-peptide,30.0,X-RAY DIFFRACTION,SAbDab,1.53,298.15,7.4,homo,23458406,True,biopython,436,215,False,False,False,True,3416
+5i8c,Fab,hiv-1 clade a bg505 fusion peptide (residue 512-520),25.0,X-RAY DIFFRACTION,SAbDab,1.54,298.15,7.4,human,27174988,True,biopython,435,8,False,False,False,True,3410
+5tkk,Fab,hiv-1 fusion peptide residue 512-519,5.29,X-RAY DIFFRACTION,SAbDab,1.55,298.15,7.4,mus,29867235,True,biopython,426,8,False,False,False,True,3356
+4wem,VHH,k88 fimbrial protein ac,6800.0,X-RAY DIFFRACTION,SAbDab,1.55,298.15,7.4,lama,25828907,True,biopython,369,100,True,False,False,True,3014
+4jg1,Fab,phosphopeptide,232.0,X-RAY DIFFRACTION,SAbDab,1.55,298.15,7.4,homo,23955275,True,biopython,439,8,True,False,False,True,3434
+4w6y,Fab,f18 fimbrial adhesin ac,1.58,X-RAY DIFFRACTION,SAbDab,1.57,298.15,7.4,lama,25502211,True,biopython,274,100,True,False,False,True,2444
+4qxt,Fab,merozoite surface antigen 2,16.0,X-RAY DIFFRACTION,SAbDab,1.58,298.15,7.4,plasmodium,25965408,True,biopython,225,10,True,False,False,True,2150
+3g5y,Fab,egfr peptide,154.0,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,mus,19289842,True,biopython,423,16,False,False,False,True,3338
+5yy4,scFv,c-c chemokine receptor type 5,370.0,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,mus,29936828,True,biopython,242,100,True,False,False,True,2252
+5myo,Fab,amyloid beta a4 protein,0.029,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,homo,28623233,True,biopython,440,219,True,False,False,True,3440
+5myk,Fab,amyloid beta a4 protein,0.99,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,28623233,True,biopython,437,5,True,False,False,True,3422
+1kxq,VHH,"alpha-amylase, pancreatic",3.5,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,camelus,11960990,True,biopython,992,496,True,False,False,True,6752
+4n8c,Fab,extracellular domain of influenza matrix protein 2,0.4,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,influenza,25609808,True,biopython,441,220,False,False,False,True,3446
+4m1g,Fab,a33r | a33r,14.4,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,vaccinia,26325270,True,biopython,430,83,True,False,False,True,3380
+1kxv,VHH,"alpha-amylase, pancreatic",25.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,sus,11960990,True,biopython,992,121,False,False,False,True,6752
+2r1y,Fab,3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID,31000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,18272175,True,biopython,433,100,True,False,False,True,3398
+2r1x,Fab,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL,16000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,18272175,True,biopython,434,100,True,False,False,True,3404
+2r2b,Fab,polysaccharide,63000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,18272175,True,biopython,431,100,True,False,False,True,3386
+3uzq,Fab,envelope protein,0.082,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,dengue,22285214,True,biopython,329,100,True,False,False,True,2774
+3pp4,Fab,b-lymphocyte antigen cd20,7000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,homo,21444918,True,biopython,439,24,True,False,False,True,3434
+1c5c,Fab,"2-ACETYLAMINO-NAPTHALENE-1,5-DISULFONIC ACID",110.0,X-RAY DIFFRACTION,SAbDab,1.61,298.15,7.4,mus,11183784,True,biopython,429,100,True,False,False,True,3374
+5sy8,Fab,10e8 epitope scaffold t117v2,0.011,X-RAY DIFFRACTION,SAbDab,1.62,298.15,7.4,synthetic,28225819,True,biopython,446,155,True,False,False,True,3476
+1zvy,VHH,lysozyme c,0.1,X-RAY DIFFRACTION,SAbDab,1.63,298.15,7.4,gallus,16537393,True,biopython,254,100,True,False,False,True,2324
+6b14,Fab,rna (86-mer),5.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,synthetic,29309709,True,biopython,440,83,True,False,False,True,3440
+5e2v,Fab,tau phosphopeptide,831.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,homo,26800003,True,biopython,424,7,True,False,False,True,3344
+2r23,Fab,polysaccharide,190000.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,mus,18272175,True,biopython,439,100,True,False,False,True,3434
+5a2j,scFv,the naked peptide apdtrp,1400.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,homo,26118689,True,biopython,231,100,True,False,False,True,2186
+5nmv,Fab,tissue factor pathway inhibitor,1.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,homo,29532595,True,biopython,433,63,True,False,False,True,3398
+2p43,Fab,ribonuclease pancreatic,23.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,camelus,18445622,True,biopython,244,100,True,False,False,True,2264
