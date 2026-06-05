@@ -76,6 +76,171 @@ python scripts/05_analyze_results.py</pre>
         </div>
       </div>
 
+      <div class="card pdb-search">
+        <div class="pdb-search-header">
+          <h3>Caricamento e Analisi Struttura 3D</h3>
+          <p class="hint">Recupera un complesso da RCSB PDB oppure carica un file PDB sistemato (es. privo di gap generato con PyMOL/MODELLER)</p>
+        </div>
+        <div class="search-upload-grid">
+          <!-- Cerca PDB Remoto -->
+          <div class="filter search-box">
+            <label for="f-pdb">Scarica da RCSB PDB</label>
+            <div class="input-action-group">
+              <input id="f-pdb" type="text" maxlength="20" placeholder="Codice PDB (es. 1a6u)" />
+              <button id="btn-search-pdb" class="btn btn-primary">Cerca PDB</button>
+            </div>
+          </div>
+          <!-- Carica PDB Locale -->
+          <div class="filter upload-box">
+            <label for="f-upload-file">Carica PDB modificato/riparato</label>
+            <div class="input-action-group">
+              <input id="f-upload-id" type="text" maxlength="20" placeholder="Nome (es. 1a6u_fixed)" />
+              <input id="f-upload-file" type="file" accept=".pdb" style="display: none;" />
+              <button id="btn-select-file" class="btn" onclick="document.getElementById('f-upload-file').click()">Seleziona file...</button>
+              <span id="selected-file-name" class="file-name-text">Nessun file</span>
+              <button id="btn-upload-pdb" class="btn btn-secondary">Carica</button>
+            </div>
+          </div>
+        </div>
+        <div id="pdb-search-result" class="pdb-search-result"></div>
+        
+        <div id="pdb-details" class="pdb-details hidden">
+          <div class="hint">Seleziona le catene del complesso proteico. L'interfaccia a contatto verrà mostrata in <b>blu scuro</b>. Specifica i Partner A (Anticorpo) e B (Antigene) per avviare il calcolo PBEE.</div>
+          
+          <div class="pdb-details-layout">
+            <!-- Visualizzatore 3D -->
+            <div class="pdb-viewer-section">
+              <div id="pdb-description" class="pdb-description hidden">
+                <h4>Descrizione del complesso</h4>
+                <p id="pdb-description-text"></p>
+              </div>
+              <div id="pdb-viewer" class="pdb-viewer">
+                <div id="viewer-loader" class="viewer-loader hidden">
+                  <div class="spinner"></div>
+                  <span>Caricamento struttura in corso...</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Pannello di controllo -->
+            <div class="pdb-control-section">
+              <div class="filter">
+                <label for="f-kd">Kd sperimentale (nM)</label>
+                <input id="f-kd" type="number" min="0.001" step="0.001" placeholder="Opzionale (es. 157)" />
+              </div>
+              
+              <div class="chain-selection-grid">
+                <div class="filter chain-box">
+                  <label>Descrizione complesso</label>
+                  <div id="pdb-chain-info" class="chain-info"></div>
+                </div>
+                <div class="filter chain-box">
+                  <label>Partner A (Anticorpo)</label>
+                  <div id="f-chains-a" class="chain-checkboxes partner-a"></div>
+                  <button type="button" class="btn btn-sm chain-move-btn" id="btn-move-to-b">→ Sposta a B</button>
+                </div>
+                <div class="filter chain-box">
+                  <label>Partner B (Antigene)</label>
+                  <div id="f-chains-b" class="chain-checkboxes partner-b"></div>
+                  <button type="button" class="btn btn-sm chain-move-btn" id="btn-move-to-a">← Sposta a A</button>
+                </div>
+              </div>
+              
+              <div class="filter filter-action">
+                <button id="btn-run-pbee" class="btn btn-primary">Avvia Calcolo PBEE</button>
+              </div>
+              <div id="pdb-compute-result" class="pdb-search-result"></div>
+            </div>
+          </div>
+
+          <!-- Risultati PBEE Dettagliati -->
+          <div id="pbee-results-panel" class="pbee-results-panel hidden">
+            <hr class="panel-divider" />
+            <h4>Risultati Calcolo PBEE per il complesso: <span id="res-pdb-id" class="highlight">—</span></h4>
+            <div class="pbee-results-grid">
+              <div class="pbee-res-card total">
+                <span class="label">ΔG Legame Predetto (PBEE)</span>
+                <span class="value" id="res-dg-pred">—</span>
+                <span class="subtext">kcal/mol</span>
+              </div>
+              <div class="pbee-res-card exp">
+                <span class="label">ΔG Legame Sperimentale</span>
+                <span class="value" id="res-dg-exp">—</span>
+                <span class="subtext" id="res-kd-exp">Kd: —</span>
+              </div>
+              <div class="pbee-res-card diff">
+                <span class="label">Errore di Predizione (Δ)</span>
+                <span class="value" id="res-dg-diff">—</span>
+                <span class="subtext">kcal/mol</span>
+              </div>
+            </div>
+            
+            <div class="pbee-components-grid">
+              <div class="component-item">
+                <span class="comp-label">⚡ Elettrostatica (Debye-Hückel)</span>
+                <div class="comp-bar-wrap">
+                  <div id="bar-elec" class="comp-bar" style="width: 0%"></div>
+                </div>
+                <span class="comp-value" id="res-comp-elec">— kcal/mol</span>
+              </div>
+              <div class="component-item">
+                <span class="comp-label">💧 Contributo Apolare (SASA)</span>
+                <div class="comp-bar-wrap">
+                  <div id="bar-apolar" class="comp-bar" style="width: 0%"></div>
+                </div>
+                <span class="comp-value" id="res-comp-apolar">— kcal/mol</span>
+              </div>
+              <div class="component-item">
+                <span class="comp-label">🌀 Entropia Conformazionale</span>
+                <div class="comp-bar-wrap">
+                  <div id="bar-entropy" class="comp-bar" style="width: 0%"></div>
+                </div>
+                <span class="comp-value" id="res-comp-entropy">— kcal/mol</span>
+              </div>
+            </div>
+
+            <div class="pbee-details-text">
+              <div class="detail-tag"><strong>Catene Partner A:</strong> <span id="res-chains-a">—</span></div>
+              <div class="detail-tag"><strong>Catene Partner B:</strong> <span id="res-chains-b">—</span></div>
+              <div class="detail-tag"><strong>Atomi totali:</strong> <span id="res-atoms">—</span></div>
+              <div class="detail-tag"><strong>Cariche parziali:</strong> <span id="res-charges">—</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Storico Calcoli Condivisi in Laboratorio -->
+      <div class="card shared-runs-card">
+        <div class="runs-header">
+          <h3>Storico Calcoli e Consultazione Laboratorio</h3>
+          <p class="hint">Tutti i calcoli eseguiti in background rimangono memorizzati sul server. Clicca su un record per visualizzarlo in 3D con i relativi parametri e risultati.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="shared-runs-table">
+            <thead>
+              <tr>
+                <th>PDB / Nome</th>
+                <th>Data Elaborazione</th>
+                <th>Partner A (Ab)</th>
+                <th>Partner B (Ag)</th>
+                <th class="num">Kd (nM)</th>
+                <th class="num">ΔG PBEE (kcal/mol)</th>
+                <th class="num">ΔG exp (kcal/mol)</th>
+                <th style="text-align: center;">Azioni</th>
+              </tr>
+            </thead>
+            <tbody id="shared-runs-body">
+              <tr>
+                <td colspan="8" style="padding: 24px; text-align: center; color: var(--text-hint);">
+                  <div class="spinner small" style="display: inline-block; margin-right: 8px;"></div>
+                  Caricamento dei calcoli condivisi in corso...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <div class="card">
         <h3>Gestione SAbDab e cronologia dataset</h3>
         <div class="management-grid">
@@ -83,6 +248,7 @@ python scripts/05_analyze_results.py</pre>
             <p><strong>Dataset finale:</strong> <span id="mg-dataset-status">—</span></p>
             <p><strong>Summary SAbDab:</strong> <span id="mg-summary-status">—</span></p>
             <p><strong>Righe summary:</strong> <span id="mg-summary-rows">—</span></p>
+            <p><strong>Cache PDB remota:</strong> <span id="mg-cache-status">—</span></p>
             <div class="mg-actions">
               <button id="btn-fetch-summary">Scarica summary SAbDab</button>
               <button id="btn-run-pipeline">Esegui pipeline completa</button>
@@ -151,6 +317,7 @@ python scripts/05_analyze_results.py</pre>
       document.write('<script src="{{ url_for("static", filename="chart.umd.min.js") }}"><\/script>');
     }
   </script>
+  <script src="{{ url_for('static', filename='bio-pv.min.js') }}"></script>
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>

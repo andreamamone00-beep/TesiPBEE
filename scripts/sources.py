@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from utils import RateLimiter, cache_key, cached_json, get_logger, parse_affinity_string
+from utils import CACHE_DIR, RateLimiter, cache_key, cached_json, get_logger, parse_affinity_string
 
 log = get_logger("sources")
 
@@ -153,7 +153,204 @@ def fetch_pdb_metadata(pdb_id: str) -> dict[str, Any]:
         return json.loads(raw)
 
     key = cache_key("rcsb_entry", pdb_id)
-    return cached_json(key, fetcher)
+    metadata = cached_json(key, fetcher)
+
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    explicit_path = CACHE_DIR / f"{pdb_id}.json"
+    try:
+        with explicit_path.open("w", encoding="utf-8") as f:
+            json.dump(metadata, f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
+    return metadata
+
+
+PDB_DOWNLOAD_URL = "https://files.rcsb.org/download/{pdb_id}.pdb"
+
+
+def fetch_pdb_file(pdb_id: str) -> str:
+    """Scarica e memorizza localmente il file PDB per un dato codice."""
+    pdb_id = pdb_id.lower()
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    path = CACHE_DIR / f"{pdb_id}.pdb"
+    if path.exists():
+        return str(path)
+    raw = _http_get(PDB_DOWNLOAD_URL.format(pdb_id=pdb_id.upper()))
+    path.write_bytes(raw)
+    return str(path)
+
+
+def extract_pdb_chains(pdb_path: str | Path, metadata: dict | None = None) -> dict[str, list[str] | str]:
+    """Estrae gli identificatori di catena presenti nel file PDB e li classifica.
+    
+    Usa i metadati COMPND del file PDB per classificare le catene come anticorpo o antigene.
+    Se i metadati COMPND non sono disponibili, usa metadati esterni (SAbDab/RCSB) o euristiche.
+    
+    Ritorna un dict con:
+    - 'all': tutte le catene
+    - 'antibody': catene anticorpali
+    - 'antigen': catene antigeniche
+    - 'description': descrizione del complesso (nomi delle molecole)
+    """
+    import re
+    
+    path = Path(pdb_path)
+    if not path.exists():
+        log.warning(f"PDB file non trovato: {pdb_path}")
+        return {"all": [], "antibody": [], "antigen": [], "description": ""}
+    
+    # Prima estrai tutte le catene dal file
+    chain_ids = []
+    try:
+        from Bio.PDB import PDBParser
+        parser = PDBParser(QUIET=True)
+        structure = parser.get_structure("complex", str(path))
+        chain_ids = sorted({chain.id for model in structure for chain in model})
+        log.info(f"Estratte {len(chain_ids)} catene da {pdb_path} usando Bio.PDB")
+    except Exception as e:
+        log.warning(f"Bio.PDB fallito, fallback a parsing manuale: {e}")
+        chains = set()
+        try:
+            with path.open("r", encoding="utf-8", errors="ignore") as f:
+                for line in f:
+                    if line.startswith(("ATOM  ", "HETATM")) and len(line) >= 22:
+                        chains.add(line[21])
+        except Exception as e2:
+            log.error(f"Impossibile estrarre catene: {e2}")
+            return {"all": [], "antibody": [], "antigen": [], "description": ""}
+        chain_ids = sorted(chains)
+        log.info(f"Estratte {len(chain_ids)} catene da {pdb_path} usando parsing manuale")
+    
+    if not chain_ids:
+        log.warning(f"Nessuna catena trovata in {pdb_path}")
+        return {"all": [], "antibody": [], "antigen": [], "description": ""}
+    
+    # Prova a classificare usando i metadati COMPND del file PDB
+    antibody_chains = []
+    antigen_chains = []
+    molecule_descriptions = []
+    
+    try:
+        # Dizionario per mappare MOL_ID -> { 'molecola': str, 'catene': [] }
+        molecole = {}
+        corrente_mol_id = None
+        
+        with path.open("r", encoding="utf-8", errors="ignore") as f:
+            for linea in f:
+                # Ci interessano solo le righe di metadati COMPND
+                if linea.startswith('COMPND'):
+                    # Estrae il MOL_ID se presente nella riga
+                    match_id = re.search(r'MOL_ID:\s*(\d+)', linea)
+                    if match_id:
+                        corrente_mol_id = int(match_id.group(1))
+                        if corrente_mol_id not in molecole:
+                            molecole[corrente_mol_id] = {'molecola': '', 'catene': []}
+                    
+                    if corrente_mol_id is not None:
+                        # Estrae il nome della molecola
+                        match_mol = re.search(r'MOLECULE:\s*([^;\n]+)', linea)
+                        if match_mol:
+                            molecole[corrente_mol_id]['molecola'] += match_mol.group(1).strip().upper()
+                        
+                        # Estrae le catene associate
+                        match_chain = re.search(r'CHAIN:\s*([^;\n]+)', linea)
+                        if match_chain:
+                            # Pulisce le catene rimuovendo spazi e separando per virgola
+                            catene_raw = match_chain.group(1).replace(' ', '').upper()
+                            catene_lista = [c for c in catene_raw.split(',') if c]
+                            molecole[corrente_mol_id]['catene'].extend(catene_lista)
+        
+        # Parole chiave per identificare l'anticorpo
+        keyword_anticorpo = ['ANTIBODY', 'FAB FRAGMENT', 'VHH', 'NANOBODY', 'SINGLE-DOMAIN', 
+                              'HEAVY CHAIN', 'LIGHT CHAIN', 'SCFV', 'IMMUNOGLOBULIN', 'FV']
+        
+        # Classificazione basata sulle keyword trovate
+        for mol_id, info in molecole.items():
+            nome_mol = info['molecola']
+            catene = info['catene']
+            
+            # Salta record vuoti o molecole d'acqua/eteroatomi
+            if not nome_mol or not catene or 'HOH' in nome_mol:
+                continue
+            
+            # Aggiungi alla descrizione
+            molecule_descriptions.append(f"{nome_mol} (catene: {', '.join(catene)})")
+                
+            # Controllo se è un anticorpo
+            is_anticorpo = any(kw in nome_mol for kw in keyword_anticorpo)
+            
+            if is_anticorpo:
+                antibody_chains.extend(catene)
+            else:
+                # Fallback: se non è un anticorpo, viene trattato come l'antigene/target del complesso
+                antigen_chains.extend(catene)
+        
+        # Rimuovi eventuali duplicati preservando l'ordine
+        antibody_chains = list(dict.fromkeys(antibody_chains))
+        antigen_chains = list(dict.fromkeys(antigen_chains))
+        
+        # Filtra solo le catene che esistono realmente nel file
+        antibody_chains = [c for c in antibody_chains if c in chain_ids]
+        antigen_chains = [c for c in antigen_chains if c in chain_ids]
+        
+        if antibody_chains or antigen_chains:
+            log.info(f"Classificazione COMPND: {len(antibody_chains)} anticorpi, {len(antigen_chains)} antigeni")
+        else:
+            log.info("COMPND non ha fornito classificazione utile, fallback a metadati esterni")
+            
+    except Exception as e:
+        log.warning(f"Errore nel parsing COMPND: {e}, fallback a metadati esterni")
+    
+    # Se COMPND non ha funzionato, prova metadati esterni
+    if not antibody_chains and not antigen_chains:
+        # Prima prova a usare i metadati SAbDab se disponibili
+        if metadata:
+            sabdab_hchain = metadata.get("Hchain", "")
+            sabdab_lchain = metadata.get("Lchain", "")
+            if sabdab_hchain:
+                antibody_chains.extend([c.strip() for c in sabdab_hchain.split(",") if c.strip()])
+            if sabdab_lchain:
+                antibody_chains.extend([c.strip() for c in sabdab_lchain.split(",") if c.strip()])
+            log.info(f"Metadati SAbDab: Hchain={sabdab_hchain}, Lchain={sabdab_lchain}")
+        
+        # Se non abbiamo metadati SAbDab, prova a usare i metadati RCSB
+        if not antibody_chains and metadata:
+            entry = metadata.get("data", {}).get("entry") or metadata.get("entry")
+            if entry:
+                entities = entry.get("polymer_entities") or []
+                ab_keywords = ("heavy chain", "light chain", "fab", "fv", "scfv", "immunoglobulin",
+                               "antibody", "nanobody", "vhh", "variable region")
+                for e in entities:
+                    desc = ((e.get("rcsb_polymer_entity") or {}).get("pdbx_description") or "").lower()
+                    if any(k in desc for k in ab_keywords):
+                        asym_ids = ((e.get("rcsb_polymer_entity_container_identifiers") or {})
+                                    .get("asym_ids") or [])
+                        antibody_chains.extend(asym_ids)
+                log.info(f"Metadati RCSB: trovate {len(antibody_chains)} catene anticorpali")
+        
+        # Fallback: usa pattern nei nomi delle catene
+        if not antibody_chains:
+            for chain in chain_ids:
+                chain_upper = chain.upper()
+                if chain_upper in ("H", "L") or chain_upper.startswith("H") or chain_upper.startswith("L"):
+                    antibody_chains.append(chain)
+            log.info(f"Fallback pattern: trovate {len(antibody_chains)} catene anticorpali")
+        
+        # Rimuovi duplicati e mantieni l'ordine originale
+        antibody_chains = list(dict.fromkeys([c for c in antibody_chains if c in chain_ids]))
+        antigen_chains = [c for c in chain_ids if c not in antibody_chains]
+    
+    # Crea descrizione del complesso
+    description = "; ".join(molecule_descriptions) if molecule_descriptions else f"Complesso con {len(chain_ids)} catene"
+    
+    log.info(f"Classificazione finale: {len(chain_ids)} totali, {len(antibody_chains)} anticorpi, {len(antigen_chains)} antigeni")
+    
+    return {
+        "all": chain_ids,
+        "antibody": antibody_chains,
+        "antigen": antigen_chains,
+        "description": description
+    }
 
 
 def guess_format_and_antigen(meta: dict) -> tuple[str, str, float | None]:

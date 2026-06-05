@@ -1,0 +1,73 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "1A6U",
+      "struct": {
+        "title": "B1-8 FV FRAGMENT"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          2.1
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "B1-8 FV (HEAVY CHAIN)"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLQQPGAELVKPGASVKLSCKASGYTFTSYWMHWVKQRPGRGLEWIGRIDPNSGGTKYNEKFKSKATLTVDKPSSTAYMQLSSLTSEDSAVYYCARYDYYGSSYFDYWGQGTTVTVSS"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "H"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "B1-8 FV (LIGHT CHAIN)"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "AVVTQESALTTSPGETVTLTCRSSTGAVTTSNYANWVQEKPDHLFTGLIGGTNNRAPGVPARFSGSLIGNKAALTITGAQTEDEAIYFCALWYSNHWVFGGGTKLTVL"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "L"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": null,
+          "title": "X-Ray Structures of Fv Fragment and its (4-Hydroxy-3-Nitrophenyl)Acetate Complex of Murine B1-8 Antibody",
+          "journal_abbrev": "To be Published"
+        },
+        {
+          "pdbx_database_id_PubMed": null,
+          "title": "A Functional Antibody Mutant with an Insertion in the Framework Region 3 Loop of the Vh Domain: Implications for Antibody Engineering",
+          "journal_abbrev": "Protein Eng."
+        }
+      ]
+    }
+  }
+}

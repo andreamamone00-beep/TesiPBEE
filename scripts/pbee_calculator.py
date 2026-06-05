@@ -67,42 +67,47 @@ class PBEECalculator:
         debye_angstrom = debye_m * 1e10
         return debye_angstrom
     
-    def _parse_pdb_charges(self, pdb_file: Path) -> Tuple[List[Tuple[float, float, float, float]], List[float]]:
+    def _parse_pdb_charges(self, pdb_file: Path, chain_ids: set[str] | None = None) -> Tuple[np.ndarray, np.ndarray]:
         """
         Estrae coordinate e cariche da un file PDB.
         
+        Args:
+            pdb_file: file PDB di input
+            chain_ids: se fornito, include solo le catene specificate
+
         Returns:
-            Tuple[List[coordinates], List[charges]]
+            Tuple[np.ndarray, np.ndarray]
         """
         if not BIOPYTHON_AVAILABLE:
             # Fallback: cariche fittizie basate su aminoacidi
             return self._mock_charges_and_coordinates()
-        
+
         parser = PDBParser(QUIET=True)
         structure = parser.get_structure("complex", pdb_file)
-        
+
         coordinates = []
         charges = []
-        
+
         # Cariche parziali semplificate per aminoacidi
         charge_dict = {
             'ARG': 1.0, 'LYS': 1.0, 'HIS': 0.5,
             'ASP': -1.0, 'GLU': -1.0,
             'N+': 1.0, 'C-': -1.0
         }
-        
+
         for model in structure:
             for chain in model:
+                if chain_ids is not None and chain.id not in chain_ids:
+                    continue
                 for residue in chain:
                     res_name = residue.get_resname().strip()
                     if res_name in charge_dict:
-                        # Prendi solo l'atomo CA per rappresentare il residuo
                         if 'CA' in residue:
                             atom = residue['CA']
                             coord = atom.get_coord()
                             coordinates.append(coord)
                             charges.append(charge_dict[res_name])
-        
+
         return np.array(coordinates), np.array(charges)
     
     def _mock_charges_and_coordinates(self) -> Tuple[np.ndarray, np.ndarray]:
@@ -190,12 +195,14 @@ class PBEECalculator:
         entropy_loss = entropy_per_residue * n_residues
         return entropy_loss
     
-    def calculate_complex_energy(self, pdb_file: Path) -> Dict[str, float]:
+    def calculate_complex_energy(self, pdb_file: Path, chain_ids_a: list[str] | None = None, chain_ids_b: list[str] | None = None) -> Dict[str, float]:
         """
-        Calcola l'energia del complesso completo.
+        Calcola l'energia del complesso completo o tra due gruppi di catene.
         
         Args:
             pdb_file: Percorso del file PDB del complesso
+            chain_ids_a: lista di catene del primo partner
+            chain_ids_b: lista di catene del secondo partner
             
         Returns:
             Dizionario con i contributi energetici
@@ -203,47 +210,48 @@ class PBEECalculator:
         if not pdb_file.exists():
             logging.warning(f"File PDB non trovato: {pdb_file}")
             return self._mock_energy_calculation()
-        
+
         try:
-            coords, charges = self._parse_pdb_charges(pdb_file)
-            
-            if len(coords) == 0:
-                logging.warning(f"Nessuna carica trovata in {pdb_file}")
-                return self._mock_energy_calculation()
-            
-            n_atoms = len(coords)
-            n_residues = n_atoms // 3  # Stima approssimativa
-            
-            # Calcolo contributo elettrostatico
-            # Dividiamo le cariche in due gruppi per simulare interazioni
-            mid_point = len(coords) // 2
-            coords1, coords2 = coords[:mid_point], coords[mid_point:]
-            charges1, charges2 = charges[:mid_point], charges[mid_point:]
-            
-            electrostatic_energy = self._calculate_coulomb_energy(
-                coords1, charges1, coords2, charges2
-            )
-            
-            # Calcolo contributi apolari ed entropici
+            if chain_ids_a is not None and chain_ids_b is not None:
+                coords1, charges1 = self._parse_pdb_charges(pdb_file, set(chain_ids_a))
+                coords2, charges2 = self._parse_pdb_charges(pdb_file, set(chain_ids_b))
+                if len(coords1) == 0 or len(coords2) == 0:
+                    logging.warning(f"Catene specificate non trovate in {pdb_file}: {chain_ids_a} / {chain_ids_b}")
+                    return self._mock_energy_calculation()
+                n_atoms = len(coords1) + len(coords2)
+                n_residues = max(1, n_atoms // 3)
+                electrostatic_energy = self._calculate_coulomb_energy(coords1, charges1, coords2, charges2)
+            else:
+                coords, charges = self._parse_pdb_charges(pdb_file)
+                if len(coords) == 0:
+                    logging.warning(f"Nessuna carica trovata in {pdb_file}")
+                    return self._mock_energy_calculation()
+                n_atoms = len(coords)
+                n_residues = max(1, n_atoms // 3)
+                mid_point = len(coords) // 2
+                coords1, coords2 = coords[:mid_point], coords[mid_point:]
+                charges1, charges2 = charges[:mid_point], charges[mid_point:]
+                electrostatic_energy = self._calculate_coulomb_energy(coords1, charges1, coords2, charges2)
+
             apolar_energy = self._calculate_sasa_energy(n_atoms)
             entropy_energy = self._calculate_entropy_term(n_residues)
-            
-            # Energia totale
             total_energy = electrostatic_energy + apolar_energy - entropy_energy
-            
+
             return {
                 'electrostatic': electrostatic_energy,
                 'apolar': apolar_energy,
                 'entropy': entropy_energy,
                 'total': total_energy,
                 'n_atoms': n_atoms,
-                'n_charges': len(charges)
+                'n_charges': len(coords1) + len(coords2),
+                'chain_ids_a': chain_ids_a,
+                'chain_ids_b': chain_ids_b,
             }
-            
+
         except Exception as e:
             logging.error(f"Errore nel calcolo PBEE per {pdb_file}: {e}")
             return self._mock_energy_calculation()
-    
+
     def _mock_energy_calculation(self) -> Dict[str, float]:
         """
         Fallback per quando non è possibile fare calcoli reali.
@@ -270,6 +278,8 @@ class PBEECalculator:
 
 def calculate_pbee_for_complex(pdb_file: Path, 
                             kd_exp: float,
+                            chain_ids_a: list[str] | None = None,
+                            chain_ids_b: list[str] | None = None,
                             temperature: float = 298.15) -> Dict[str, float]:
     """
     Funzione wrapper per calcolare PBEE per un complesso e confrontare con dati sperimentali.
@@ -277,6 +287,8 @@ def calculate_pbee_for_complex(pdb_file: Path,
     Args:
         pdb_file: File PDB del complesso
         kd_exp: Kd sperimentale in nM
+        chain_ids_a: prime catene del complesso
+        chain_ids_b: seconde catene del complesso
         temperature: Temperatura in K
         
     Returns:
@@ -286,7 +298,11 @@ def calculate_pbee_for_complex(pdb_file: Path,
     pbee = PBEECalculator(temperature=temperature)
     
     # Calcolo energia predetta
-    energy_results = pbee.calculate_complex_energy(pdb_file)
+    energy_results = pbee.calculate_complex_energy(
+        pdb_file,
+        chain_ids_a=chain_ids_a,
+        chain_ids_b=chain_ids_b,
+    )
     
     # Calcolo ΔG sperimentale per confronto
     R_GAS_KCAL = 1.987204e-3  # kcal/(mol·K)

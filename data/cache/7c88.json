@@ -1,0 +1,95 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "7C88",
+      "struct": {
+        "title": "Complex structure of JS003 and PD-L1"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.997
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Programmed cell death 1 ligand 1"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MRIFAVFIFMTYWHLLNAFTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNAPYNK"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C",
+              "F"
+            ],
+            "auth_asym_ids": [
+              "C",
+              "M"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "JS003 Light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DIVMTQSPDSLAVSLGERATINCKASQNVDTSVAWFQQKPGQPPKALIYSASFRYSGVPDRFSGSGSGTDFTLTISSLQAEDVAVYFCQQYYGYPFTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B",
+              "E"
+            ],
+            "auth_asym_ids": [
+              "B",
+              "L"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "JS003 Heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QGQLQESGPSLVKPSQTLSLTCTVSGDSITRGYWNWIRKHPGKGLEYIGYISYTGSTYSNLSLKSRVTISRDTSKNQYYLKLSSVTAADTAVYYCATSTGWLDPVDYWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCP"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A",
+              "D"
+            ],
+            "auth_asym_ids": [
+              "A",
+              "H"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 32839442,
+          "title": "Identification of a hotspot on PD-L1 for pH-dependent binding by monoclonal antibodies for tumor therapy.",
+          "journal_abbrev": "Signal Transduct Target Ther"
+        }
+      ]
+    }
+  }
+}

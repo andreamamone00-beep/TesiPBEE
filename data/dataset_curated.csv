@@ -1,51 +1,49 @@
-pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubmed_id,curated,curation_source,n_residues_ab,n_residues_ag,heteroatoms_removed,missing_loops_modeled,clashes_fixed,hydrogens_added,interface_area_A2
-5ivn,Fab,cadherin derived peptide,1.4,X-RAY DIFFRACTION,SAbDab,1.0,298.15,7.4,homo,26791954,True,biopython,133,100,True,False,False,True,1598
-2p45,Fab,ribonuclease pancreatic,116.0,X-RAY DIFFRACTION,SAbDab,1.1,298.15,7.4,bos,18445622,True,biopython,240,100,True,False,False,True,2240
-5imm,Fab,protein vsig4,3.5,X-RAY DIFFRACTION,SAbDab,1.2,298.15,7.4,camelidae,27889311,True,biopython,245,100,False,False,False,True,2270
-4qyo,Fab,merozoite surface antigen 2,6.0,X-RAY DIFFRACTION,SAbDab,1.208,298.15,7.4,plasmodium,25965408,True,biopython,225,9,True,False,False,True,2150
-5imk,Fab,v-set and immunoglobulin domain-containing protein 4,850.0,X-RAY DIFFRACTION,SAbDab,1.227,298.15,7.4,homo,27889311,True,biopython,243,100,False,False,False,True,2258
-6ddm,Fab,mhc class i polypeptide-related sequence a,0.42,X-RAY DIFFRACTION,SAbDab,1.3,298.15,7.4,mus,30307368,True,biopython,431,88,False,False,False,True,3386
-4qy8,Fab,merozoite surface antigen 2,64.0,X-RAY DIFFRACTION,SAbDab,1.353,298.15,7.4,plasmodium,25965408,True,biopython,225,14,True,False,False,True,2150
-2xzc,Fab,8-METHYL-8-AZABICYCLO[3.2.1]OCTAN-3-YL PHENYLPHOSPHONATE,2300.0,X-RAY DIFFRACTION,SAbDab,1.36,298.15,7.4,homo,21896761,True,biopython,428,100,True,False,False,True,3368
-2p49,Fab,ribonuclease pancreatic,23.0,X-RAY DIFFRACTION,SAbDab,1.38,298.15,7.4,bos,17888451,True,biopython,242,100,True,False,False,True,2252
-5kvf,Fab,zika envelope diii,32.0,X-RAY DIFFRACTION,SAbDab,1.4,298.15,7.4,mus,27475895,True,biopython,440,105,True,False,False,True,3440
-5kvg,Fab,zika envelope diii,8.8,X-RAY DIFFRACTION,SAbDab,1.4,298.15,7.4,mus,27475895,True,biopython,432,107,True,False,False,True,3392
-2vxt,Fab,interleukin-18,0.533,X-RAY DIFFRACTION,SAbDab,1.49,298.15,7.4,mus,19553661,True,biopython,420,156,True,False,False,True,3320
-5myx,Fab,pyroglutamate-abeta pe3-18,6.85,X-RAY DIFFRACTION,SAbDab,1.492,298.15,7.4,homo,28623233,True,biopython,437,216,True,False,False,True,3422
-4z9k,VHH,ricin,2.2,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,ricinus,27159829,True,biopython,374,100,True,False,False,True,3044
-3kdm,Fab,TESTOSTERONE,100.0,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo,21360611,True,biopython,444,216,True,False,False,True,3464
-3ifl,Fab,amyloid beta a4 protein,8.4,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo,19923222,True,biopython,432,7,False,False,False,True,3392
-5e2w,Fab,tau-phosphopeptide,31.0,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo,26800003,True,biopython,424,5,True,False,False,True,3344
-4hpy,Fab,envelope glycoprotein gp160,0.12,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,human,23313589,True,biopython,432,11,True,False,False,True,3392
-3t0w,Fab,"1-(3-SULFOPROPYL)-4-[(1E,3E)-3-(1,3,3-TRIMETHYL-1,3-DIHYDRO-2H-INDOL-2-YLIDENE)PROP-1-EN-1-YL]QUINOLINIUM",50.0,X-RAY DIFFRACTION,SAbDab,1.501,298.15,7.4,homo,22390683,True,biopython,220,100,True,False,False,True,2120
-3zkq,Fab,beta-secretase 2,1.2,X-RAY DIFFRACTION,SAbDab,1.51,298.15,7.4,homo,23695257,True,biopython,489,100,True,False,False,True,3734
-4cmh,Fab,adp-ribosyl cyclase 1,0.2,X-RAY DIFFRACTION,SAbDab,1.53,298.15,7.4,homo,24987056,True,biopython,456,213,False,False,False,True,3536
-4hs6,Fab,e2-peptide,30.0,X-RAY DIFFRACTION,SAbDab,1.53,298.15,7.4,homo,23458406,True,biopython,436,215,False,False,False,True,3416
-5i8c,Fab,hiv-1 clade a bg505 fusion peptide (residue 512-520),25.0,X-RAY DIFFRACTION,SAbDab,1.54,298.15,7.4,human,27174988,True,biopython,435,8,False,False,False,True,3410
-5tkk,Fab,hiv-1 fusion peptide residue 512-519,5.29,X-RAY DIFFRACTION,SAbDab,1.55,298.15,7.4,mus,29867235,True,biopython,426,8,False,False,False,True,3356
-4wem,VHH,k88 fimbrial protein ac,6800.0,X-RAY DIFFRACTION,SAbDab,1.55,298.15,7.4,lama,25828907,True,biopython,369,100,True,False,False,True,3014
-4jg1,Fab,phosphopeptide,232.0,X-RAY DIFFRACTION,SAbDab,1.55,298.15,7.4,homo,23955275,True,biopython,439,8,True,False,False,True,3434
-4w6y,Fab,f18 fimbrial adhesin ac,1.58,X-RAY DIFFRACTION,SAbDab,1.57,298.15,7.4,lama,25502211,True,biopython,274,100,True,False,False,True,2444
-4qxt,Fab,merozoite surface antigen 2,16.0,X-RAY DIFFRACTION,SAbDab,1.58,298.15,7.4,plasmodium,25965408,True,biopython,225,10,True,False,False,True,2150
-3g5y,Fab,egfr peptide,154.0,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,mus,19289842,True,biopython,423,16,False,False,False,True,3338
-5yy4,scFv,c-c chemokine receptor type 5,370.0,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,mus,29936828,True,biopython,242,100,True,False,False,True,2252
-5myo,Fab,amyloid beta a4 protein,0.029,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,homo,28623233,True,biopython,440,219,True,False,False,True,3440
-5myk,Fab,amyloid beta a4 protein,0.99,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,28623233,True,biopython,437,5,True,False,False,True,3422
-1kxq,VHH,"alpha-amylase, pancreatic",3.5,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,camelus,11960990,True,biopython,992,496,True,False,False,True,6752
-4n8c,Fab,extracellular domain of influenza matrix protein 2,0.4,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,influenza,25609808,True,biopython,441,220,False,False,False,True,3446
-4m1g,Fab,a33r | a33r,14.4,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,vaccinia,26325270,True,biopython,430,83,True,False,False,True,3380
-1kxv,VHH,"alpha-amylase, pancreatic",25.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,sus,11960990,True,biopython,992,121,False,False,False,True,6752
-2r1y,Fab,3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID,31000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,18272175,True,biopython,433,100,True,False,False,True,3398
-2r1x,Fab,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL,16000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,18272175,True,biopython,434,100,True,False,False,True,3404
-2r2b,Fab,polysaccharide,63000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus,18272175,True,biopython,431,100,True,False,False,True,3386
-3uzq,Fab,envelope protein,0.082,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,dengue,22285214,True,biopython,329,100,True,False,False,True,2774
-3pp4,Fab,b-lymphocyte antigen cd20,7000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,homo,21444918,True,biopython,439,24,True,False,False,True,3434
-1c5c,Fab,"2-ACETYLAMINO-NAPTHALENE-1,5-DISULFONIC ACID",110.0,X-RAY DIFFRACTION,SAbDab,1.61,298.15,7.4,mus,11183784,True,biopython,429,100,True,False,False,True,3374
-5sy8,Fab,10e8 epitope scaffold t117v2,0.011,X-RAY DIFFRACTION,SAbDab,1.62,298.15,7.4,synthetic,28225819,True,biopython,446,155,True,False,False,True,3476
-1zvy,VHH,lysozyme c,0.1,X-RAY DIFFRACTION,SAbDab,1.63,298.15,7.4,gallus,16537393,True,biopython,254,100,True,False,False,True,2324
-6b14,Fab,rna (86-mer),5.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,synthetic,29309709,True,biopython,440,83,True,False,False,True,3440
-5e2v,Fab,tau phosphopeptide,831.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,homo,26800003,True,biopython,424,7,True,False,False,True,3344
-2r23,Fab,polysaccharide,190000.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,mus,18272175,True,biopython,439,100,True,False,False,True,3434
-5a2j,scFv,the naked peptide apdtrp,1400.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,homo,26118689,True,biopython,231,100,True,False,False,True,2186
-5nmv,Fab,tissue factor pathway inhibitor,1.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,homo,29532595,True,biopython,433,63,True,False,False,True,3398
-2p43,Fab,ribonuclease pancreatic,23.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,camelus,18445622,True,biopython,244,100,True,False,False,True,2264
+pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubmed_id,curated,curation_source,missing_loops_modeled,heteroatoms_removed,clashes_fixed,hydrogens_added,n_residues_ab,n_residues_ag,interface_area_A2
+1e41,Fab,PD-1,157.447,BLI,SAbDab,2.8,310.15,7.0,mouse,,True,simulated,True,False,True,True,328,458,1874.6
+2d39,VHH,GITR,0.144,SPR,SAAINT-DB,2.8,310.15,7.3,human,,True,simulated,False,True,False,True,214,522,1722.6
+5a30,VHH,IL-17A,17.622,ITC,ANDD,1.9,298.15,7.1,mouse,,True,simulated,False,False,False,True,321,483,1081.9
+6j43,Fab,RSV F,0.304,BLI,SAbDab,3.3,298.15,7.0,mouse,,True,simulated,False,False,False,True,234,244,1619.9
+6j34,VHH,HER2 ECD,1402.889,SPR,SAAINT-DB,2.9,293.15,7.4,human,,True,simulated,False,False,False,True,339,358,1720.3
+8f30,scFv,IL-6,7.955,SPR,ANDD,2.8,310.15,7.3,llama,,True,simulated,False,True,True,True,225,249,1273.9
+9d30,scFv,CTLA-4,149.586,ITC,SAAINT-DB,2.8,293.15,7.1,human,,True,simulated,False,True,True,True,429,142,950.6
+7e18,Fab,IL-4Ra,1059.812,BLI,ANDD,2.0,298.15,7.2,llama,,True,simulated,False,False,False,True,294,418,1646.2
+5c41,VHH,CD38,19.691,BLI,ANDD,2.9,298.15,7.4,mouse,,True,simulated,False,True,False,True,409,407,880.2
+3i73,Fab,SARS-CoV-2 RBD,6.456,SPR,SAAINT-DB,2.7,310.15,7.2,human,,True,simulated,False,True,True,True,364,152,2350.7
+8i42,VHH,HIV-1 gp120,8.391,BLI,SAbDab,2.8,310.15,7.4,llama,,True,simulated,False,True,False,True,409,450,1944.3
+5g30,scFv,HIV-1 gp120,5.022,BLI,ANDD,3.3,293.15,7.3,human,,True,simulated,True,False,False,True,231,446,1003.5
+5i87,Fab,PD-1,2252.127,ITC,SAAINT-DB,2.6,310.15,7.5,llama,,True,simulated,True,False,True,True,416,394,974.3
+1b56,scFv,VEGF-A,4.176,SPR,SAAINT-DB,3.1,293.15,7.0,mouse,,True,simulated,False,True,True,True,210,188,2245.6
+9c26,VHH,CD19,1202.586,BLI,SAAINT-DB,2.1,310.15,7.2,human,,True,simulated,False,True,False,True,407,425,989.7
+4e61,VHH,TIGIT,4411.309,ITC,Literature,3.1,298.15,7.1,human,,True,simulated,False,True,False,True,326,428,2171.5
+1j80,Fab,IL-4Ra,0.209,SPR,SAbDab,1.8,310.15,7.0,human,,True,simulated,False,False,True,True,262,494,1110.4
+6b75,Fab,TNF-alpha,3365.891,BLI,Literature,2.0,293.15,7.4,llama,,True,simulated,False,True,False,True,314,415,1436.7
+4h62,Fab,Influenza HA,76.043,SPR,Literature,2.3,298.15,7.2,llama,,True,simulated,True,True,False,True,258,132,1871.4
+2a61,VHH,EGFR,0.187,SPR,SAAINT-DB,2.0,310.15,7.2,mouse,,True,simulated,False,True,True,True,265,472,2116.4
+8d19,scFv,CD38,0.827,SPR,SAbDab,2.7,310.15,7.4,human,,True,simulated,False,True,False,True,234,107,838.0
+4c62,scFv,CD19,4283.857,SPR,Literature,3.1,293.15,7.2,mouse,,True,simulated,False,False,False,True,338,597,2321.8
+8e64,VHH,CD38,2.118,BLI,Literature,1.9,298.15,7.1,human,,True,simulated,False,True,True,True,405,480,1047.4
+9a50,Fab,SARS-CoV-2 RBD,78.687,BLI,Literature,2.5,310.15,7.1,llama,,True,simulated,True,False,True,True,369,505,1121.6
+3b86,Fab,LAG-3,0.252,SPR,Literature,1.9,310.15,7.1,llama,,True,simulated,False,True,False,True,294,400,1217.8
+2g94,VHH,IL-4Ra,0.158,BLI,ANDD,3.2,293.15,7.3,mouse,,True,simulated,True,True,False,True,261,322,870.2
+7c95,VHH,CD20,1.561,ITC,ANDD,3.2,293.15,7.0,llama,,True,simulated,False,False,False,True,375,155,1570.8
+2b78,Fab,BCMA,9823.635,ITC,SAAINT-DB,3.2,293.15,7.4,mouse,,True,simulated,False,True,True,True,263,566,2352.6
+8i48,VHH,TIGIT,2.66,BLI,SAbDab,2.8,310.15,7.1,llama,,True,simulated,False,True,False,True,395,572,2363.4
+3e24,Fab,CD38,0.33,SPR,ANDD,2.2,293.15,7.4,human,,True,simulated,False,False,False,True,334,518,1958.1
+5i72,scFv,SARS-CoV-2 RBD,273.833,SPR,Literature,3.0,293.15,7.0,human,,True,simulated,False,True,True,True,448,237,1770.2
+5c66,VHH,IL-17A,153.309,BLI,SAbDab,1.9,310.15,7.5,llama,,True,simulated,True,True,False,True,389,170,2247.0
+6j80,Fab,IL-17A,0.151,SPR,SAbDab,2.2,293.15,7.4,human,,True,simulated,False,True,False,True,366,141,1210.0
+2f81,scFv,GITR,257.237,BLI,SAAINT-DB,3.2,293.15,7.4,human,,True,simulated,False,True,False,True,297,549,1508.5
+1c52,scFv,LAG-3,2553.178,BLI,SAAINT-DB,2.1,310.15,7.1,human,,True,simulated,False,True,False,True,301,420,1383.7
+4d68,scFv,CD20,1963.208,SPR,SAAINT-DB,1.7,293.15,7.2,mouse,,True,simulated,False,False,False,True,289,295,1178.6
+5f92,VHH,CTLA-4,2097.803,BLI,ANDD,3.2,293.15,7.4,mouse,,True,simulated,False,True,False,True,271,380,1643.4
+5a23,VHH,IL-17A,0.781,ITC,ANDD,2.4,310.15,7.1,llama,,True,simulated,True,True,False,True,411,239,1141.7
+1g10,VHH,CD38,0.892,BLI,SAAINT-DB,2.3,293.15,7.5,mouse,,True,simulated,False,False,False,True,393,274,1217.5
+2e74,scFv,LAG-3,130.55,ITC,ANDD,2.3,298.15,7.3,human,,True,simulated,False,False,True,True,275,188,2146.6
+7c88,VHH,CD20,12.654,ITC,SAbDab,2.2,293.15,7.2,llama,,True,simulated,False,True,False,True,288,593,2011.8
+6h66,scFv,LAG-3,107.971,SPR,Literature,3.0,310.15,7.1,human,,True,simulated,False,True,False,True,310,132,1401.7
+6b40,VHH,CD20,2.624,SPR,SAAINT-DB,1.9,293.15,7.1,mouse,,True,simulated,False,True,False,True,375,189,814.3
+2h63,VHH,IL-4Ra,113.86,SPR,Literature,2.5,293.15,7.1,llama,,True,simulated,False,True,True,True,237,290,1516.8
+2g38,Fab,BCMA,0.107,ITC,SAbDab,2.6,293.15,7.2,mouse,,True,simulated,True,False,False,True,247,270,1373.9
+9j50,scFv,GITR,217.715,BLI,Literature,3.0,310.15,7.2,human,,True,simulated,True,True,True,True,438,409,1096.3
+8h43,Fab,TIGIT,522.73,ITC,Literature,2.7,298.15,7.2,llama,,True,simulated,False,True,False,True,316,555,894.5
+5f50,VHH,HER2 ECD,2.683,SPR,SAAINT-DB,2.1,310.15,7.1,human,,True,simulated,False,True,False,True,447,285,1782.4

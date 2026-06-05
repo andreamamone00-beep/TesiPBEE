@@ -19,9 +19,12 @@ import io
 import importlib.util
 import json
 import math
+import re
 import shutil
 import subprocess
 import sys
+import threading
+import time
 from pathlib import Path
 
 from flask import (Flask, Response, jsonify, redirect, render_template, request,
@@ -37,7 +40,12 @@ RESULTS_DIR = ROOT / "results"
 METRICS_PATH = RESULTS_DIR / "metrics.json"
 SABDAB_SUMMARY_PATH = DATA_DIR / "sabdab_summary.tsv"
 HISTORY_DIR = DATA_DIR / "history"
+PDB_CACHE_DIR = DATA_DIR / "cache"
+PDB_RESULTS_DIR = DATA_DIR / "pdb_results"
+PDB_SEARCH_LOG = DATA_DIR / "pdb_searches.json"
 SNAPSHOT_PREFIX = "dataset_snapshot_"
+
+BACKGROUND_TASKS: dict[str, dict] = {}
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
@@ -262,6 +270,207 @@ def _save_dataset_snapshot(note: str | None = None) -> dict:
     return {"ok": True, "version": filename, "note": note}
 
 
+def _ensure_cache_dir() -> None:
+    if not PDB_CACHE_DIR.exists():
+        PDB_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _list_cached_pdb_ids() -> list[str]:
+    _ensure_cache_dir()
+    ids = set()
+    for path in PDB_CACHE_DIR.glob("*.json"):
+        ids.add(path.stem.lower())
+    for path in PDB_CACHE_DIR.glob("*.pdb"):
+        ids.add(path.stem.lower())
+    return sorted(ids)
+
+
+def _load_pdb_search_history() -> list[dict]:
+    if not PDB_SEARCH_LOG.exists():
+        return []
+    try:
+        with PDB_SEARCH_LOG.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
+def _record_pdb_search(pdb_id: str, success: bool, note: str | None = None) -> None:
+    entries = _load_pdb_search_history()
+    entry = {
+        "pdb": pdb_id.lower(),
+        "success": bool(success),
+        "note": note or "",
+        "created": datetime.datetime.now().isoformat(sep=" ", timespec="seconds"),
+    }
+    entries.insert(0, entry)
+    entries = entries[:50]
+    try:
+        with PDB_SEARCH_LOG.open("w", encoding="utf-8") as f:
+            json.dump(entries, f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
+
+
+def _ensure_pdb_results_dir() -> None:
+    if not PDB_RESULTS_DIR.exists():
+        PDB_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _pdb_result_path(pdb_id: str) -> Path:
+    return PDB_RESULTS_DIR / f"{pdb_id.lower()}_pbee.json"
+
+
+def _save_pdb_result(pdb_id: str, data: dict) -> None:
+    _ensure_pdb_results_dir()
+    path = _pdb_result_path(pdb_id)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def _load_pdb_result(pdb_id: str) -> dict | None:
+    path = _pdb_result_path(pdb_id)
+    if not path.exists():
+        return None
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def _list_pdb_results() -> list[dict]:
+    _ensure_pdb_results_dir()
+    results = []
+    for path in sorted(PDB_RESULTS_DIR.glob("*_pbee.json"), reverse=True):
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            continue
+        results.append({
+            "pdb": data.get("pdb", path.stem.replace("_pbee", "")),
+            "created": data.get("created", datetime.datetime.fromtimestamp(path.stat().st_mtime).isoformat(sep=" ", timespec="seconds")),
+            "status": data.get("status", "done"),
+            "chains_a": data.get("chain_ids_a", []),
+            "chains_b": data.get("chain_ids_b", []),
+            "kd_nM": data.get("kd_nM"),
+            "result": data.get("result", {}),
+        })
+    return results
+
+
+def _find_dataset_kd(pdb_id: str) -> float | None:
+    for record in load_dataset():
+        if (record.get("pdb") or "").lower() == pdb_id.lower() and record.get("kd_nM"):
+            return float(record["kd_nM"])
+    return None
+
+
+def _update_task_status(pdb_id: str, status: str, message: str | None = None) -> None:
+    BACKGROUND_TASKS[pdb_id.lower()] = {
+        "status": status,
+        "updated": datetime.datetime.now().isoformat(sep=" ", timespec="seconds"),
+        "message": message or "",
+    }
+
+
+def _run_pdb_compute_task(pdb_id: str,
+                         chain_ids_a: list[str],
+                         chain_ids_b: list[str],
+                         kd_nM: float | None) -> None:
+    _update_task_status(pdb_id, "running", "Calcolo PBEE in corso...")
+    try:
+        from sources import fetch_pdb_file
+        from pbee_calculator import calculate_pbee_for_complex
+    except Exception as e:
+        _update_task_status(pdb_id, "failed", f"Errore import: {e}")
+        return
+
+    try:
+        pdb_path = Path(fetch_pdb_file(pdb_id))
+        if not pdb_path.exists():
+            raise FileNotFoundError(f"File PDB non trovato: {pdb_path}")
+
+        if kd_nM is None:
+            kd_nM = _find_dataset_kd(pdb_id) or 1.0
+
+        results = calculate_pbee_for_complex(
+            pdb_path,
+            kd_nM,
+            chain_ids_a=chain_ids_a,
+            chain_ids_b=chain_ids_b,
+        )
+
+        saved = {
+            "pdb": pdb_id.lower(),
+            "created": datetime.datetime.now().isoformat(sep=" ", timespec="seconds"),
+            "status": "done",
+            "kd_nM": kd_nM,
+            "chain_ids_a": chain_ids_a,
+            "chain_ids_b": chain_ids_b,
+            "result": results,
+        }
+        _save_pdb_result(pdb_id, saved)
+        _update_task_status(pdb_id, "done", "Calcolo PBEE completato.")
+    except Exception as e:
+        _update_task_status(pdb_id, "failed", str(e))
+
+
+@app.route("/api/pdb/<pdb_id>")
+def api_get_pdb(pdb_id):
+    pdb_id = pdb_id.strip().lower()
+    _ensure_cache_dir()
+    path = PDB_CACHE_DIR / f"{pdb_id}.pdb"
+    if not path.exists():
+        return jsonify({"ok": False, "message": "File PDB non trovato sul server."}), 404
+    return send_from_directory(PDB_CACHE_DIR, f"{pdb_id}.pdb", mimetype="text/plain")
+
+
+@app.route("/api/manage/upload_pdb", methods=["POST"])
+def api_manage_upload_pdb():
+    if "file" not in request.files:
+        return jsonify({"ok": False, "message": "Nessun file inviato."}), 400
+    file = request.files["file"]
+    pdb_id = request.form.get("pdb_id", "").strip().lower()
+    if not pdb_id or not re.fullmatch(r"[0-9a-z_-]{3,20}", pdb_id):
+        return jsonify({"ok": False, "message": "Inserisci un codice PDB valido (3-20 caratteri alfanumerici, trattino o underscore)."}), 400
+    
+    if not file.filename.endswith(".pdb"):
+        return jsonify({"ok": False, "message": "Il file deve avere estensione .pdb."}), 400
+        
+    _ensure_cache_dir()
+    pdb_path = PDB_CACHE_DIR / f"{pdb_id}.pdb"
+    file.save(pdb_path)
+    
+    try:
+        from sources import extract_pdb_chains, fetch_pdb_metadata
+        metadata = {}
+        base_id = pdb_id[:4]
+        if re.fullmatch(r"[0-9a-z]{4}", base_id):
+            try:
+                metadata = fetch_pdb_metadata(base_id)
+            except Exception:
+                pass
+        
+        chains = extract_pdb_chains(pdb_path, metadata)
+        
+        pdb_result = _load_pdb_result(pdb_id)
+        _record_pdb_search(pdb_id, True, f"File caricato manualmente: {file.filename}")
+        
+        return jsonify({
+            "ok": True,
+            "message": f"PDB '{pdb_id.upper()}' caricato con successo sul server.",
+            "pdb": pdb_id,
+            "metadata": metadata,
+            "cached_file": str(pdb_path),
+            "chains": chains,
+            "previous_result": pdb_result,
+        })
+    except Exception as e:
+        return jsonify({"ok": False, "message": f"Errore nell'estrazione delle catene: {e}"}), 500
+
+
 @app.route("/api/manage/status")
 def api_manage_status():
     dataset_count = len(load_dataset())
@@ -278,6 +487,14 @@ def api_manage_status():
                 status["summary_rows"] = sum(1 for _ in f) - 1
         except Exception:
             status["summary_rows"] = 0
+    status["cache"] = {
+        "count": len(_list_cached_pdb_ids()),
+        "ids": _list_cached_pdb_ids(),
+    }
+    status["pdb_search_history"] = _load_pdb_search_history()
+    status["pdb_results"] = _list_pdb_results()
+    status["pdb_results_count"] = len(status["pdb_results"])
+    status["background_tasks"] = BACKGROUND_TASKS
     return jsonify(status)
 
 
@@ -294,6 +511,70 @@ def api_manage_fetch_summary():
         return jsonify({"ok": True, "message": "Summary SAbDab salvato localmente.", "summary_rows": sum(1 for _ in raw.decode("utf-8", errors="replace").splitlines()) - 1})
     except Exception as e:
         return jsonify({"ok": False, "message": str(e)}), 500
+
+
+@app.route("/api/manage/fetch_pdb", methods=["POST"])
+def api_manage_fetch_pdb():
+    if not request.is_json:
+        return jsonify({"ok": False, "message": "Richiesta JSON richiesta."}), 400
+    pdb_id = str(request.json.get("pdb", "")).strip().lower()
+    if not re.fullmatch(r"[0-9a-z]{4}", pdb_id):
+        return jsonify({"ok": False, "message": "Inserisci un codice PDB valido di 4 caratteri."}), 400
+    try:
+        from sources import RemoteUnavailable, fetch_pdb_file, fetch_pdb_metadata, extract_pdb_chains
+    except Exception as e:
+        return jsonify({"ok": False, "message": f"Impossibile caricare sources: {e}"}), 500
+    try:
+        metadata = fetch_pdb_metadata(pdb_id)
+        pdb_path = fetch_pdb_file(pdb_id)
+        chains = extract_pdb_chains(pdb_path, metadata)
+        pdb_result = _load_pdb_result(pdb_id)
+        _record_pdb_search(pdb_id, True, f"Cached file {pdb_path}")
+        return jsonify({
+            "ok": True,
+            "message": f"PDB {pdb_id.upper()} scaricato e memorizzato sul server.",
+            "pdb": pdb_id,
+            "metadata": metadata,
+            "cached_file": str(pdb_path),
+            "chains": chains,
+            "previous_result": pdb_result,
+        })
+    except RemoteUnavailable as e:
+        _record_pdb_search(pdb_id, False, str(e))
+        return jsonify({"ok": False, "message": str(e)}), 502
+    except Exception as e:
+        _record_pdb_search(pdb_id, False, str(e))
+        return jsonify({"ok": False, "message": str(e)}), 500
+
+
+@app.route("/api/manage/compute_pdb", methods=["POST"])
+def api_manage_compute_pdb():
+    if not request.is_json:
+        return jsonify({"ok": False, "message": "Richiesta JSON richiesta."}), 400
+    data = request.json
+    pdb_id = str(data.get("pdb", "")).strip().lower()
+    chain_ids_a = [str(x).strip().upper() for x in data.get("chain_ids_a", []) if str(x).strip()]
+    chain_ids_b = [str(x).strip().upper() for x in data.get("chain_ids_b", []) if str(x).strip()]
+    kd_nM = data.get("kd_nM")
+    if not re.fullmatch(r"[0-9a-z_-]{3,20}", pdb_id):
+        return jsonify({"ok": False, "message": "Inserisci un identificativo valido (3-20 caratteri alfanumerici, trattino o underscore)."}), 400
+    if not chain_ids_a or not chain_ids_b:
+        return jsonify({"ok": False, "message": "Seleziona almeno una catena per ciascun partner."}), 400
+    try:
+        kd_nM = float(kd_nM) if kd_nM is not None and str(kd_nM).strip() else None
+    except ValueError:
+        return jsonify({"ok": False, "message": "Kd non valido."}), 400
+    task_key = pdb_id.lower()
+    if BACKGROUND_TASKS.get(task_key, {}).get("status") == "running":
+        return jsonify({"ok": False, "message": "Elaborazione già in corso per questo PDB."}), 409
+    thread = threading.Thread(
+        target=_run_pdb_compute_task,
+        args=(pdb_id, chain_ids_a, chain_ids_b, kd_nM),
+        daemon=True,
+    )
+    thread.start()
+    _update_task_status(pdb_id, "queued", "Elaborazione PBEE avviata in background.")
+    return jsonify({"ok": True, "message": "Elaborazione PBEE avviata in background.", "pdb": pdb_id})
 
 
 @app.route("/api/manage/run_pipeline", methods=["POST"])

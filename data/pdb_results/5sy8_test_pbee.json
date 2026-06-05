@@ -1,0 +1,31 @@
+{
+  "pdb": "5sy8_test",
+  "created": "2026-06-05 11:38:19",
+  "status": "done",
+  "kd_nM": 150.0,
+  "chain_ids_a": [
+    "H",
+    "L"
+  ],
+  "chain_ids_b": [
+    "O"
+  ],
+  "result": {
+    "electrostatic": -0.6434595512419723,
+    "apolar": 12.0,
+    "entropy": 32.0,
+    "total": -20.643459551241975,
+    "n_atoms": 120,
+    "n_charges": 120,
+    "chain_ids_a": [
+      "H",
+      "L"
+    ],
+    "chain_ids_b": [
+      "O"
+    ],
+    "dg_exp": -9.309495905391442,
+    "kd_exp_nM": 150.0,
+    "error": -11.333963645850533
+  }
+}

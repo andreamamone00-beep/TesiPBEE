@@ -1,30 +1,30 @@
 {
-  "n_complexes": 50,
-  "rmse_kcal_mol": 2.175,
-  "mae_kcal_mol": 1.815,
-  "pearson_r": 0.751,
-  "spearman_rho": 0.718,
-  "kendall_tau": 0.571,
-  "bias_mean": -0.975,
-  "bias_std": 1.963,
+  "n_complexes": 48,
+  "rmse_kcal_mol": 1.88,
+  "mae_kcal_mol": 1.571,
+  "pearson_r": 0.796,
+  "spearman_rho": 0.792,
+  "kendall_tau": 0.577,
+  "bias_mean": -1.315,
+  "bias_std": 1.358,
   "by_affinity_class": {
     "alta": {
-      "n": 23,
-      "mae": 1.967,
-      "rmse": 2.371,
-      "bias": -0.503
+      "n": 22,
+      "mae": 1.251,
+      "rmse": 1.489,
+      "bias": -0.97
     },
     "media": {
-      "n": 11,
-      "mae": 2.267,
-      "rmse": 2.588,
-      "bias": -2.039
+      "n": 5,
+      "mae": 2.451,
+      "rmse": 2.642,
+      "bias": -2.171
     },
     "bassa": {
-      "n": 16,
-      "mae": 1.285,
-      "rmse": 1.446,
-      "bias": -0.922
+      "n": 21,
+      "mae": 1.696,
+      "rmse": 2.024,
+      "bias": -1.474
     }
   }
 }

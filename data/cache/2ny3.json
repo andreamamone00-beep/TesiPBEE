@@ -1,0 +1,110 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "2NY3",
+      "struct": {
+        "title": "HIV-1 gp120 Envelope Glycoprotein (K231C, T257S, E267C, S334A, S375W) Complexed with CD4 and Antibody 17b"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          2.0
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 4
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "ANTIBODY 17B, HEAVY CHAIN"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EVQLVESGAEVKKPGSSVKVSCKASGDTFIRYSFTWVRQAPGQGLEWMGRIITILDVAHYAPHLQGRVTITADKSTSTVYLELRNLRSDDTAVYFCAGVYEGEADEGEYDNNGFLKHWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPK"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "D"
+            ],
+            "auth_asym_ids": [
+              "D"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "ANTIBODY 17B, LIGHT CHAIN"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DIVMTQSPATLSVSPGERATLSCRASESVSSDLAWYQQKPGQAPRLLIYGASTRATGVPARFSGSGSGAEFTLTISSLQSEDFAVYYCQQYNNWPPRYTFGQGTRLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRG"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "C"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "T-cell surface glycoprotein CD4"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MKKVVLGKKGDTVELTCTASQKKSIQFHWKNSNQIKILGNQGSFLTKGPSKLNDRADSRRSLWDQGNFPLIIKNLKIEDSDTYICEVEDQKEEVQLLVFGLTANSDTHLLQGQSLTLTLESPPGSSPSVQCRSPRGKNIQGGKTLSVSQLELQDSGTWTCTVLQNQKKVEFKIDIVVLAFQKAS"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "ENVELOPE GLYCOPROTEIN GP120"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EVVLVNVTENFNMWKNDMVEQMHEDIISLWDQSLKPCVKLTPLCVGAGSCNTSVITQACPKVSFEPIPIHYCAPAGFAILKCNNCTFNGTGPCTNVSTVQCTHGIRPVVSSQLLLNGSLACEEVVIRSVNFTDNAKTIIVQLNTSVEINCTGAGHCNIARAKWNNTLKQIASKLREQFGNNKTIIFKQSSGGDPEIVTHWFNCGGEFFYCNSTQLFNSTWFNSTWSTEGSNNTEGSDTITLPCRIKQIINMWQKVGKAMYAPPISGQIRCSSNITGLLLTRDGGNSNNESEIFRPGGGDMRDNWRSELYKYKVVKIE"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Human immunodeficiency virus 1"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 17301785,
+          "title": "Structural definition of a conserved neutralization epitope on HIV-1 gp120.",
+          "journal_abbrev": "Nature"
+        }
+      ]
+    }
+  }
+}
