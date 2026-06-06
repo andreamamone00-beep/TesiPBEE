@@ -113,6 +113,13 @@ def compute_metrics(records):
         return {"n": len(records), "rmse": None, "mae": None,
                 "pearson": None, "spearman": None, "bias": None, "kendall": None}
 
+    # Check if prediction fields exist and are numeric
+    has_predictions = all(r.get("dG_pred_kcal_mol") not in (None, "", "nan") for r in records)
+    
+    if not has_predictions:
+        return {"n": len(records), "rmse": None, "mae": None,
+                "pearson": None, "spearman": None, "bias": None, "kendall": None}
+
     exp = [r["dG_exp_kcal_mol"] for r in records]
     pred = [r["dG_pred_kcal_mol"] for r in records]
     errs = [p - e for p, e in zip(pred, exp)]

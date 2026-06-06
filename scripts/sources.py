@@ -73,8 +73,9 @@ def search_antibody_complexes(max_hits: int = 50) -> list[str]:
     Strategy: Usa SAbDab come fonte primaria:
     1. Download SAbDab summary TSV (~10MB)
     2. Filtra per strutture con dati di affinità
-    3. Estrai PDB ID di complessi validi
-    4. Ritorna max_hits PDB ID di veri complessi Ab-Ag con affinità
+    3. Filtra per organismi umani o murini (antibody_species)
+    4. Estrai PDB ID di complessi validi
+    5. Ritorna max_hits PDB ID di veri complessi Ab-Ag con affinità
     """
     
     # Carica dati SAbDab
@@ -83,15 +84,55 @@ def search_antibody_complexes(max_hits: int = 50) -> list[str]:
         log.warning("SAbDab non disponibile: fallback a simulazione")
         return []
     
-    # Filtra per strutture con dati di affinità reali e PDB disponibili
+    # Organismi target: umano e murino
+    target_organisms = {'human', 'mouse', 'mus musculus', 'homo sapiens'}
+    
+    # Filtra per strutture con dati di affinità reali, PDB disponibili e organismi target
     valid_entries = {}
     for entry in sabdab_data:
         if entry.get('pdb') and entry.get('affinity') and entry.get('affinity') != '' and entry.get('affinity') != 'None':
             pdb_id = entry['pdb'].lower()
             # Controlla che sia un complesso (antigene definito)
             if entry.get('antigen_name') and entry.get('antigen_name') != '':
-                # Usa un dict per evitare duplicati, mantieni il migliore (miglior risoluzione)
-                if pdb_id not in valid_entries:
+                # Filtra per organismo dell'anticorpo (heavy_species o light_species)
+                heavy_species = entry.get('heavy_species', '').lower()
+                light_species = entry.get('light_species', '').lower()
+                antibody_species = heavy_species or light_species
+                
+                is_target = antibody_species and any(org in antibody_species for org in target_organisms)
+                
+                if is_target:
+                    # Usa un dict per evitare duplicati, mantieni il migliore (miglior risoluzione)
+                    if pdb_id not in valid_entries:
+                        valid_entries[pdb_id] = {
+                            'pdb': pdb_id,
+                            'antigen': entry.get('antigen_name', ''),
+                            'affinity': entry.get('affinity', ''),
+                            'method': entry.get('method', ''),
+                            'resolution': entry.get('resolution', ''),
+                            'format': entry.get('format', ''),
+                            'hchain': entry.get('Hchain', ''),
+                            'lchain': entry.get('Lchain', ''),
+                            'antibody_species': antibody_species
+                        }
+    
+    # Se non abbiamo abbastanza complessi umani/murini, includi anche altri organismi
+    if len(valid_entries) < max_hits:
+        log.info(f"Trovati solo {len(valid_entries)} complessi umani/murini, includendo altri organismi")
+        for entry in sabdab_data:
+            if entry.get('pdb') and entry.get('affinity') and entry.get('affinity') != '' and entry.get('affinity') != 'None':
+                pdb_id = entry['pdb'].lower()
+                if entry.get('antigen_name') and entry.get('antigen_name') != '':
+                    heavy_species = entry.get('heavy_species', '').lower()
+                    light_species = entry.get('light_species', '').lower()
+                    antibody_species = heavy_species or light_species
+                    
+                    # Salta se già presente o se è umano/murino (già processato)
+                    if pdb_id in valid_entries:
+                        continue
+                    if antibody_species and any(org in antibody_species for org in target_organisms):
+                        continue
+                    
                     valid_entries[pdb_id] = {
                         'pdb': pdb_id,
                         'antigen': entry.get('antigen_name', ''),
@@ -100,7 +141,8 @@ def search_antibody_complexes(max_hits: int = 50) -> list[str]:
                         'resolution': entry.get('resolution', ''),
                         'format': entry.get('format', ''),
                         'hchain': entry.get('Hchain', ''),
-                        'lchain': entry.get('Lchain', '')
+                        'lchain': entry.get('Lchain', ''),
+                        'antibody_species': antibody_species
                     }
     
     # Ordina per risoluzione (preferisce strutture ad alta risoluzione)
@@ -118,7 +160,10 @@ def search_antibody_complexes(max_hits: int = 50) -> list[str]:
     selected_entries = sorted_entries[:max_hits]
     pdb_ids = [entry['pdb'] for entry in selected_entries]
     
-    log.info(f"SAbDab: trovati {len(sabdab_data)} totali, {len(valid_entries)} con affinità, selezionati {len(pdb_ids)}")
+    # Conta quanti sono umani/murini
+    human_mouse_count = sum(1 for e in selected_entries if e.get('antibody_species') and any(org in e['antibody_species'] for org in target_organisms))
+    
+    log.info(f"SAbDab: trovati {len(sabdab_data)} totali, {len(valid_entries)} con affinità, selezionati {len(pdb_ids)} ({human_mouse_count} umani/murini)")
     
     return pdb_ids
 

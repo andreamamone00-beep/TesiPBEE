@@ -128,14 +128,20 @@ def build_from_rcsb(max_hits: int) -> list[dict]:
         if not source:
             source = "SAbDab"
 
-        # Estrai specie dai metadati PDB
-        entry = (meta.get("data") or {}).get("entry") or {}
-        species = "unknown"
-        for e in (entry.get("polymer_entities") or []):
-            org = (e.get("rcsb_entity_source_organism") or [{}])
-            if org and isinstance(org, list) and org[0].get("scientific_name"):
-                species = org[0]["scientific_name"].split()[0].lower()
-                break
+        # Usa specie dell'anticorpo da SAbDab se disponibile, altrimenti fallback a PDB metadata
+        if sabdab_entry:
+            heavy_species = sabdab_entry.get('heavy_species', '').lower()
+            light_species = sabdab_entry.get('light_species', '').lower()
+            species = heavy_species or light_species or "unknown"
+        else:
+            # Fallback: estrai specie dai metadati PDB
+            entry = (meta.get("data") or {}).get("entry") or {}
+            species = "unknown"
+            for e in (entry.get("polymer_entities") or []):
+                org = (e.get("rcsb_entity_source_organism") or [{}])
+                if org and isinstance(org, list) and org[0].get("scientific_name"):
+                    species = org[0]["scientific_name"].split()[0].lower()
+                    break
 
         # Estrai PubMed ID per riferimento
         citations = entry.get("citation") or []
