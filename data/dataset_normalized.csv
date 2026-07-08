@@ -28,7 +28,6 @@ pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubme
 2r2b,Fab,polysaccharide,63000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,431,100,True,False,False,True,3386,-5.731,-5.731,298.15,4.201
 3uzq,Fab,envelope protein,0.082,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,329,100,True,False,False,True,2774,-13.76,-13.76,298.15,10.086
 3pp4,Fab,b-lymphocyte antigen cd20,7000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,439,24,True,False,False,True,3434,-7.033,-7.033,298.15,5.155
-1c5c,Fab,"2-ACETYLAMINO-NAPTHALENE-1,5-DISULFONIC ACID",110.0,X-RAY DIFFRACTION,SAbDab,1.61,298.15,7.4,"mus musculus, homo sapiens",,True,biopython,429,100,True,False,False,True,3374,-9.493,-9.493,298.15,6.959
 5sy8,Fab,10e8 epitope scaffold t117v2,0.011,X-RAY DIFFRACTION,SAbDab,1.62,298.15,7.4,homo sapiens,,True,biopython,446,155,True,False,False,True,3476,-14.95,-14.95,298.15,10.959
 6b14,Fab,rna (86-mer),5.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,mus musculus,,True,biopython,440,83,True,False,False,True,3440,-11.325,-11.325,298.15,8.301
 5e2v,Fab,tau phosphopeptide,831.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,mus musculus,,True,biopython,424,7,True,False,False,True,3344,-8.295,-8.295,298.15,6.08
@@ -49,3 +48,4 @@ pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubme
 5a2k,Fab,"antigen tn, thr is covalently bound to galnac",450.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,231,100,True,False,False,True,2186,-8.659,-8.659,298.15,6.347
 3wih,Fab,roundabout homolog 1,19.0,X-RAY DIFFRACTION,SAbDab,1.701,298.15,7.4,mus musculus,,True,biopython,438,213,True,False,False,True,3428,-10.534,-10.534,298.15,7.721
 4fqi,Fab,hemagglutinin ha2 | hemagglutinin ha1,0.9,X-RAY DIFFRACTION,SAbDab,1.71,298.15,7.4,homo sapiens,,True,biopython,539,211,True,False,False,True,4034,-12.341,-12.341,298.15,9.046
+4jn2,Fab,3-({2-[(4-CARBAMIMIDOYL-PHENYLAMINO)-METHYL]-3-METHYL-3H-BENZOIMIDAZOLE-5-CARBONYL}-PYRIDIN-2-YL-AMINO)-PROPIONIC ACID ETHYL ESTER,0.002,X-RAY DIFFRACTION,SAbDab,1.71,298.15,7.4,mus musculus,,True,biopython,444,219,True,False,False,True,3464,-15.96,-15.96,298.15,11.699

@@ -64,11 +64,13 @@ def build_from_rcsb(max_hits: int) -> list[dict]:
                          get_best_bindingdb_affinity, parse_affinity_string)
 
     # Ottieni PDB ID da SAbDab
-    pdb_ids = search_antibody_complexes(max_hits=max_hits)
+    from utils import DATA_DIR
+    sabdab_path = DATA_DIR / "sabdab_summary.tsv"
+    pdb_ids = search_antibody_complexes(max_hits=max_hits, sabdab_path=sabdab_path)
     log.info("SAbDab: %d candidati", len(pdb_ids))
     
     # Carica dati completi SAbDab per ottenere affinità
-    sabdab_data = load_sabdab_summary()
+    sabdab_data = load_sabdab_summary(tsv_path=sabdab_path)
     sabdab_lookup = {}
     if sabdab_data:
         for entry in sabdab_data:

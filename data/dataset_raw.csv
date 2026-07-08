@@ -28,7 +28,6 @@ pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubme
 2r2b,Fab,polysaccharide,63000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,
 3uzq,Fab,envelope protein,0.082,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,
 3pp4,Fab,b-lymphocyte antigen cd20,7000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,
-1c5c,Fab,"2-ACETYLAMINO-NAPTHALENE-1,5-DISULFONIC ACID",110.0,X-RAY DIFFRACTION,SAbDab,1.61,298.15,7.4,"mus musculus, homo sapiens",
 5sy8,Fab,10e8 epitope scaffold t117v2,0.011,X-RAY DIFFRACTION,SAbDab,1.62,298.15,7.4,homo sapiens,
 6b14,Fab,rna (86-mer),5.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,mus musculus,
 5e2v,Fab,tau phosphopeptide,831.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,mus musculus,
@@ -49,3 +48,4 @@ pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubme
 5a2k,Fab,"antigen tn, thr is covalently bound to galnac",450.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,
 3wih,Fab,roundabout homolog 1,19.0,X-RAY DIFFRACTION,SAbDab,1.701,298.15,7.4,mus musculus,
 4fqi,Fab,hemagglutinin ha2 | hemagglutinin ha1,0.9,X-RAY DIFFRACTION,SAbDab,1.71,298.15,7.4,homo sapiens,
+4jn2,Fab,3-({2-[(4-CARBAMIMIDOYL-PHENYLAMINO)-METHYL]-3-METHYL-3H-BENZOIMIDAZOLE-5-CARBONYL}-PYRIDIN-2-YL-AMINO)-PROPIONIC ACID ETHYL ESTER,0.002,X-RAY DIFFRACTION,SAbDab,1.71,298.15,7.4,mus musculus,
