@@ -1,0 +1,95 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "4HS6",
+      "struct": {
+        "title": "Hepatitus C envelope glycoprotein E2 fragment 412-423 with humanized and affinity-matured antibody MRCT10.v362"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.53
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "MRCT10.v362 Fab heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EVQLQESGPGLVKPSETLSLTCTVSGDSITSGYWNWIRQPPGRALEWMGYISYSGSTYYSLSLRSRITISRDTSKNQYSLRLSSVTAADTAMYYCALITTSTYAMDYWGQGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHT"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "E",
+              "F"
+            ],
+            "auth_asym_ids": [
+              "B",
+              "H"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "MRCT10.v362 Fab light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DIVLTQSPSSLSASVGDRVTITCRASESVDGYGYSFLHWFQQKPGKAPKLLIYLASNLNSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQNNVDPWTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C",
+              "D"
+            ],
+            "auth_asym_ids": [
+              "A",
+              "L"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "E2-peptide"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QLINTNGSWHINGSGK"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Hepatitis C virus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A",
+              "B"
+            ],
+            "auth_asym_ids": [
+              "Y",
+              "Z"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 23458406,
+          "title": "Glycan shifting on hepatitis C virus (HCV) e2 glycoprotein is a mechanism for escape from broadly neutralizing antibodies.",
+          "journal_abbrev": "J.Mol.Biol."
+        }
+      ]
+    }
+  }
+}

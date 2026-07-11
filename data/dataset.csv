@@ -1,51 +1,51 @@
-pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubmed_id,curated,curation_source,n_residues_ab,n_residues_ag,heteroatoms_removed,missing_loops_modeled,clashes_fixed,hydrogens_added,interface_area_A2,dG_exp_raw_kcal_mol,dG_exp_kcal_mol,normalized_T_K,pKd,dG_pred_kcal_mol,dG_pred_electrostatic,dG_pred_apolar,dG_pred_entropy,pbee_converged,pbee_runtime_s,param_internal_dielectric,param_external_dielectric,param_ionic_strength_M,param_grid_spacing_A,param_solvent_radius_A,param_temperature_K,param_force_field
-4qyo,Fab,merozoite surface antigen 2,6.0,X-RAY DIFFRACTION,SAbDab,1.208,298.15,7.4,mus musculus,,True,biopython,225,9,True,False,False,True,2150,-11.217,-11.217,298.15,8.222,-13.631,-7.008,-4.64,1.202,True,63.8,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-6ddm,Fab,mhc class i polypeptide-related sequence a,0.42,X-RAY DIFFRACTION,SAbDab,1.3,298.15,7.4,mus musculus,,True,biopython,431,88,False,False,False,True,3386,-12.792,-12.792,298.15,9.377,-14.011,-6.644,-5.702,1.291,True,107.1,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4qy8,Fab,merozoite surface antigen 2,64.0,X-RAY DIFFRACTION,SAbDab,1.353,298.15,7.4,mus musculus,,True,biopython,225,14,True,False,False,True,2150,-9.814,-9.814,298.15,7.194,-9.115,-4.17,-4.477,0.632,True,133.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2xzc,Fab,8-METHYL-8-AZABICYCLO[3.2.1]OCTAN-3-YL PHENYLPHOSPHONATE,2300.0,X-RAY DIFFRACTION,SAbDab,1.36,298.15,7.4,homo sapiens,,True,biopython,428,100,True,False,False,True,3368,-7.692,-7.692,298.15,5.638,-10.335,-4.375,-3.253,1.377,True,46.8,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5kvf,Fab,zika envelope diii,32.0,X-RAY DIFFRACTION,SAbDab,1.4,298.15,7.4,mus musculus,,True,biopython,440,105,True,False,False,True,3440,-10.225,-10.225,298.15,7.495,-11.517,-5.301,-4.487,1.231,True,123.8,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5kvg,Fab,zika envelope diii,8.8,X-RAY DIFFRACTION,SAbDab,1.4,298.15,7.4,mus musculus,,True,biopython,432,107,True,False,False,True,3392,-10.99,-10.99,298.15,8.056,-11.183,-5.835,-4.976,0.571,True,167.5,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2vxt,Fab,interleukin-18,0.533,X-RAY DIFFRACTION,SAbDab,1.49,298.15,7.4,mus musculus,,True,biopython,420,156,True,False,False,True,3320,-12.651,-12.651,298.15,9.273,-13.136,-6.725,-5.263,1.002,True,131.1,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5myx,Fab,pyroglutamate-abeta pe3-18,6.85,X-RAY DIFFRACTION,SAbDab,1.492,298.15,7.4,mus musculus,,True,biopython,437,216,True,False,False,True,3422,-11.138,-11.138,298.15,8.164,-13.247,-5.777,-5.599,1.768,True,140.6,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3kdm,Fab,TESTOSTERONE,100.0,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo sapiens,,True,biopython,444,216,True,False,False,True,3464,-9.55,-9.55,298.15,7.0,-13.127,-5.66,-4.738,1.342,True,118.5,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3ifl,Fab,amyloid beta a4 protein,8.4,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,mus musculus,,True,biopython,432,7,False,False,False,True,3392,-11.017,-11.017,298.15,8.076,-11.845,-6.624,-5.068,0.146,True,132.6,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5e2w,Fab,tau-phosphopeptide,31.0,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,mus musculus,,True,biopython,424,5,True,False,False,True,3344,-10.244,-10.244,298.15,7.509,-11.85,-6.473,-3.695,1.08,True,53.6,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4hpy,Fab,envelope glycoprotein gp160,0.12,X-RAY DIFFRACTION,SAbDab,1.5,298.15,7.4,homo sapiens,,True,biopython,432,11,True,False,False,True,3392,-13.534,-13.534,298.15,9.921,-15.979,-7.421,-5.989,1.016,True,111.5,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3t0w,Fab,"1-(3-SULFOPROPYL)-4-[(1E,3E)-3-(1,3,3-TRIMETHYL-1,3-DIHYDRO-2H-INDOL-2-YLIDENE)PROP-1-EN-1-YL]QUINOLINIUM",50.0,X-RAY DIFFRACTION,SAbDab,1.501,298.15,7.4,homo sapiens,,True,biopython,220,100,True,False,False,True,2120,-9.96,-9.96,298.15,7.301,-10.335,-4.727,-4.501,1.077,True,81.0,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4cmh,Fab,adp-ribosyl cyclase 1,0.2,X-RAY DIFFRACTION,SAbDab,1.53,298.15,7.4,mus musculus,,True,biopython,456,213,False,False,False,True,3536,-13.232,-13.232,298.15,9.699,-14.941,-6.703,-6.652,1.496,True,37.2,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4hs6,Fab,e2-peptide,30.0,X-RAY DIFFRACTION,SAbDab,1.53,298.15,7.4,homo sapiens,,True,biopython,436,215,False,False,False,True,3416,-10.263,-10.263,298.15,7.523,-11.441,-5.937,-4.833,1.308,True,155.3,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5i8c,Fab,hiv-1 clade a bg505 fusion peptide (residue 512-520),25.0,X-RAY DIFFRACTION,SAbDab,1.54,298.15,7.4,homo sapiens,,True,biopython,435,8,False,False,False,True,3410,-10.371,-10.371,298.15,7.602,-12.861,-6.191,-5.009,0.756,True,31.0,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5tkk,Fab,hiv-1 fusion peptide residue 512-519,5.29,X-RAY DIFFRACTION,SAbDab,1.55,298.15,7.4,mus musculus,,True,biopython,426,8,False,False,False,True,3356,-11.291,-11.291,298.15,8.277,-12.112,-6.393,-4.175,0.771,True,156.1,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4qxt,Fab,merozoite surface antigen 2,16.0,X-RAY DIFFRACTION,SAbDab,1.58,298.15,7.4,mus musculus,,True,biopython,225,10,True,False,False,True,2150,-10.636,-10.636,298.15,7.796,-12.677,-5.535,-5.211,1.379,True,39.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3g5y,Fab,egfr peptide,154.0,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,mus musculus,,True,biopython,423,16,False,False,False,True,3338,-9.294,-9.294,298.15,6.812,-12.463,-6.708,-4.275,0.491,True,103.1,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5yy4,scFv,c-c chemokine receptor type 5,370.0,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,mus musculus,,True,biopython,242,100,True,False,False,True,2252,-8.775,-8.775,298.15,6.432,-8.732,-4.97,-3.454,0.484,True,171.4,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5myo,Fab,amyloid beta a4 protein,0.029,X-RAY DIFFRACTION,SAbDab,1.59,298.15,7.4,mus musculus,,True,biopython,440,219,True,False,False,True,3440,-14.376,-14.376,298.15,10.538,-16.12,-7.36,-6.267,1.686,True,41.2,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5myk,Fab,amyloid beta a4 protein,0.99,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,437,5,True,False,False,True,3422,-12.284,-12.284,298.15,9.004,-14.81,-7.84,-5.216,1.178,True,165.3,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4n8c,Fab,extracellular domain of influenza matrix protein 2,0.4,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,441,220,False,False,False,True,3446,-12.821,-12.821,298.15,9.398,-14.016,-6.968,-6.25,0.086,True,66.5,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4m1g,Fab,a33r | a33r,14.4,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,430,83,True,False,False,True,3380,-10.698,-10.698,298.15,7.842,-13.215,-6.192,-5.547,1.357,True,91.9,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2r1y,Fab,3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID,31000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,433,100,True,False,False,True,3398,-6.151,-6.151,298.15,4.509,-4.635,-2.155,-1.661,1.0,True,119.6,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2r1x,Fab,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL,16000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,434,100,True,False,False,True,3404,-6.543,-6.543,298.15,4.796,-7.623,-4.29,-3.035,0.733,True,166.4,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2r2b,Fab,polysaccharide,63000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,431,100,True,False,False,True,3386,-5.731,-5.731,298.15,4.201,-6.112,-1.601,-1.949,1.701,True,150.4,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3uzq,Fab,envelope protein,0.082,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,329,100,True,False,False,True,2774,-13.76,-13.76,298.15,10.086,-16.816,-9.082,-5.154,0.964,True,97.3,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3pp4,Fab,b-lymphocyte antigen cd20,7000.0,X-RAY DIFFRACTION,SAbDab,1.6,298.15,7.4,mus musculus,,True,biopython,439,24,True,False,False,True,3434,-7.033,-7.033,298.15,5.155,-7.38,-3.643,-2.26,0.995,True,76.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5sy8,Fab,10e8 epitope scaffold t117v2,0.011,X-RAY DIFFRACTION,SAbDab,1.62,298.15,7.4,homo sapiens,,True,biopython,446,155,True,False,False,True,3476,-14.95,-14.95,298.15,10.959,-16.827,-8.761,-6.82,1.222,True,32.3,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-6b14,Fab,rna (86-mer),5.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,mus musculus,,True,biopython,440,83,True,False,False,True,3440,-11.325,-11.325,298.15,8.301,-11.032,-5.65,-4.685,0.287,True,76.2,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5e2v,Fab,tau phosphopeptide,831.0,X-RAY DIFFRACTION,SAbDab,1.64,298.15,7.4,mus musculus,,True,biopython,424,7,True,False,False,True,3344,-8.295,-8.295,298.15,6.08,-7.855,-3.316,-2.76,0.491,True,133.4,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2r23,Fab,polysaccharide,190000.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,mus musculus,,True,biopython,439,100,True,False,False,True,3434,-5.077,-5.077,298.15,3.721,-4.859,-3.261,-1.56,0.695,True,152.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5a2j,scFv,the naked peptide apdtrp,1400.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,mus musculus,,True,biopython,231,100,True,False,False,True,2186,-7.986,-7.986,298.15,5.854,-7.828,-2.974,-3.484,1.067,True,41.3,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5kvd,Fab,zika envelope diii,266.0,X-RAY DIFFRACTION,SAbDab,1.65,298.15,7.4,mus musculus,,True,biopython,441,108,True,False,False,True,3446,-8.97,-8.97,298.15,6.575,-12.756,-6.394,-4.489,1.261,True,94.3,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4al8,Fab,envelope protein,0.45,X-RAY DIFFRACTION,SAbDab,1.66,298.15,7.4,homo sapiens,,True,biopython,425,98,True,False,False,True,3350,-12.751,-12.751,298.15,9.347,-13.747,-5.451,-6.186,1.174,True,71.2,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-1q72,Fab,COCAINE,140.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,438,100,True,False,False,True,3428,-9.35,-9.35,298.15,6.854,-8.458,-4.772,-3.83,0.263,True,129.0,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5n88,VHH,pc4 and sfrs1-interacting protein,1013.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,homo sapiens,,True,biopython,252,80,False,False,False,True,2312,-8.178,-8.178,298.15,5.994,-7.494,-4.262,-3.348,-0.001,True,100.9,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4r3s,Fab,merozoite surface protein,6.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,225,12,True,False,False,True,2150,-11.217,-11.217,298.15,8.222,-14.282,-5.873,-5.937,1.422,True,86.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2r1w,Fab,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL,25000.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,435,100,True,False,False,True,3410,-6.278,-6.278,298.15,4.602,-8.208,-4.842,-2.541,0.941,True,155.5,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3ggw,Fab,peptide b1,2900.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,437,209,False,False,False,True,3422,-7.555,-7.555,298.15,5.538,-9.846,-5.292,-3.294,1.067,True,63.8,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5kve,scFv,zika envelope diii,35.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,331,100,True,False,False,True,2786,-10.172,-10.172,298.15,7.456,-9.625,-5.782,-4.511,0.828,True,95.6,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5alc,Fab,Ticagrelor,7.4,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,homo sapiens,,True,biopython,426,100,True,False,False,True,3356,-11.092,-11.092,298.15,8.131,-10.455,-4.66,-4.961,0.902,True,125.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3uyr,Fab,"h-2 class i histocompatibility antigen, l-d alpha chain",127.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,433,8,True,False,False,True,3398,-9.408,-9.408,298.15,6.896,-12.959,-5.537,-4.69,0.749,True,81.0,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-2e27,Fab,"3,7:6,10:9,14-TRIANHYDRO-2,5,11,12,13-PENTADEOXY-4-O-(METHOXYMETHYL)-L-ARABINO-L-ALLO-TETRADEC-12-ENONIC ACID",0.45,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,223,100,True,False,False,True,2138,-12.751,-12.751,298.15,9.347,-14.246,-7.097,-5.737,0.651,True,127.9,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5cin,Fab,peptide from mper region of hiv-1 env,18.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,homo sapiens,,True,biopython,430,15,True,False,False,True,3380,-10.566,-10.566,298.15,7.745,-13.542,-5.774,-5.301,0.406,True,55.4,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-5a2k,Fab,"antigen tn, thr is covalently bound to galnac",450.0,X-RAY DIFFRACTION,SAbDab,1.7,298.15,7.4,mus musculus,,True,biopython,231,100,True,False,False,True,2186,-8.659,-8.659,298.15,6.347,-10.735,-4.494,-4.55,1.183,True,87.5,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-3wih,Fab,roundabout homolog 1,19.0,X-RAY DIFFRACTION,SAbDab,1.701,298.15,7.4,mus musculus,,True,biopython,438,213,True,False,False,True,3428,-10.534,-10.534,298.15,7.721,-12.315,-5.469,-4.345,1.474,True,83.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4fqi,Fab,hemagglutinin ha2 | hemagglutinin ha1,0.9,X-RAY DIFFRACTION,SAbDab,1.71,298.15,7.4,homo sapiens,,True,biopython,539,211,True,False,False,True,4034,-12.341,-12.341,298.15,9.046,-14.222,-6.532,-5.599,1.849,True,113.7,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
-4jn2,Fab,3-({2-[(4-CARBAMIMIDOYL-PHENYLAMINO)-METHYL]-3-METHYL-3H-BENZOIMIDAZOLE-5-CARBONYL}-PYRIDIN-2-YL-AMINO)-PROPIONIC ACID ETHYL ESTER,0.002,X-RAY DIFFRACTION,SAbDab,1.71,298.15,7.4,mus musculus,,True,biopython,444,219,True,False,False,True,3464,-15.96,-15.96,298.15,11.699,-18.173,-8.313,-7.792,1.422,True,64.3,1.0,80.0,0.15,0.5,1.4,298.15,AMBER ff14SB
+pdb,format,antigen,kd_nM,dG_exp_kcal_mol,dG_pred_kcal_mol,delta_kcal_mol,method,source,resolution
+4jn2,Fab,3-({2-[(4-CARBAMIMIDOYL-PHENYLAMINO)-METHYL]-3-METHYL-3H-BENZOIMIDAZOLE-5-CARBONYL}-PYRIDIN-2-YL-AMINO)-PROPIONIC ACID ETHYL ESTER,0,-15.96,-18.17,-2.21,X-RAY DIFFRACTION,SAbDab,1.71
+5sy8,Fab,10e8 epitope scaffold t117v2,0.01,-14.95,-16.83,-1.88,X-RAY DIFFRACTION,SAbDab,1.62
+5myo,Fab,amyloid beta a4 protein,0.03,-14.38,-16.12,-1.74,X-RAY DIFFRACTION,SAbDab,1.59
+3uzq,Fab,envelope protein,0.08,-13.76,-16.82,-3.06,X-RAY DIFFRACTION,SAbDab,1.6
+4hpy,Fab,envelope glycoprotein gp160,0.12,-13.53,-15.98,-2.44,X-RAY DIFFRACTION,SAbDab,1.5
+4cmh,Fab,adp-ribosyl cyclase 1,0.2,-13.23,-14.94,-1.71,X-RAY DIFFRACTION,SAbDab,1.53
+4n8c,Fab,extracellular domain of influenza matrix protein 2,0.4,-12.82,-14.02,-1.2,X-RAY DIFFRACTION,SAbDab,1.6
+6ddm,Fab,mhc class i polypeptide-related sequence a,0.42,-12.79,-14.01,-1.22,X-RAY DIFFRACTION,SAbDab,1.3
+4al8,Fab,envelope protein,0.45,-12.75,-13.75,-1,X-RAY DIFFRACTION,SAbDab,1.66
+2E+027,Fab,"3,7:6,10:9,14-TRIANHYDRO-2,5,11,12,13-PENTADEOXY-4-O-(METHOXYMETHYL)-L-ARABINO-L-ALLO-TETRADEC-12-ENONIC ACID",0.45,-12.75,-14.25,-1.5,X-RAY DIFFRACTION,SAbDab,1.7
+2vxt,Fab,interleukin-18,0.53,-12.65,-13.14,-0.48,X-RAY DIFFRACTION,SAbDab,1.49
+4fqi,Fab,hemagglutinin ha2 | hemagglutinin ha1,0.9,-12.34,-14.22,-1.88,X-RAY DIFFRACTION,SAbDab,1.71
+5myk,Fab,amyloid beta a4 protein,0.99,-12.28,-14.81,-2.53,X-RAY DIFFRACTION,SAbDab,1.6
+6b14,Fab,rna (86-mer),5,-11.32,-11.03,0.29,X-RAY DIFFRACTION,SAbDab,1.64
+5tkk,Fab,hiv-1 fusion peptide residue 512-519,5.3,-11.29,-12.11,-0.82,X-RAY DIFFRACTION,SAbDab,1.55
+4qyo,Fab,merozoite surface antigen 2,6,-11.22,-13.63,-2.41,X-RAY DIFFRACTION,SAbDab,1.208
+4r3s,Fab,merozoite surface protein,6,-11.22,-14.28,-3.06,X-RAY DIFFRACTION,SAbDab,1.7
+5myx,Fab,pyroglutamate-abeta pe3-18,6.8,-11.14,-13.25,-2.11,X-RAY DIFFRACTION,SAbDab,1.492
+5alc,Fab,Ticagrelor,7.4,-11.09,-10.46,0.64,X-RAY DIFFRACTION,SAbDab,1.7
+3ifl,Fab,amyloid beta a4 protein,8.4,-11.02,-11.85,-0.83,X-RAY DIFFRACTION,SAbDab,1.5
+5kvg,Fab,zika envelope diii,8.8,-10.99,-11.18,-0.19,X-RAY DIFFRACTION,SAbDab,1.4
+4m1g,Fab,a33r | a33r,14,-10.7,-13.21,-2.52,X-RAY DIFFRACTION,SAbDab,1.6
+4qxt,Fab,merozoite surface antigen 2,16,-10.64,-12.68,-2.04,X-RAY DIFFRACTION,SAbDab,1.58
+5cin,Fab,peptide from mper region of hiv-1 env,18,-10.57,-13.54,-2.98,X-RAY DIFFRACTION,SAbDab,1.7
+3wih,Fab,roundabout homolog 1,19,-10.53,-12.31,-1.78,X-RAY DIFFRACTION,SAbDab,1.701
+5i8c,Fab,hiv-1 clade a bg505 fusion peptide (residue 512-520),25,-10.37,-12.86,-2.49,X-RAY DIFFRACTION,SAbDab,1.54
+4hs6,Fab,e2-peptide,30,-10.26,-11.44,-1.18,X-RAY DIFFRACTION,SAbDab,1.53
+5e2w,Fab,tau-phosphopeptide,31,-10.24,-11.85,-1.61,X-RAY DIFFRACTION,SAbDab,1.5
+5kvf,Fab,zika envelope diii,32,-10.22,-11.52,-1.29,X-RAY DIFFRACTION,SAbDab,1.4
+5kve,scFv,zika envelope diii,35,-10.17,-9.63,0.55,X-RAY DIFFRACTION,SAbDab,1.7
+3t0w,Fab,"1-(3-SULFOPROPYL)-4-[(1E,3E)-3-(1,3,3-TRIMETHYL-1,3-DIHYDRO-2H-INDOL-2-YLIDENE)PROP-1-EN-1-YL]QUINOLINIUM",50,-9.96,-10.34,-0.38,X-RAY DIFFRACTION,SAbDab,1.501
+4qy8,Fab,merozoite surface antigen 2,64,-9.81,-9.12,0.7,X-RAY DIFFRACTION,SAbDab,1.353
+3kdm,Fab,TESTOSTERONE,100,-9.55,-13.13,-3.58,X-RAY DIFFRACTION,SAbDab,1.5
+3uyr,Fab,"h-2 class i histocompatibility antigen, l-d alpha chain",127,-9.41,-12.96,-3.55,X-RAY DIFFRACTION,SAbDab,1.7
+1q72,Fab,COCAINE,140,-9.35,-8.46,0.89,X-RAY DIFFRACTION,SAbDab,1.7
+3g5y,Fab,egfr peptide,154,-9.29,-12.46,-3.17,X-RAY DIFFRACTION,SAbDab,1.59
+5kvd,Fab,zika envelope diii,266,-8.97,-12.76,-3.79,X-RAY DIFFRACTION,SAbDab,1.65
+5yy4,scFv,c-c chemokine receptor type 5,370,-8.78,-8.73,0.04,X-RAY DIFFRACTION,SAbDab,1.59
+5a2k,Fab,"antigen tn, thr is covalently bound to galnac",450,-8.66,-10.73,-2.08,X-RAY DIFFRACTION,SAbDab,1.7
+5e2v,Fab,tau phosphopeptide,831,-8.29,-7.86,0.44,X-RAY DIFFRACTION,SAbDab,1.64
+5n88,VHH,pc4 and sfrs1-interacting protein,1013,-8.18,-7.49,0.68,X-RAY DIFFRACTION,SAbDab,1.7
+5a2j,scFv,the naked peptide apdtrp,1400,-7.99,-7.83,0.16,X-RAY DIFFRACTION,SAbDab,1.65
+2xzc,Fab,8-METHYL-8-AZABICYCLO[3.2.1]OCTAN-3-YL PHENYLPHOSPHONATE,2300,-7.69,-10.34,-2.64,X-RAY DIFFRACTION,SAbDab,1.36
+3ggw,Fab,peptide b1,2900,-7.55,-9.85,-2.29,X-RAY DIFFRACTION,SAbDab,1.7
+3pp4,Fab,b-lymphocyte antigen cd20,7000,-7.03,-7.38,-0.35,X-RAY DIFFRACTION,SAbDab,1.6
+2r1x,Fab,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL,16,-6.54,-7.62,-1.08,X-RAY DIFFRACTION,SAbDab,1.6
+2r1w,Fab,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL,25,-6.28,-8.21,-1.93,X-RAY DIFFRACTION,SAbDab,1.7
+2r1y,Fab,3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID,31,-6.15,-4.63,1.52,X-RAY DIFFRACTION,SAbDab,1.6
+2r2b,Fab,polysaccharide,63,-5.73,-6.11,-0.38,X-RAY DIFFRACTION,SAbDab,1.6
+2r23,Fab,polysaccharide,190,-5.08,-4.86,0.22,X-RAY DIFFRACTION,SAbDab,1.65

@@ -1,0 +1,92 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "3G5Y",
+      "struct": {
+        "title": "Antibodies Specifically Targeting a Locally Misfolded Region of Tumor Associated EGFR"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.59
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "EGFR peptide"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "CGADSYEMEEDGVRKC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": null
+            },
+            {
+              "scientific_name": null
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "E"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "175 heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DVQLQESGPALVKPSQSLSLTCTVTGYSITSDYAWNWIRQFPGNKLEWMGYISYSANTRYNPSLKSRISITRDTSKNQFFLQLNSVTVEDTATYYCATAGRGFPYWGQGTLVTVSAAKTTAPSVYPLAPVCGDTTGSSVTLGCLVKGYFPEPVTLTWNSGSLSSGVHTFPAVLQSDLYTLSSSVTVTSSTWPSQSITCNVAHPASSTKVDKKIEPR"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "175 light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DILMTQSPVSMSLSLGDTVSITCHSSQDISSNIGWLQQAPGKSFKGLIYHGTNLEDGVPGRFSGSGSGADYSLTISSLSSEDFVDYYCVQYGQFPWTFGGGTSLEIKRADAAPTVSIFPPSTEQLTSGGASVVCFLNNFYPKDINVKWKIDGSERQNGVLNSWTDQDSKDSTYSMSSTLTLTKDEYERHNSYTCEATHKTSSTPIVKSFNRNE"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 19289842,
+          "title": "Antibodies specifically targeting a locally misfolded region of tumor associated EGFR",
+          "journal_abbrev": "Proc.Natl.Acad.Sci.USA"
+        }
+      ]
+    }
+  }
+}

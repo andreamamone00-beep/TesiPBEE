@@ -1,0 +1,68 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "5IVN",
+      "struct": {
+        "title": "BC2 nanobody in complex with the BC2 peptide tag"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.0
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Cadherin derived peptide"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "PDRKAAVSHWQX"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "BC2-nanobody"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLVESGGGLVQPGGSLTLSCTASGFTLDHYDIGWFRQAPGKEREGVSCINNSDDDTYYADSVKGRFTIFMNNAKDTVYLQMNSLKPEDTAIYYCAEARGCKRGRYEYDFWGQGTQVTVSSKKKHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Vicugna pacos"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 26791954,
+          "title": "Peptides in headlock - a novel high-affinity and versatile peptide-binding nanobody for proteomics and microscopy.",
+          "journal_abbrev": "Sci Rep"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "4HPY",
+      "struct": {
+        "title": "Crystal structure of RV144-elicited antibody CH59 in complex with V2 peptide"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.5
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Envelope glycoprotein gp160"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "ELRDKKQKVHALFYKLDIV"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Human immunodeficiency virus 1"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "P"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "CH59 Fab light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DSYELTQPPSVSVSPGQTARITCSGDALPKNYAYWYQQKSGQAPVLVIYEDSKRPSGIPERFSGSSSGTMATLTISGAQVEDEADYYCYSTDSSGNHRVFGGGTKLTVLGQPKAAPSVTLFPPSSEELQANKATLVCLISDFYPGAVTVAWKADSSPVKAGVETTTPSKQSNNKYAASSYLSLTPEQWKSHRSYSCQVTHEGSTVEKTVAPTECS"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "L"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "CH59 Fab heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EVQLVESGGGLVQPGRSLRLSCAASGFTFDDGAMHWVRQAPGKGLEWVSGISWNSNIIAYADSVKGRFTISRDNAKNSLYLEMNSLRVEDTALYYCAKDSPRGELPLNYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDK"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "H"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 23313589,
+          "title": "Vaccine Induction of Antibodies against a Structurally Heterogeneous Site of Immune Pressure within HIV-1 Envelope Protein Variable Regions 1 and 2.",
+          "journal_abbrev": "Immunity"
+        }
+      ]
+    }
+  }
+}

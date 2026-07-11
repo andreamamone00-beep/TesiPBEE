@@ -81,45 +81,53 @@ def search_antibody_complexes(max_hits: int = 50, sabdab_path: Path | None = Non
     # Carica dati SAbDab
     sabdab_data = load_sabdab_summary(tsv_path=sabdab_path)
     if not sabdab_data:
-        log.warning("SAbDab non disponibile: fallback a simulazione")
+        log.warning("SAbDab non disponibile: nessun PDB selezionato")
         return []
     
     # Organismi target: umano e murino
     target_organisms = {'human', 'homo sapiens', 'mouse', 'mus musculus'}
     
-    # Filtra per strutture con dati di affinità reali, PDB disponibili e organismi target
+    # Filtra per completi Ab-Ag umani/murini, PDB disponibili e antigeni definiti
     valid_entries = {}
     for entry in sabdab_data:
-        if entry.get('pdb') and entry.get('affinity') and entry.get('affinity') != '' and entry.get('affinity') != 'None':
-            pdb_id = entry['pdb'].lower()
-            # Controlla che sia un complesso (antigene definito)
-            if entry.get('antigen_name') and entry.get('antigen_name') != '':
-                # Filtra per organismo dell'anticorpo (heavy_species o light_species)
-                heavy_species = entry.get('heavy_species', '').lower()
-                light_species = entry.get('light_species', '').lower()
-                antibody_species = heavy_species or light_species
-                
-                # Controlla se antibody_species è esattamente uno degli organismi target
-                is_target = antibody_species in target_organisms
-                
-                # Debug logging
-                if antibody_species and not is_target:
-                    log.debug(f"Skipping {pdb_id}: antibody_species='{antibody_species}' not in target")
-                
-                if is_target:
-                    # Usa un dict per evitare duplicati, mantieni il migliore (miglior risoluzione)
-                    if pdb_id not in valid_entries:
-                        valid_entries[pdb_id] = {
-                            'pdb': pdb_id,
-                            'antigen': entry.get('antigen_name', ''),
-                            'affinity': entry.get('affinity', ''),
-                            'method': entry.get('method', ''),
-                            'resolution': entry.get('resolution', ''),
-                            'format': entry.get('format', ''),
-                            'hchain': entry.get('Hchain', ''),
-                            'lchain': entry.get('Lchain', ''),
-                            'antibody_species': antibody_species
-                        }
+        if not entry.get('pdb'):
+            continue
+        pdb_id = entry['pdb'].lower()
+        antigen_name = (entry.get('antigen_name') or '').strip()
+        antigen_type = (entry.get('antigen_type') or '').strip().lower()
+        hchain = (entry.get('hchain') or '').strip()
+        lchain = (entry.get('lchain') or '').strip()
+        if not antigen_name or not antigen_type or antigen_type == 'na':
+            log.debug(f"Skipping {pdb_id}: antigen not defined")
+            continue
+        if not (hchain or lchain):
+            log.debug(f"Skipping {pdb_id}: no antibody chain")
+            continue
+        heavy_species = (entry.get('heavy_species') or '').strip().lower()
+        light_species = (entry.get('light_species') or '').strip().lower()
+        antibody_species = [s for s in (heavy_species, light_species) if s]
+
+        is_target = any(spec in target_organisms for spec in antibody_species)
+        if antibody_species and not is_target:
+            log.debug(f"Skipping {pdb_id}: antibody_species={antibody_species} not in target")
+        if not antibody_species:
+            log.debug(f"Skipping {pdb_id}: no antibody species available")
+            continue
+
+        if is_target:
+            # Usa un dict per evitare duplicati, mantieni il migliore (miglior risoluzione)
+            if pdb_id not in valid_entries:
+                valid_entries[pdb_id] = {
+                    'pdb': pdb_id,
+                    'antigen': antigen_name,
+                    'affinity': entry.get('affinity', ''),
+                    'method': entry.get('method', ''),
+                    'resolution': entry.get('resolution', ''),
+                    'format': entry.get('format', ''),
+                    'hchain': hchain,
+                    'lchain': lchain,
+                    'antibody_species': ','.join(antibody_species)
+                }
     
     # Non includere altri organismi - solo umani/murini sono accettabili
     if len(valid_entries) < max_hits:
@@ -478,6 +486,64 @@ def extract_kd_from_text(text: str) -> float | None:
     return None
 
 
+def fetch_pdbbind_affinity(pdb_id: str) -> tuple[float | None, str]:
+    """Try to recover a binding affinity for a PDB id from PDBBind-oriented pages.
+
+    The function first probes the public PDBBind search endpoints and, if available,
+    downloads any linked index/download pages and extracts affinity-like values from
+    the resulting text. If no affinity is found, returns (None, "").
+    """
+    if not pdb_id:
+        return None, ""
+
+    pdb_id_u = pdb_id.upper()
+    candidate_urls = [
+        f"https://www.pdbbind.org.cn/quickpdbid?PDBID={pdb_id_u}",
+        f"https://www.pdbbind.org.cn/pdbbind/quickpdbid?PDBID={pdb_id_u}",
+        "https://www.pdbbind.org.cn/download/",
+        "https://www.pdbbind.org.cn/",
+    ]
+    seen: set[str] = set()
+
+    for url in candidate_urls:
+        if url in seen:
+            continue
+        seen.add(url)
+        try:
+            raw = _http_get(url)
+        except RemoteUnavailable:
+            continue
+
+        text = raw.decode("utf-8", errors="replace")
+        if not text:
+            continue
+
+        kd_nm = extract_kd_from_text(text)
+        if kd_nm is not None and kd_nm > 0:
+            return kd_nm, url
+
+        # Also inspect linked pages from download/index pages when present
+        import re
+        for href in re.findall(r'href=[\"\']([^\"\']+)[\"\']', text):
+            if not href or href.startswith("mailto:"):
+                continue
+            next_url = urllib.parse.urljoin(url, href)
+            if next_url in seen or not next_url.startswith("http"):
+                continue
+            try:
+                raw2 = _http_get(next_url)
+            except RemoteUnavailable:
+                continue
+            text2 = raw2.decode("utf-8", errors="replace")
+            if not text2:
+                continue
+            kd_nm2 = extract_kd_from_text(text2)
+            if kd_nm2 is not None and kd_nm2 > 0:
+                return kd_nm2, next_url
+
+    return None, ""
+
+
 def parse_affinity_string(affinity_str: str) -> float | None:
     """Parse affinity string from SAbDab format.
     
@@ -605,26 +671,32 @@ def fetch_bindingdb_for_pdb(pdb_id: str) -> list[dict]:
 # ---------------------------------------------------------------------------
 # SAbDab summary TSV (opzionale, se scaricato localmente)
 # ---------------------------------------------------------------------------
-SABDAB_SUMMARY_URL = "https://opig.stats.ox.ac.uk/webapps/newsabdab/sabdab/summary/all"
+SABDAB_SUMMARY_URL = "https://sabdab.opig.stats.ox.ac.uk/api/download/search-summary"
 
 
 def load_sabdab_summary(tsv_path: Path | None = None) -> list[dict]:
     """Carica il summary SAbDab da file locale (preferito) o scaricandolo.
 
-    Il file è tipicamente ~10 MB. Le colonne includono: pdb, Hchain, Lchain,
-    antigen_name, antigen_type, affinity, method, resolution.
+    Il file è tipicamente ~10 MB. Le colonne includono: PDB, antigen_name,
+    antigen_type, affinity, method, resolution, heavy_species, light_species.
     """
+    import csv
+    import io
+
     def parse(text: str) -> list[dict]:
-        lines = text.strip().splitlines()
-        if not lines:
+        if not text or not text.strip():
             return []
-        header = lines[0].split("\t")
+        text_io = io.StringIO(text)
+        # SAbDab remote API returns comma-separated CSV; local file is tab-separated.
+        first_line = text.splitlines()[0] if text else ""
+        delimiter = "\t" if "\t" in first_line else ","
+        reader = csv.DictReader(text_io, delimiter=delimiter)
         out = []
-        for row in lines[1:]:
-            fields = row.split("\t")
-            if len(fields) != len(header):
+        for row in reader:
+            if not row:
                 continue
-            out.append(dict(zip(header, fields)))
+            normalized = {k.strip().lower(): (v or "").strip() for k, v in row.items() if k}
+            out.append(normalized)
         return out
 
     if tsv_path and tsv_path.exists():
@@ -632,11 +704,11 @@ def load_sabdab_summary(tsv_path: Path | None = None) -> list[dict]:
         return parse(tsv_path.read_text(encoding="utf-8", errors="replace"))
 
     def fetcher():
-        log.info("SAbDab: scarico summary dal server (può essere lento)")
-        raw = _http_get(SABDAB_SUMMARY_URL)
+        log.info("SAbDab: scarico summary remoto SAbDab2")
+        raw = _http_post_json(SABDAB_SUMMARY_URL, {})
         return {"raw": raw.decode("utf-8", errors="replace")}
 
-    key = cache_key("sabdab_summary_v1")
+    key = cache_key("sabdab_summary_v2")
     try:
         data = cached_json(key, fetcher, ttl_hours=720)  # 30 giorni
         return parse(data["raw"])

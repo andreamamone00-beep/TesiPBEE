@@ -1,0 +1,95 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "3WIH",
+      "struct": {
+        "title": "Crystal structure of the third fibronectin domain (Fn3) of human ROBO1 in complex with the Fab fragment of murine monoclonal antibody B2212A."
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.701
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "anti-human ROBO1 antibody B2212A Fab heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EVQLQQSGPELVKPGASVKISCKASGYTFTDYYMNWVKLSHGKSLEWIGDIVPNNGDTTYNQNFRGKATLTVDKSSSTAYMELRSLTSEDSAVYYCARFSNYVYPFDYWGQGTTLTVSSAKTTAPSVYPLAPVCGDTTGSSVTLGCLVKGYFPEPVTLTWNSGSLSSGVHTFPAILQSDLYTLSSSVTVTSSTWPSQSITCNVAHPASSTKVDKKIEPR"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C",
+              "F"
+            ],
+            "auth_asym_ids": [
+              "H",
+              "I"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "anti-human ROBO1 antibody B2212A Fab light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DIQMTQTTSSLSASLGDRVTISCRASQDISNFLNWYQQKPDGTVKLLIYYTSRLHSGVPSRFSGSGSGTDFSLTISKLEQEDIATYFCQQGNTLPLTFGAGTKLELKRAEAAPTVSIFPPSSEQLTSGGASVVCFLNNFYPKDINVKWKIDGSERQNGVLNSWTDQDSKDSTYSMSSTLTLTKDEYERHNSYTCEATHKTSTSPIVKSFNRNE"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B",
+              "E"
+            ],
+            "auth_asym_ids": [
+              "L",
+              "M"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Roundabout homolog 1"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "APPQGVTVSKNDGNGTAILVSWQPPPEDTQNGMVQEYKVWCLGNETRYHINKTVDGSTFSVVIPFLVPGIRYSVEVAASTGAGSGVKSEPQFIQLDA"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A",
+              "D"
+            ],
+            "auth_asym_ids": [
+              "A",
+              "B"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 25492858,
+          "title": "Structural features of interfacial tyrosine residue in ROBO1 fibronectin domain-antibody complex: Crystallographic, thermodynamic, and molecular dynamic analyses",
+          "journal_abbrev": "Protein Sci."
+        }
+      ]
+    }
+  }
+}

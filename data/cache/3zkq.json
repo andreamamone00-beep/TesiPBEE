@@ -1,0 +1,68 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "3ZKQ",
+      "struct": {
+        "title": "BACE2 XAPERONE COMPLEX"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.51
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "BETA-SECRETASE 2"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "ANFLAMVDNLQGDSGRGYYLEMLIGTPPQKLQILVDTGSSNFAVAGTPHSYIDTYFDTERSSTYRSKGFDVTVKYTQGSWTGFVGEDLVTIPKGFNTSFLVNIATIFESENFFLPGIKWNGILGLAYATLAKPSSSLETFFDSLVTQANIPNVFSMQMCGAGLPVAGSGTNGGSLVLGGIEPSLYKGDIWYTPIKEEWYYQIEILKLEIGGQSLNLDCREYNADKAIVDSGTTLLRLPQKVFDAVVEAVARASLIPEFSDGFWTGSQLACWTNSETPWSYFPKISIYLRDENSSRSFRITILPQLYIQPMMGAGLNYECYRFGISPSTNALVIGATVMEGFYVIFDRAQKRVGFAASPCAEIAGAAVSEISGPFSTEDVASNCVPA"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "HOMO SAPIENS"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "XA4813"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLQESGGGLVQPGGSLRLSCAASGFTFSSAIMTWVRQAPGKGREWVSTIGSDGSITTYADSVKGRFTISRDNARNTLYLQMNSLKPEDTAVYYCTSAGRRGPGTQVTVSSHHHHHHEPEA"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "LAMA GLAMA"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "D"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 23695257,
+          "title": "Mapping the Conformational Space Accessible to Bace2 Using Surface Mutants and Co-Crystals with Fab-Fragments, Fynomers, and Xaperones",
+          "journal_abbrev": "Acta Crystallogr.,Sect.D"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "1C5C",
+      "struct": {
+        "title": "DECARBOXYLASE CATALYTIC ANTIBODY 21D8-HAPTEN COMPLEX"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.61
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "CHIMERIC DECARBOXYLASE ANTIBODY 21D8"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLLEPGTELVKPGASVKLSCRASGYSFTSYWMHWVKQRPGQGLEWIGLIDPSNGRTNFNDKFKSRATLTVDTSSSTAYMQLSSLTSEDSAVYYCVRIAYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            },
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "H"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "CHIMERIC DECARBOXYLASE ANTIBODY 21D8"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EIQLTQSPSSLSASLGERVSLTCRTSQEISGYLSWLQQKPDGTIKRLIYDATKLDSGAPKRFSGSRSGSDYSLTISSLESEDFADYYCLQYASFPRTFGGGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            },
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "L"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 11183784,
+          "title": "Catalysis of decarboxylation by a preorganized heterogeneous microenvironment: crystal structures of abzyme 21D8.",
+          "journal_abbrev": "J.Mol.Biol."
+        }
+      ]
+    }
+  }
+}

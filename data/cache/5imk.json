@@ -1,0 +1,68 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "5IMK",
+      "struct": {
+        "title": "Nanobody targeting human Vsig4 in Spacegroup C2"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.227
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "V-set and immunoglobulin domain-containing protein 4"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "HHHHHHGRPILEVPESVTGPWKGDVNLPCTYDPLQGYTQVLVKWLVQRGSDPVTIFLRDSSGDHIQQAKYQGRLHVSHKVPGDVSLQLSTLEMDDRSHYTCEVTWQTPDGNQVVRDKITELRVQKLSVSKPTVTTGSGYGFTVPQGMRISLQCQARGSPPISYIWYKQQTNNQEPIKVATLSTLLFKPAVIADSGSYFCTAKGQVGSEQHSDIVKFVVKD"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Nanobody"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLVESGGGLVQAGGSLRLSCAASGRTFSSYGMGWFRQAPGKEREFVAAIRWNGGSTYYADSVKGRFTISRDNAKNTVYLQMNSLKPEDTAVYYCAAGRWDKYGSSFQDEYDYWGQGTQVTVSSHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Camelidae"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 27889311,
+          "title": "Structural evaluation of a nanobody targeting complement receptor Vsig4 and its cross reactivity",
+          "journal_abbrev": "Immunobiology"
+        }
+      ]
+    }
+  }
+}

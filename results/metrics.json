@@ -2,29 +2,29 @@
   "n_complexes": 48,
   "rmse_kcal_mol": 1.88,
   "mae_kcal_mol": 1.571,
-  "pearson_r": 0.796,
-  "spearman_rho": 0.792,
-  "kendall_tau": 0.577,
+  "pearson_r": 0.812,
+  "spearman_rho": 0.805,
+  "kendall_tau": 0.599,
   "bias_mean": -1.315,
   "bias_std": 1.358,
   "by_affinity_class": {
     "alta": {
-      "n": 22,
-      "mae": 1.251,
-      "rmse": 1.489,
-      "bias": -0.97
+      "n": 18,
+      "mae": 1.442,
+      "rmse": 1.77,
+      "bias": -1.267
     },
     "media": {
-      "n": 5,
-      "mae": 2.451,
-      "rmse": 2.642,
-      "bias": -2.171
+      "n": 9,
+      "mae": 1.381,
+      "rmse": 1.604,
+      "bias": -1.104
     },
     "bassa": {
       "n": 21,
-      "mae": 1.696,
-      "rmse": 2.024,
-      "bias": -1.474
+      "mae": 1.762,
+      "rmse": 2.073,
+      "bias": -1.447
     }
   }
 }

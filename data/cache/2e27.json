@@ -1,0 +1,68 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "2E27",
+      "struct": {
+        "title": "Crystal structure of Fv fragment of anti-ciguatoxin antibody complexed with ABC-ring of ciguatoxin"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.7
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "anti-ciguatoxin antibody, heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MAQVQLLESGAELARPGASVKLSCKASGYTFTTYWMQWVRQRPGQGLEWIGAIYPGNGDTRYSQKFKGKATLTADTSSSTASMQLSSLASEDSAVYYCARSDYGGDYWGQGTSVTVSSAGHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "H"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "anti-ciguatoxin antibody, light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MADIQMTQSPSSLSASLGGKVTITCKANQDIKKKIAWYQHKPGKGPRLLIYYTSTLKSGISSRFSGSGSGRDYSFSISNLEPEDAATYYCLQYDNFTWTFGGGTKLEIKRAAGHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "L"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 18326040,
+          "title": "Critical contribution of aromatic rings to specific recognition of polyether rings. The case of ciguatoxin CTX3C-ABC and its specific antibody 1C49.",
+          "journal_abbrev": "J.Biol.Chem."
+        }
+      ]
+    }
+  }
+}

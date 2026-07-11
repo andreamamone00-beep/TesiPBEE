@@ -1,0 +1,72 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "3KDM",
+      "struct": {
+        "title": "Crystal Structure of Human Anti-steroid Fab 5F2 in Complex with Testosterone"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.5
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Immunoglobulin heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVSAISGSGGSTYYADSVKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARDPGLWDYYYGMDVWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSSVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKAEPKSC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B",
+              "D"
+            ],
+            "auth_asym_ids": [
+              "B",
+              "H"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Immunoglobulin light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QSALTQPASVSGSPGQSITISCTGTSSDVGGYNYVSWYQQHPGKAPKLMIYGVTNRPSGVSNRFSGSKSGNTASLTISGLQAGDEADYYCSSYTSTRTPYVFGTGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A",
+              "C"
+            ],
+            "auth_asym_ids": [
+              "A",
+              "L"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 21360611,
+          "title": "The testosterone binding mechanism of an antibody derived from a naive human scFv library",
+          "journal_abbrev": "J.Mol.Recognit."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "4WEM",
+      "struct": {
+        "title": "Co-complex structure of the F4 fimbrial adhesin FaeG variant ac with llama single domain antibody V1"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.55
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Anti-F4+ETEC bacteria VHH variable region"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLQESGGGLVQAGGSLRLSCEASGNVDRIDAMGWFRQAPGKQREFVGYISEGGILNYGDFVKGRFTISRDNAKNTVYLQMSNLKSEDTGVYFCAASHWGTLLIKGIEHWGKGTQVTVSSHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Lama glama"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "K88 fimbrial protein AC"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "WMTGHHHHHHDDYRQKWEWKVGTGLNGFGNVLNDLTNGGTKLTITVTGNKPILLGRTKEAFATPVTGGVDGIPHIAFTDYEGASVVLRNPDGETNKKGLAYFVLPMKNAEGTKVGSVKVNASYAGVLGRGGVTSADGELLSLFADGLSSIFYGGLPRGSELSAGSAAAARTKLFGSLSRNDILGQIQRVNANITSLVDVAGSYRENMEYTDGTVVSAAYALGIANGQTIEATFNQAVTTSTQWSAPLNVAITYYDNKQDFNGSVDIGGSITA"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Escherichia coli"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 25828907,
+          "title": "Structural insight in the inhibition of adherence of F4 fimbriae producing enterotoxigenic Escherichia coli by llama single domain antibodies.",
+          "journal_abbrev": "Vet. Res."
+        },
+        {
+          "pdbx_database_id_PubMed": 23801763,
+          "title": "Orally fed seeds producing designer IgAs protect weaned piglets against enterotoxigenic Escherichia coli infection.",
+          "journal_abbrev": "Proc. Natl. Acad. Sci. U.S.A."
+        }
+      ]
+    }
+  }
+}

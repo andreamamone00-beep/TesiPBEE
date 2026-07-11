@@ -1,0 +1,145 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Rebuild dataset with PDBBind KD",
+			"type": "shell",
+			"command": "python scripts/01_build_dataset.py --mode sabdab --sabdab-path data/sabdab_summary.tsv --n 50",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild full pipeline with PDBBind KD",
+			"type": "shell",
+			"command": "python scripts/01_build_dataset.py --mode sabdab --sabdab-path data/sabdab_summary.tsv --n 50; python scripts/02_curate_structures.py; python scripts/03_normalize_affinity.py; python scripts/04_compute_pbee.py; python scripts/05_analyze_results.py",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Curate structures after KD update",
+			"type": "shell",
+			"command": "python scripts/02_curate_structures.py",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Normalize affinities after KD update",
+			"type": "shell",
+			"command": "python scripts/03_normalize_affinity.py",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Compute PBEE with updated KD",
+			"type": "shell",
+			"command": "python scripts/04_compute_pbee.py",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Analyze results after KD update",
+			"type": "shell",
+			"command": "python scripts/05_analyze_results.py",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Inspect SAbDab TSV rows",
+			"type": "shell",
+			"command": "python -c \"import sys; sys.path.insert(0, 'scripts'); from pathlib import Path; from sources import load_sabdab_summary; raw=load_sabdab_summary(Path('data/sabdab_summary.tsv')); print('count', len(raw)); print('head', [r.get('pdb') for r in raw[:5]])\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Inspect SAbDab TSV rows",
+			"type": "shell",
+			"command": "python inspect_sabdab_rows.py",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild SAbDab-only dataset",
+			"type": "shell",
+			"command": "python scripts/01_build_dataset.py --mode sabdab --sabdab-path data/sabdab_summary.tsv --n 50",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild SAbDab-only dataset",
+			"type": "shell",
+			"command": "python scripts/01_build_dataset.py --mode sabdab --sabdab-path data/sabdab_summary.tsv --n 50",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Test Python command",
+			"type": "shell",
+			"command": "python -c \"print('hello')\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild SAbDab-only dataset",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"python scripts/01_build_dataset.py --mode sabdab --sabdab-path data/sabdab_summary.tsv --n 50\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild SAbDab-only dataset",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\dev\\ab_ag_pbee'; python scripts/01_build_dataset.py --mode sabdab --sabdab-path data/sabdab_summary.tsv --n 50 *> rebuild.log; Get-Content rebuild.log\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild SAbDab-only dataset",
+			"type": "shell",
+			"command": "cmd /d /c \"cd /d c:\\dev\\ab_ag_pbee && python scripts/01_build_dataset.py --mode sabdab --sabdab-path data/sabdab_summary.tsv --n 50 > rebuild.log 2>&1\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run temporary build script",
+			"type": "shell",
+			"command": "cmd /d /c \"cd /d c:\\dev\\ab_ag_pbee && python tmp_run_build.py > build_output.txt 2>&1\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run temporary build script",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\dev\\ab_ag_pbee'; python tmp_run_build.py *> build_output.txt\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run temporary build script",
+			"type": "shell",
+			"command": "cd /d c:\\dev\\ab_ag_pbee && python tmp_run_build.py > build_output.txt 2>&1",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run temporary build script",
+			"type": "shell",
+			"command": "cmd /d /c \"cd /d c:\\dev\\ab_ag_pbee; python tmp_run_build.py *> build_output.txt\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Verify Python runner",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"py -3 -c \\\"print('hello')\\\"\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Verify Python runner",
+			"type": "shell",
+			"command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Set-Location 'c:\\dev\\ab_ag_pbee'; py -3 -c \\\"print('hello')\\\"\"",
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

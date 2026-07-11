@@ -1,0 +1,89 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "5CIN",
+      "struct": {
+        "title": "Crystal Structure of non-neutralizing version of 4E10 (DeltaLoop) with epitope bound"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.7
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "FAB 4E10 LIGHT CHAIN"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EIVLTQSPGTQSLSPGERATLSCRASQSVGNNKLAWYQQRPGQAPRLLIYGASSRPSGVADRFSGSGSGTDFTLTISRLEPEDFAVYYCQQYGQSLSTFGQGTKVEVKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNR"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "L"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Peptide from MPER region of HIV-1 ENV"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "NWFDITNWLWYIKKKK"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Human immunodeficiency virus 1"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "P"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "FAB 4E10 HEAVY CHAIN"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "VQLVQSGAEVKRPGSSVTVSCKASGGSFSTYALSWVRQAPGRGLEWMGGVIPLLTITNYAPRFQGRITITADRSTSTAYLELNSLRPEDTAVYYCAREGTTGSGGKPIGAFAHWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEP"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "H"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 26378169,
+          "title": "Structural and Thermodynamic Basis of Epitope Binding by Neutralizing and Nonneutralizing Forms of the Anti-HIV-1 Antibody 4E10",
+          "journal_abbrev": "J.Virol."
+        }
+      ]
+    }
+  }
+}

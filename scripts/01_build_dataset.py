@@ -1,8 +1,8 @@
 """Step 1 — Costruzione del dataset anticorpo/ScFv–antigene.
 
 Modalità:
-  - online (default): interroga RCSB PDB + PubMed + BindingDB in tempo reale,
-                      con cache locale, ricade su SAbDab se disponibile.
+  - online (default): usa esclusivamente SAbDab (summary TSV locale o remoto)
+                      per selezionare i PDB id e le affinità, con metadata PDB ausiliari.
   - simulated:        genera 48 complessi fittizi con seed fisso (offline).
   - sabdab:           usa solo un file TSV SAbDab già scaricato.
 
@@ -14,11 +14,14 @@ import argparse
 import csv
 import sys
 from pathlib import Path
+from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from utils import (DATA_DIR, DATASET_RAW, ensure_dirs, get_logger,
+from utils import (DATA_DIR, DATASET_RAW, PROJECT_ROOT, ensure_dirs, get_logger,
                    parse_affinity_string, seeded_random)
+
+from sources import fetch_pdbbind_affinity
 
 log = get_logger("01_build")
 
@@ -33,8 +36,8 @@ def generate_simulated(n: int = 48, seed: int = 42) -> list[dict]:
     ]
     FORMATS = ["Fab", "scFv", "VHH"]
     METHODS = ["SPR", "ITC", "BLI"]
-    SOURCES = ["SAbDab", "SAAINT-DB", "ANDD", "Literature"]
-    SPECIES = ["human", "mouse", "llama"]
+    SOURCES = ["SAbDab"]
+    SPECIES = ["human", "mouse"]
 
     out = []
     for _ in range(n):
@@ -57,20 +60,19 @@ def generate_simulated(n: int = 48, seed: int = 42) -> list[dict]:
 
 
 def build_from_rcsb(max_hits: int) -> list[dict]:
-    """Interroga SAbDab e costruisce i record con dati di affinità."""
+    """Usa il summary SAbDab remoto per selezionare i record del dataset."""
     from sources import (RemoteUnavailable, fetch_pdb_metadata,
                          guess_format_and_antigen, search_antibody_complexes,
-                         load_sabdab_summary, fetch_bindingdb_for_pdb,
-                         get_best_bindingdb_affinity, parse_affinity_string)
+                         load_sabdab_summary, parse_affinity_string)
 
-    # Ottieni PDB ID da SAbDab
-    from utils import DATA_DIR
-    sabdab_path = DATA_DIR / "sabdab_summary.tsv"
-    pdb_ids = search_antibody_complexes(max_hits=max_hits, sabdab_path=sabdab_path)
-    log.info("SAbDab: %d candidati", len(pdb_ids))
-    
-    # Carica dati completi SAbDab per ottenere affinità
-    sabdab_data = load_sabdab_summary(tsv_path=sabdab_path)
+    # Ottieni un pool più ampio di PDB ID da SAbDab online, poi verifichiamo KD su PDBBind.
+    candidate_pool = max(150, max_hits * 5)
+    pdb_ids = search_antibody_complexes(max_hits=candidate_pool, sabdab_path=None)
+    log.info("SAbDab online: %d candidati", len(pdb_ids))
+
+    # Carica il summary SAbDab online per convalidare l'esistenza dei PDB e i metadati.
+    sabdab_data = load_sabdab_summary(tsv_path=None)
+    online_set = {entry.get('pdb', '').lower() for entry in sabdab_data if entry.get('pdb')}
     sabdab_lookup = {}
     if sabdab_data:
         for entry in sabdab_data:
@@ -78,6 +80,7 @@ def build_from_rcsb(max_hits: int) -> list[dict]:
             if pdb_id:
                 sabdab_lookup[pdb_id] = entry
 
+    target_organisms = {'human', 'homo sapiens', 'mouse', 'mus musculus'}
     rows = []
     for i, pdb_id in enumerate(pdb_ids, start=1):
         meta = {}
@@ -88,64 +91,44 @@ def build_from_rcsb(max_hits: int) -> list[dict]:
 
         fmt, antigen, resolution = guess_format_and_antigen(meta) if meta else ("unknown", "unknown", 3.0)
         
-        # Usa dati di affinità da SAbDab o, in mancanza, da BindingDB.
-        kd_nm = None
-        method = ""
-        source = ""
-        
         sabdab_entry = sabdab_lookup.get(pdb_id)
-        if sabdab_entry:
-            # Estrai affinità da SAbDab
-            affinity_str = sabdab_entry.get('affinity', '')
-            if affinity_str:
-                kd_nm = parse_affinity_string(affinity_str)
-            
-            # Estrai metodo da SAbDab
-            method = sabdab_entry.get('method', '')
-            
-            # Usa antigene da SAbDab se disponibile
-            sabdab_antigen = sabdab_entry.get('antigen_name', '')
-            if sabdab_antigen and sabdab_antigen != '':
-                antigen = sabdab_antigen
-            
-            # Usa formato da SAbDab se disponibile
-            sabdab_format = sabdab_entry.get('format', '')
-            if sabdab_format and sabdab_format != '':
-                fmt = sabdab_format
-
-        if kd_nm is None:
-            bd_entries = fetch_bindingdb_for_pdb(pdb_id)
-            if bd_entries:
-                bd_kd, bd_entry, bd_key = get_best_bindingdb_affinity(bd_entries)
-                if bd_kd is not None:
-                    kd_nm = bd_kd
-                    method = method or f"BindingDB ({bd_key})"
-                    source = "BindingDB"
-                    log.info("  %s: affinity trovata in BindingDB %s = %.3f nM", pdb_id, bd_key, kd_nm)
-
-        if kd_nm is None:
-            log.warning("  %s: skip (no affinity found in SAbDab/BindingDB)", pdb_id)
+        if not sabdab_entry:
+            log.warning("  %s: skip (entry SAbDab locale non trovata)", pdb_id)
+            continue
+        # Se disponbile la lista online, assicurati che il PDB sia effettivamente presente su SAbDab
+        if online_set and pdb_id not in online_set:
+            log.warning("  %s: skip (non presente nella lista SAbDab online)", pdb_id)
             continue
 
-        if not source:
-            source = "SAbDab"
+        heavy_species = (sabdab_entry.get('heavy_species') or '').strip().lower()
+        light_species = (sabdab_entry.get('light_species') or '').strip().lower()
+        species_list = [s for s in (heavy_species, light_species) if s]
+        if not any(spec in target_organisms for spec in species_list):
+            log.warning("  %s: skip (species non umana/murina: %s)", pdb_id, species_list)
+            continue
+        species = species_list[0]
 
-        # Usa specie dell'anticorpo da SAbDab se disponibile, altrimenti fallback a PDB metadata
-        if sabdab_entry:
-            heavy_species = sabdab_entry.get('heavy_species', '').lower()
-            light_species = sabdab_entry.get('light_species', '').lower()
-            species = heavy_species or light_species or "unknown"
-        else:
-            # Fallback: estrai specie dai metadati PDB
-            entry = (meta.get("data") or {}).get("entry") or {}
-            species = "unknown"
-            for e in (entry.get("polymer_entities") or []):
-                org = (e.get("rcsb_entity_source_organism") or [{}])
-                if org and isinstance(org, list) and org[0].get("scientific_name"):
-                    species = org[0]["scientific_name"].split()[0].lower()
-                    break
+        affinity_str = sabdab_entry.get('affinity', '')
+        kd_nm, kd_source = fetch_pdbbind_affinity(pdb_id)
+        if kd_nm is None or kd_nm <= 0:
+            kd_nm = parse_affinity_string(affinity_str) if affinity_str else None
+            kd_source = "SAbDab"
+        if kd_nm is None or kd_nm <= 0:
+            log.warning("  %s: skip (nessuna affinità valida in PDBBind/SAbDab)", pdb_id)
+            continue
+
+        method = sabdab_entry.get('method', '')
+        sabdab_antigen = sabdab_entry.get('antigen_name', '')
+        if sabdab_antigen:
+            antigen = sabdab_antigen
+        sabdab_format = sabdab_entry.get('format', '')
+        if sabdab_format:
+            fmt = sabdab_format
+
+        source = "SAbDab"
 
         # Estrai PubMed ID per riferimento
+        entry = (meta.get("data") or {}).get("entry") or {}
         citations = entry.get("citation") or []
         pmid = ""
         for c in citations:
@@ -157,8 +140,8 @@ def build_from_rcsb(max_hits: int) -> list[dict]:
             "pdb": pdb_id,
             "format": fmt,
             "antigen": antigen,
-            "kd_nM": round(float(kd_nm), 3),
-            "method": method or "SPR",  # usa metodo da SAbDab o fallback
+            "kd_nM": float(kd_nm),
+            "method": method or "SPR",  # usa metodo da SAbDab
             "source": source,
             "resolution": resolution or 3.0,
             "temperature_K": 298.15,
@@ -166,40 +149,59 @@ def build_from_rcsb(max_hits: int) -> list[dict]:
             "species": species,
             "pubmed_id": pmid,
         })
-        log.info("  %s  Kd=%.3f nM  fmt=%s  res=%s  method=%s", pdb_id, kd_nm, fmt, resolution, method)
+        log.info("  %s  Kd=%.3f nM  fmt=%s  res=%s  method=%s  source=%s", pdb_id, kd_nm, fmt, resolution, method, kd_source)
+        if len(rows) >= max_hits:
+            break
 
     return rows
 
 
-def build_from_sabdab(tsv_path: Path) -> list[dict]:
-    """Parsa SAbDab summary TSV e filtra per affinità numerica."""
+def build_from_sabdab(tsv_path: Path, max_hits: Optional[int] = None) -> list[dict]:
+    """Parsa SAbDab summary TSV e filtra per specie umane/murine con affinità numerica."""
     from sources import load_sabdab_summary
 
     raw = load_sabdab_summary(tsv_path)
     log.info("SAbDab: %d righe caricate", len(raw))
 
+    target_organisms = {'human', 'homo sapiens', 'mouse', 'mus musculus'}
     rows = []
     for r in raw:
+        pdb_id = (r.get("pdb") or "").lower()
+        if not pdb_id:
+            continue
+
+        # Fonte di verità: il TSV locale SAbDab; non usiamo PDBBind come requisito
+        # per accettare un record.
         kd_nm = parse_affinity_string(r.get("affinity") or "")
-        if kd_nm is None:
+        if kd_nm is None or kd_nm <= 0:
+            # Tentativo best-effort da PDBBind se l'affinità SAbDab è assente o non parsabile
+            kd_nm, _ = fetch_pdbbind_affinity(pdb_id)
+        if kd_nm is None or kd_nm <= 0:
+            continue
+        heavy_species = (r.get("heavy_species") or "").strip().lower()
+        light_species = (r.get("light_species") or "").strip().lower()
+        species_list = [s for s in (heavy_species, light_species) if s]
+        if not any(spec in target_organisms for spec in species_list):
             continue
         try:
             resolution = float(r.get("resolution") or "3.0")
         except ValueError:
             resolution = 3.0
         rows.append({
-            "pdb": (r.get("pdb") or "").lower(),
+            "pdb": pdb_id,
             "format": "Fab" if r.get("Lchain") else "VHH",
             "antigen": (r.get("antigen_name") or "unknown")[:80],
-            "kd_nM": round(kd_nm, 3),
+            "kd_nM": float(kd_nm),
             "method": r.get("method") or "SPR",
             "source": "SAbDab",
             "resolution": resolution,
             "temperature_K": 298.15,
             "ph": 7.4,
-            "species": (r.get("heavy_species") or "unknown").lower(),
+            "species": species_list[0] if species_list else "unknown",
             "pubmed_id": "",
         })
+    if max_hits is not None:
+        rows = rows[:max_hits]
     return rows
 
 
@@ -207,17 +209,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Costruzione dataset Ab–Ag")
     parser.add_argument("--mode", choices=["online", "simulated", "sabdab"],
                         default="online", help="Modalità di costruzione")
-    parser.add_argument("--n", type=int, default=48,
+    parser.add_argument("--n", type=int, default=50,
                         help="Numero complessi (simulated) o hit max (online)")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--sabdab-path", type=Path, default=None,
                         help="File TSV SAbDab (modalità sabdab)")
-    parser.add_argument("--fallback-simulated", action="store_true",
-                        help="Se online fallisce, usa dati simulati")
     args = parser.parse_args()
 
+    if args.mode in ("online", "sabdab") and args.n < 50:
+        args.n = 50
+
     ensure_dirs()
-    log.info("=== Step 1: costruzione dataset (mode=%s) ===", args.mode)
+    log.info("=== Step 1: costruzione dataset (mode=%s, n=%d) ===", args.mode, args.n)
 
     rows: list[dict] = []
     if args.mode == "online":
@@ -226,23 +229,29 @@ def main() -> None:
         except Exception as e:
             log.warning("Modalità online fallita: %s", e)
             rows = []
-        if len(rows) < 5 and args.fallback_simulated:
-            log.warning("Poche hit (%d): fallback a dati simulati", len(rows))
-            rows = generate_simulated(n=args.n, seed=args.seed)
-        elif not rows:
+        if not rows:
             log.error("Modalità online non ha prodotto risultati usabili.")
-            log.error("Rilancia con --mode simulated oppure --fallback-simulated")
+            log.error("Rilancia con --mode sabdab e --sabdab-path <summary.tsv> oppure usa --mode simulated per dati di test.")
             sys.exit(2)
     elif args.mode == "sabdab":
-        if not args.sabdab_path or not args.sabdab_path.exists():
+        sabdab_path = args.sabdab_path
+        if sabdab_path is None:
+            sabdab_path = DATA_DIR / "sabdab_summary.tsv"
+        if not sabdab_path.is_absolute():
+            sabdab_path = (PROJECT_ROOT / sabdab_path).resolve()
+        if not sabdab_path.exists():
             log.error("Specificare --sabdab-path con un file TSV esistente")
             sys.exit(2)
-        rows = build_from_sabdab(args.sabdab_path)
+        rows = build_from_sabdab(sabdab_path, max_hits=args.n)
     else:
         rows = generate_simulated(n=args.n, seed=args.seed)
 
     if not rows:
         log.error("Nessun record prodotto.")
+        sys.exit(2)
+
+    if args.mode in ("online", "sabdab") and len(rows) < 50:
+        log.error("Non sono stati generati almeno 50 record SAbDab umani/murini.")
         sys.exit(2)
 
     with DATASET_RAW.open("w", newline="", encoding="utf-8") as f:

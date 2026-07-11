@@ -1,0 +1,68 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "4W6Y",
+      "struct": {
+        "title": "Co-complex structure of the lectin domain of F18 fimbrial adhesin FedF with inhibitory nanobody NbFedF9"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.57
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "F18 fimbrial adhesin AC"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "NSSASSAQVTGTLLGTGKTNTTQMPALYTWQHQIYNVNFIPSSSGTLTCQAGTILVWKNGRETQYALECRVSIHHSSGSINESQWGQQSQVGFGTACGNKKCRFTGFEISLRIPPNAQTYPLSSGDLKGSFSLTNKEVNWSASIYVPAIAK"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Escherichia coli DH5[alpha]"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Nanobody NbFedF9"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLQESGGGSVQAGGSLRLSCAASGYTYSSNCMAWFRQVPGKEREGVASINTRGGITYYADSVKGRFTISRDNAKNTVSLQMNSLKPEDTATYYCAAVREATYSDNRCSVRSYTYDYWGQGTQVTVSSHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Lama glama"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 25502211,
+          "title": "Nanobody Mediated Inhibition of Attachment of F18 Fimbriae Expressing Escherichia coli.",
+          "journal_abbrev": "Plos One"
+        }
+      ]
+    }
+  }
+}

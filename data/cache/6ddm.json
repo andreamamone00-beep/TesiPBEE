@@ -1,0 +1,89 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "6DDM",
+      "struct": {
+        "title": "Crystal Structure Analysis of the Epitope of an Anti-MICA Antibody"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          1.3
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Anti-MICA Fab fragment heavy chain clone 1D5"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EIQLQQSGPELVKPGASVKVSCKASGYAFTSQNIYWVKQSHGKSLEWIGYIEPYNVVPMYNPKFKGKATLTVDKSSSSAYIHLNSLTSEDSAIYYCARSGSSNFDYWGQGTTLTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "MHC class I polypeptide-related sequence A"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "TVPPMVNVTRSEASEGNITVTCRASSFYPRNIILTWRQDGVSLSHDTQQWGDVLPDGNGTYQTWVATRICRGEEQRFTCYMEHSGNHSTHPVPS"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "C"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Anti-MICA Fab fragment light chain clone 1D5"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EIILTQSPTTMAASPGEKITITCSASSSISSHYLHWYQQKSGFSPKLLIYRTSNLASGVPARFSGSGSGTSYSLTIGTMEAEDVATYYCQQGSSLPLTFGAGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 30307368,
+          "title": "High-resolution glycosylation site-engineering method identifies MICA epitope critical for shedding inhibition activity of anti-MICA antibodies.",
+          "journal_abbrev": "MAbs"
+        }
+      ]
+    }
+  }
+}
