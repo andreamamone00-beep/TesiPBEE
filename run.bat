@@ -21,30 +21,31 @@ python -m pip install --quiet -r requirements.txt
 if errorlevel 1 goto error
 
 REM 3. Pipeline (parametro opzionale: online)
-set MODE=%1
-if "%MODE%"=="" set MODE=simulated
-
-echo.
-echo [pipeline] Esecuzione pipeline (modalita': %MODE%)...
-if "%MODE%"=="online" (
-  python scripts\01_build_dataset.py --mode online --n 50 --fallback-simulated
-) else (
-  python scripts\01_build_dataset.py --mode simulated --n 48
-)
-if errorlevel 1 goto error
-python scripts\02_curate_structures.py --no-download
-if errorlevel 1 goto error
-python scripts\03_normalize_affinity.py
-if errorlevel 1 goto error
-python scripts\04_compute_pbee.py
-if errorlevel 1 goto error
-python scripts\05_analyze_results.py
-if errorlevel 1 goto error
+REM Commentato per evitare sovrascrittura del dataset manuale
+REM set MODE=%1
+REM if "%MODE%"=="" set MODE=simulated
+REM 
+REM echo.
+REM echo [pipeline] Esecuzione pipeline (modalita': %MODE%)...
+REM if "%MODE%"=="online" (
+REM   python scripts\01_build_dataset.py --mode online --n 50 --fallback-simulated
+REM ) else (
+REM   python scripts\01_build_dataset.py --mode simulated --n 48
+REM )
+REM if errorlevel 1 goto error
+REM python scripts\02_curate_structures.py --no-download
+REM if errorlevel 1 goto error
+REM python scripts\03_normalize_affinity.py
+REM if errorlevel 1 goto error
+REM python scripts\04_compute_pbee.py
+REM if errorlevel 1 goto error
+REM python scripts\05_analyze_results.py
+REM if errorlevel 1 goto error
 
 REM 4. Dashboard
 echo.
 echo ====================================
-echo   Pipeline completata. Avvio dashboard.
+echo   Avvio dashboard con dataset esistente.
 echo   URL: http://127.0.0.1:5000
 echo   Premere Ctrl+C per fermare.
 echo ====================================
