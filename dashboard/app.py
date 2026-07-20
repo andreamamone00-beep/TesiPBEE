@@ -36,6 +36,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 DATA_DIR = ROOT / "data"
 DATA_PATH = DATA_DIR / "dataset.csv"
+DATASET2_PATH = DATA_DIR / "dataset2.csv"
 RESULTS_DIR = ROOT / "results"
 METRICS_PATH = RESULTS_DIR / "metrics.json"
 SABDAB_SUMMARY_PATH = DATA_DIR / "sabdab_summary.tsv"
@@ -63,11 +64,18 @@ FLOAT_FIELDS = {
 }
 
 
-def load_dataset() -> list[dict]:
-    if not DATA_PATH.exists():
+def load_dataset(dataset_name: str = "dataset1") -> list[dict]:
+    if dataset_name == "dataset1":
+        path = DATA_PATH
+    elif dataset_name == "dataset2":
+        path = DATASET2_PATH
+    else:
+        path = DATA_PATH
+    
+    if not path.exists():
         return []
     rows = []
-    with DATA_PATH.open("r", encoding="utf-8") as f:
+    with path.open("r", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             for k in FLOAT_FIELDS:
                 if k in row and row[k] not in ("", None):
@@ -181,14 +189,16 @@ def sources_page():
 
 @app.route("/api/dataset")
 def api_dataset():
-    records = load_dataset()
+    dataset_name = request.args.get("dataset", "dataset1")
+    records = load_dataset(dataset_name)
     filtered = filter_records(records, request.args)
-    return jsonify({"records": filtered, "metrics": compute_metrics(filtered)})
+    return jsonify({"records": filtered, "metrics": compute_metrics(filtered), "dataset": dataset_name})
 
 
 @app.route("/api/metadata")
 def api_metadata():
-    records = load_dataset()
+    dataset_name = request.args.get("dataset", "dataset1")
+    records = load_dataset(dataset_name)
     if not records:
         return jsonify({"empty": True,
                         "message": "Dataset non trovato. Esegui la pipeline."})
@@ -208,6 +218,7 @@ def api_metadata():
         "sources": sources_list,
         "total": len(records),
         "global_metrics": global_metrics,
+        "dataset": dataset_name,
     })
 
 

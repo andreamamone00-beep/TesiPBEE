@@ -2,7 +2,7 @@
   "use strict";
 
   const el = (id) => document.getElementById(id);
-  const state = { format: "all", method: "all", source: "all", res_max: 3.5, kd_max: 10000 };
+  const state = { format: "all", method: "all", source: "all", res_max: 3.5, kd_max: 10000, dataset: "dataset1" };
   let scatterChart = null;
   let residualsChart = null;
   let pdbViewer = null;
@@ -49,7 +49,7 @@
   async function boot() {
     let meta;
     try {
-      meta = await fetch("/api/metadata").then((r) => r.json());
+      meta = await fetch("/api/metadata?dataset=" + state.dataset).then((r) => r.json());
     } catch (e) {
       console.error(e);
       el("empty-state").classList.remove("hidden");
@@ -81,6 +81,15 @@
   }
 
   function bindEvents() {
+    el("f-dataset").addEventListener("change", async (e) => { 
+      state.dataset = e.target.value; 
+      // Refresh metadata when dataset changes
+      const meta = await fetch("/api/metadata?dataset=" + state.dataset).then((r) => r.json());
+      populateSelect("f-format", meta.formats);
+      populateSelect("f-method", meta.methods);
+      populateSelect("f-source", meta.sources);
+      refresh(); 
+    });
     el("f-format").addEventListener("change", (e) => { state.format = e.target.value; refresh(); });
     el("f-method").addEventListener("change", (e) => { state.method = e.target.value; refresh(); });
     el("f-source").addEventListener("change", (e) => { state.source = e.target.value; refresh(); });
@@ -1001,6 +1010,7 @@
 
   function queryString() {
     const params = new URLSearchParams();
+    params.set("dataset", state.dataset);
     params.set("format", state.format);
     params.set("method", state.method);
     params.set("source", state.source);
