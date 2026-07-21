@@ -36,20 +36,17 @@ python scripts/05_analyze_results.py</pre>
     </div>
 
     <section id="content" class="hidden">
-      <div class="metrics">
-        <div class="metric-card"><div class="label">Complessi</div><div class="value" id="m-count">—</div></div>
-        <div class="metric-card"><div class="label">RMSE (kcal/mol)</div><div class="value" id="m-rmse">—</div></div>
-        <div class="metric-card"><div class="label">MAE (kcal/mol)</div><div class="value" id="m-mae">—</div></div>
-        <div class="metric-card"><div class="label">Pearson r</div><div class="value" id="m-pearson">—</div></div>
-        <div class="metric-card"><div class="label">Spearman ρ</div><div class="value" id="m-spearman">—</div></div>
-        <div class="metric-card"><div class="label">Kendall τ</div><div class="value" id="m-kendall">—</div></div>
-        <div class="metric-card"><div class="label">Bias medio</div><div class="value" id="m-bias">—</div></div>
-      </div>
-
       <div class="card filters">
         <h3>Filtri</h3>
         <div class="filter-grid">
           <div class="filter">
+            <label for="f-view-mode">Modalità visualizzazione</label>
+            <select id="f-view-mode">
+              <option value="single">Dataset singolo</option>
+              <option value="comparison">Confronto Dataset1 vs Dataset2</option>
+            </select>
+          </div>
+          <div class="filter" id="f-dataset-filter">
             <label for="f-dataset">Dataset</label>
             <select id="f-dataset">
               <option value="dataset1">Dataset 1 (50 complessi)</option>
@@ -80,6 +77,41 @@ python scripts/05_analyze_results.py</pre>
             <button id="btn-reset">Reset</button>
             <a id="btn-export" href="/api/export.csv" class="btn">Esporta CSV</a>
           </div>
+        </div>
+      </div>
+
+      <!-- Metrics for single dataset mode -->
+      <div id="single-metrics" class="metrics">
+        <div class="metric-card"><div class="label">Complessi</div><div class="value" id="m-count">—</div></div>
+        <div class="metric-card"><div class="label">RMSE (kcal/mol)</div><div class="value" id="m-rmse">—</div></div>
+        <div class="metric-card"><div class="label">MAE (kcal/mol)</div><div class="value" id="m-mae">—</div></div>
+        <div class="metric-card"><div class="label">Pearson r</div><div class="value" id="m-pearson">—</div></div>
+        <div class="metric-card"><div class="label">Spearman ρ</div><div class="value" id="m-spearman">—</div></div>
+        <div class="metric-card"><div class="label">Kendall τ</div><div class="value" id="m-kendall">—</div></div>
+        <div class="metric-card"><div class="label">Bias medio</div><div class="value" id="m-bias">—</div></div>
+      </div>
+
+      <!-- Metrics for comparison mode -->
+      <div id="comparison-metrics" class="metrics hidden">
+        <div class="metrics-section">
+          <h4>Dataset 1</h4>
+          <div class="metric-card"><div class="label">Complessi</div><div class="value" id="m1-count">—</div></div>
+          <div class="metric-card"><div class="label">RMSE (kcal/mol)</div><div class="value" id="m1-rmse">—</div></div>
+          <div class="metric-card"><div class="label">MAE (kcal/mol)</div><div class="value" id="m1-mae">—</div></div>
+          <div class="metric-card"><div class="label">Pearson r</div><div class="value" id="m1-pearson">—</div></div>
+          <div class="metric-card"><div class="label">Spearman ρ</div><div class="value" id="m1-spearman">—</div></div>
+          <div class="metric-card"><div class="label">Kendall τ</div><div class="value" id="m1-kendall">—</div></div>
+          <div class="metric-card"><div class="label">Bias medio</div><div class="value" id="m1-bias">—</div></div>
+        </div>
+        <div class="metrics-section">
+          <h4>Dataset 2</h4>
+          <div class="metric-card"><div class="label">Complessi</div><div class="value" id="m2-count">—</div></div>
+          <div class="metric-card"><div class="label">RMSE (kcal/mol)</div><div class="value" id="m2-rmse">—</div></div>
+          <div class="metric-card"><div class="label">MAE (kcal/mol)</div><div class="value" id="m2-mae">—</div></div>
+          <div class="metric-card"><div class="label">Pearson r</div><div class="value" id="m2-pearson">—</div></div>
+          <div class="metric-card"><div class="label">Spearman ρ</div><div class="value" id="m2-spearman">—</div></div>
+          <div class="metric-card"><div class="label">Kendall τ</div><div class="value" id="m2-kendall">—</div></div>
+          <div class="metric-card"><div class="label">Bias medio</div><div class="value" id="m2-bias">—</div></div>
         </div>
       </div>
 

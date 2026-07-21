@@ -115,6 +115,34 @@ main { padding: 1.5rem 0 3rem; }
   border-radius: var(--radius-md);
   padding: 1rem;
 }
+
+.metrics-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.metrics-section h4 {
+  grid-column: 1 / -1;
+  margin: 0 0 0.5rem 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.comparison-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.comparison-container .card {
+  margin-bottom: 0;
+}
 .metric-card .label {
   font-size: 12px;
   color: var(--text-muted);

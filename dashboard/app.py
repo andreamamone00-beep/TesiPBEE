@@ -195,6 +195,30 @@ def api_dataset():
     return jsonify({"records": filtered, "metrics": compute_metrics(filtered), "dataset": dataset_name})
 
 
+@app.route("/api/datasets/both")
+def api_datasets_both():
+    """Return both datasets for comparison"""
+    dataset1_records = load_dataset("dataset1")
+    dataset2_records = load_dataset("dataset2")
+    
+    # Apply filters to both datasets if provided
+    dataset1_filtered = filter_records(dataset1_records, request.args)
+    dataset2_filtered = filter_records(dataset2_records, request.args)
+    
+    return jsonify({
+        "dataset1": {
+            "records": dataset1_filtered,
+            "metrics": compute_metrics(dataset1_filtered),
+            "count": len(dataset1_filtered)
+        },
+        "dataset2": {
+            "records": dataset2_filtered,
+            "metrics": compute_metrics(dataset2_filtered),
+            "count": len(dataset2_filtered)
+        }
+    })
+
+
 @app.route("/api/metadata")
 def api_metadata():
     dataset_name = request.args.get("dataset", "dataset1")

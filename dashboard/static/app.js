@@ -2,7 +2,7 @@
   "use strict";
 
   const el = (id) => document.getElementById(id);
-  const state = { format: "all", method: "all", source: "all", res_max: 3.5, kd_max: 10000, dataset: "dataset1" };
+  const state = { format: "all", method: "all", source: "all", res_max: 3.5, kd_max: 10000, dataset: "dataset1", viewMode: "single" };
   let scatterChart = null;
   let residualsChart = null;
   let pdbViewer = null;
@@ -81,14 +81,19 @@
   }
 
   function bindEvents() {
-    el("f-dataset").addEventListener("change", async (e) => { 
-      state.dataset = e.target.value; 
+    el("f-view-mode").addEventListener("change", (e) => {
+      state.viewMode = e.target.value;
+      toggleViewMode();
+      refresh();
+    });
+    el("f-dataset").addEventListener("change", async (e) => {
+      state.dataset = e.target.value;
       // Refresh metadata when dataset changes
       const meta = await fetch("/api/metadata?dataset=" + state.dataset).then((r) => r.json());
       populateSelect("f-format", meta.formats);
       populateSelect("f-method", meta.methods);
       populateSelect("f-source", meta.sources);
-      refresh(); 
+      refresh();
     });
     el("f-format").addEventListener("change", (e) => { state.format = e.target.value; refresh(); });
     el("f-method").addEventListener("change", (e) => { state.method = e.target.value; refresh(); });
@@ -1019,12 +1024,57 @@
     return params.toString();
   }
 
+  function toggleViewMode() {
+    const singleMetrics = el("single-metrics");
+    const comparisonMetrics = el("comparison-metrics");
+    const datasetFilter = el("f-dataset-filter");
+
+    if (state.viewMode === "comparison") {
+      singleMetrics.classList.add("hidden");
+      comparisonMetrics.classList.remove("hidden");
+      datasetFilter.classList.add("hidden");
+    } else {
+      singleMetrics.classList.remove("hidden");
+      comparisonMetrics.classList.add("hidden");
+      datasetFilter.classList.remove("hidden");
+    }
+  }
+
   async function refresh() {
-    const data = await fetch("/api/dataset?" + queryString()).then((r) => r.json());
-    updateMetrics(data.metrics);
-    updateCharts(data.records);
-    updateTable(data.records);
-    el("btn-export").href = "/api/export.csv?" + queryString();
+    if (state.viewMode === "comparison") {
+      const data = await fetch("/api/datasets/both?" + queryString()).then((r) => r.json());
+      updateComparisonMetrics(data);
+    } else {
+      const data = await fetch("/api/dataset?" + queryString()).then((r) => r.json());
+      updateMetrics(data.metrics);
+      updateCharts(data.records);
+      updateTable(data.records);
+      el("btn-export").href = "/api/export.csv?" + queryString();
+    }
+  }
+
+  function updateComparisonMetrics(data) {
+    // Update Dataset 1 metrics
+    el("m1-count").textContent = data.dataset1.count;
+    if (data.dataset1.metrics) {
+      el("m1-rmse").textContent = data.dataset1.metrics.rmse?.toFixed(2) || "—";
+      el("m1-mae").textContent = data.dataset1.metrics.mae?.toFixed(2) || "—";
+      el("m1-pearson").textContent = data.dataset1.metrics.pearson?.toFixed(2) || "—";
+      el("m1-spearman").textContent = data.dataset1.metrics.spearman?.toFixed(2) || "—";
+      el("m1-kendall").textContent = data.dataset1.metrics.kendall?.toFixed(2) || "—";
+      el("m1-bias").textContent = data.dataset1.metrics.bias?.toFixed(2) || "—";
+    }
+
+    // Update Dataset 2 metrics
+    el("m2-count").textContent = data.dataset2.count;
+    if (data.dataset2.metrics) {
+      el("m2-rmse").textContent = data.dataset2.metrics.rmse?.toFixed(2) || "—";
+      el("m2-mae").textContent = data.dataset2.metrics.mae?.toFixed(2) || "—";
+      el("m2-pearson").textContent = data.dataset2.metrics.pearson?.toFixed(2) || "—";
+      el("m2-spearman").textContent = data.dataset2.metrics.spearman?.toFixed(2) || "—";
+      el("m2-kendall").textContent = data.dataset2.metrics.kendall?.toFixed(2) || "—";
+      el("m2-bias").textContent = data.dataset2.metrics.bias?.toFixed(2) || "—";
+    }
   }
 
   function fmt(v, digits = 2) {
