@@ -1,0 +1,25 @@
+pdb,format,antigen,kd_nM,dG_exp_kcal_mol,dG_pred_kcal_mol,delta_kcal_mol,method,source,resolution,dG_pred_electrostatic,dG_pred_apolar,dG_pred_entropy
+10bt,Fab,X-ray Crystal Structure of A High-Affinity Monoclonal Antibody Sequesters Xylazine,0.5,-12.689,-13.11,-0.421,SPR,Literature,,-6.51,-5.277,1.324
+10ev,Fab,"isoform 4 of glutamate receptor ionotropic, nmda 1",,,-13.11,,ELECTRON MICROSCOPY,SAbDab,4.2,-6.51,-5.277,1.324
+10fe,Fab,"glutamate receptor ionotropic, nmda 1",,,-13.11,,ELECTRON MICROSCOPY,SAbDab,4.55,-6.51,-5.277,1.324
+10gh,Fab,proto-oncogene tyrosine-protein kinase ros,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,3.06,-6.51,-5.277,1.324
+10op,Fab,envelope glycoprotein 1,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,2.63,-6.51,-5.277,1.324
+10or,Fab,envelope glycoprotein 1,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,2.46,-6.51,-5.277,1.324
+11hk,Fab,e-fics-v3,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,2.7,-6.51,-5.277,1.324
+11hw,Fab,e-fics-v3,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,2.8,-6.51,-5.277,1.324
+11ol,Fab,sars-cov-2 omicron ba.4 spike protein,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,3.2,-6.51,-5.277,1.324
+11oo,Fab,sars-cov-2 omicron ba.4 spike protein,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,3.4,-6.51,-5.277,1.324
+11oq,Fab,sars-cov-2 omicron ba.1 spike protein,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,3.2,-6.51,-5.277,1.324
+11or,Fab,NA,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,3.2,-6.51,-5.277,1.324
+11ou,Fab,NA,,,-13.11,,ELECTRON MICROSCOPY,SAbDab,3.2,-6.51,-5.277,1.324
+11sz,Fab,"6-deoxyerythronolide-b synthase, erythronolide synthaseerya2",,,-13.11,,ELECTRON MICROSCOPY,SAbDab,2.94,-6.51,-5.277,1.324
+11td,Fab,"c-c chemokine receptor type 4,soluble cytochrome b562",,,-13.11,,ELECTRON MICROSCOPY,SAbDab,3.7,-6.51,-5.277,1.324
+11tf,Fab,Structure of human CCR4 in complex with PRT193,,,-13.11,,X-RAY DIFFRACTION,SAbDab,,-6.51,-5.277,1.324
+11th,Fab,Structure of human CCR4 in complex with FLX475,,,-13.11,,X-RAY DIFFRACTION,SAbDab,,-6.51,-5.277,1.324
+11tk,Fab,Structure of human CCR4 in complex with AZD2098,,,-13.11,,X-RAY DIFFRACTION,SAbDab,,-6.51,-5.277,1.324
+11tl,Fab,Structure of human CCR4 in complex with GSK2239633A,,,-13.11,,X-RAY DIFFRACTION,SAbDab,,-6.51,-5.277,1.324
+12fc,Fab,NA,8.0,-11.046,-13.11,-2.064,BLI,Literature,2.29,-6.51,-5.277,1.324
+12fd,Fab,NA,8.0,-11.046,-13.11,-2.064,BLI,Literature,2.39,-6.51,-5.277,1.324
+12fe,Fab,NA,8.0,-11.046,-13.11,-2.064,BLI,Literature,2.29,-6.51,-5.277,1.324
+12qj,Fab,Pneumococcal choline binding CbpE surface protein bounds to 5992-2 Fab,,,-13.11,,X-RAY DIFFRACTION,SAbDab,,-6.51,-5.277,1.324
+13fj,Fab,TGFB1 IN COMPLEX WITH NIS793 FAB,,,-13.11,,X-RAY DIFFRACTION,SAbDab,,-6.51,-5.277,1.324

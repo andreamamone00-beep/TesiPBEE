@@ -61,6 +61,11 @@
     }
     el("content").classList.remove("hidden");
 
+    // Initialize dataset selector to match state
+    el("f-dataset").value = state.dataset;
+    el("f-view-mode").value = state.viewMode;
+    toggleViewMode();
+
     populateSelect("f-format", meta.formats);
     populateSelect("f-method", meta.methods);
     populateSelect("f-source", meta.sources);
@@ -88,11 +93,13 @@
     });
     el("f-dataset").addEventListener("change", async (e) => {
       state.dataset = e.target.value;
+      console.log("Dataset selector changed to:", state.dataset);
       // Refresh metadata when dataset changes
       const meta = await fetch("/api/metadata?dataset=" + state.dataset).then((r) => r.json());
       populateSelect("f-format", meta.formats);
       populateSelect("f-method", meta.methods);
       populateSelect("f-source", meta.sources);
+      console.log("About to refresh with dataset:", state.dataset);
       refresh();
     });
     el("f-format").addEventListener("change", (e) => { state.format = e.target.value; refresh(); });
@@ -1021,6 +1028,7 @@
     params.set("source", state.source);
     params.set("res_max", state.res_max);
     if (state.kd_max < 10000) params.set("kd_max", state.kd_max);
+    console.log("queryString:", params.toString());
     return params.toString();
   }
 
@@ -1046,6 +1054,9 @@
       updateComparisonMetrics(data);
     } else {
       const data = await fetch("/api/dataset?" + queryString()).then((r) => r.json());
+      console.log("Refresh - API response dataset:", data.dataset);
+      console.log("Refresh - API response records count:", data.records?.length);
+      console.log("Refresh - First record PDB:", data.records?.[0]?.pdb);
       updateMetrics(data.metrics);
       updateCharts(data.records);
       updateTable(data.records);
@@ -1199,32 +1210,50 @@
   }
 
   function updateTable(records) {
+    console.log("updateTable called with", records.length, "records");
+    console.log("First record in updateTable:", records[0]);
     el("tbl-n").textContent = records.length;
     const body = el("tbl-body");
     if (!records.length) {
-      body.innerHTML = '<tr><td colspan="10" style="padding:16px;text-align:center;color:var(--text-muted)">Nessun complesso corrisponde ai filtri selezionati</td></tr>';
+      body.innerHTML = '<tr><td colspan="11" style="padding:16px;text-align:center;color:var(--text-muted)">Nessun complesso corrisponde ai filtri selezionati</td></tr>';
       return;
     }
-    const sorted = records.slice().sort((a, b) => a.kd_nM - b.kd_nM);
+    const sorted = records.slice().sort((a, b) => {
+      const kdA = a.kd_nM !== null && a.kd_nM !== "" ? parseFloat(a.kd_nM) : Infinity;
+      const kdB = b.kd_nM !== null && b.kd_nM !== "" ? parseFloat(b.kd_nM) : Infinity;
+      return kdA - kdB;
+    });
+    console.log("Sorted records, first PDB:", sorted[0]?.pdb);
     body.innerHTML = sorted.map((r) => {
-      const diff = r.dG_pred_kcal_mol - r.dG_exp_kcal_mol;
-      const cls = Math.abs(diff) < 1 ? "good" : Math.abs(diff) < 2 ? "warn" : "bad";
-      const kd = r.kd_nM < 1 ? r.kd_nM.toFixed(2)
-        : r.kd_nM < 10 ? r.kd_nM.toFixed(1)
-        : Math.round(r.kd_nM).toLocaleString("it-IT");
+      const dG_exp = r.dG_exp_kcal_mol !== null && r.dG_exp_kcal_mol !== "" ? parseFloat(r.dG_exp_kcal_mol) : null;
+      const dG_pred = r.dG_pred_kcal_mol !== null && r.dG_pred_kcal_mol !== "" ? parseFloat(r.dG_pred_kcal_mol) : null;
+      const diff = (dG_exp !== null && dG_pred !== null) ? dG_pred - dG_exp : null;
+      const cls = diff !== null ? (Math.abs(diff) < 1 ? "good" : Math.abs(diff) < 2 ? "warn" : "bad") : "";
+      const kd = r.kd_nM !== null && r.kd_nM !== "" 
+        ? (parseFloat(r.kd_nM) < 1 ? parseFloat(r.kd_nM).toFixed(2)
+          : parseFloat(r.kd_nM) < 10 ? parseFloat(r.kd_nM).toFixed(1)
+          : Math.round(parseFloat(r.kd_nM)).toLocaleString("it-IT"))
+        : "—";
+      const dG_exp_str = dG_exp !== null ? dG_exp.toFixed(2) : "—";
+      const dG_pred_str = dG_pred !== null ? dG_pred.toFixed(2) : "—";
+      const diff_str = diff !== null ? (diff > 0 ? "+" : "") + diff.toFixed(2) : "—";
+      const kd_method = r.kd_method || "—";
+      const res_str = r.resolution !== null && r.resolution !== "" ? r.resolution : "—";
       return `<tr>
         <td class="pdb">${r.pdb}</td>
         <td>${r.format}</td>
         <td class="antigen">${r.antigen}</td>
         <td class="num">${kd}</td>
-        <td class="num">${r.dG_exp_kcal_mol.toFixed(2)}</td>
-        <td class="num">${r.dG_pred_kcal_mol.toFixed(2)}</td>
-        <td class="num diff ${cls}">${diff > 0 ? "+" : ""}${diff.toFixed(2)}</td>
+        <td class="num">${dG_exp_str}</td>
+        <td class="num">${dG_pred_str}</td>
+        <td class="num diff ${cls}">${diff_str}</td>
+        <td class="method">${kd_method}</td>
         <td class="method">${r.method}</td>
         <td class="method">${r.source}</td>
-        <td class="num">${r.resolution}</td>
+        <td class="num">${res_str}</td>
       </tr>`;
     }).join("");
+    console.log("Table HTML updated");
   }
 
   document.addEventListener("DOMContentLoaded", boot);

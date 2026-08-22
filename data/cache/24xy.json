@@ -1,0 +1,164 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "24XY",
+      "struct": {
+        "title": "P2Y13R-Gq complex bound to ADP"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          3.0
+        ],
+        "experimental_method": "EM",
+        "polymer_entity_count_protein": 6
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "scFv16"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "DVQLVESGGGLVQPGGSRKLSCSASGFAFSSFGMHWVRQAPEKGLEWVAYISSGSGTIYYADTVKGRFTISRDDPKNTLFLQMTSLRSEDTAMYYCVRSIYYYGSSPFDFWGQGTTLTVSSGGGGSGGGGSGGGGSDIVMTQATSSVPVTPGESVSISCRSSKSLLHSNGNTYLYWFLQRPGQSPQLLIYRMSNLASGVPDRFSGSGSGTAFTLTISRLEAEDVGVYYCMQHLEYPLTFGAGTKLELKAAAASSEDLYFQ"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "F"
+            ],
+            "auth_asym_ids": [
+              "S"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "nanobody Nb35"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MGQVQLQESGGGLVQPGGSLRLSCAASGFTFSNYKMNWVRQAPGKGLEWVSDISQSGASISYTGSVKGRFTISRDNAKNTLYLQMNSLKPEDTAVYYCARCPAPFTRDCFDVTSTTYAYRGQGTQVTVSSLHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Lama glama"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "E"
+            ],
+            "auth_asym_ids": [
+              "N"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MASNNTASIAQARKLVEQLKMEANIDRIKVSKAAADLMAYCEAHAKEDPLLTPVPASENPFREKKFFS"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Bos taurus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "D"
+            ],
+            "auth_asym_ids": [
+              "G"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Guanine nucleotide-binding protein G(I)/G(S)/G(T) subunit beta-1"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MHHHHHHGSLLQSELDQLRQEAEQLKNQIRDARKACADATLSQITNNIDPVGRIQMRTRRTLRGHLAKIYAMHWGTDSRLLVSASQDGKLIIWDSYTTNKVHAIPLRSSWVMTCAYAPSGNYVACGGLDNICSIYNLKTREGNVRVSRELAGHTGYLSCCRFLDDNQIVTSSGDTTCALWDIETGQQTTTFTGHTGDVMSLSLAPDTRLFVSGACDASAKLWDVREGMCRQTFTGHESDINAICFFPNGNAFATGSDDATCRLFDLRADQELMTYSHDNIICGITSVSFSKSGRLLLAGYDDFNCNVWDALKADRAGVLAGHDNRVSCLGVTDDGMAVATGSWDSFLKIWN"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Rattus norvegicus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2,miniGsqi"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MASNNTASIAQARKLVEQLKMEANIDRIKVSKAAADLMAYCEAHAKEDPLLTPVPASENPFREKKFFSGSAGSAGSAMGSTVSAEDKAAAERSKMIDKNLREDGEKARRTLRLLLLGADNSGKSTIVKQMRILHGGSGGSGGTSGIFETKFQVDKVNFHMFDVGGQRDERRKWIQCFNDVTAIIFVVDSSDYNRLQEALNDFKSIWNNRWLRTISVILFLNKQDLLAEKVLAGKSKIEDYFPEFARYTTPEDATPEPGEDPRVTRAKYFIRKEFVDISTASGDGRHICYPHFTCAVDTENARRIFNDCKDIILQMNLREYNLV"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            },
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Soluble cytochrome b562,P2Y purinoceptor 13,LgBiT tag,GFP"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MKTIIALSYIFCLVFADYKDDDDKADLEDNWETLNDNLKVIEKADNAAQVKDALTKMRAAALDAQKATPPKLEDKSPDSPEMKDFRHGFDILVGQIDDALKLANEGKVKEAQAAAEQLKTTRNAYIQKYLMNTTVMQGFNRSERCPRDTRIVQLVFPALYTVVFLTGILLNTLALWVFVHIPSSSTFIIYLKNTLVADLIMTLMLPFKILSDSHLAPWQLRAFVCRFSSVIFYETMYVGIVLLGLIAFDRFLKIIRPLRNIFLKKPVFAKTVSIFIWFFLFFISLPNTILSNKEATPSSVKKCASLKGPLGLKWHQMVNNICQFIFWTVFILMLVFYVVIAKKVYDSYRKSKSKDRKNNKKLEGKVFVVVAVFFVCFAPFHFARVPYTHSQTNNKTDCRLQNQLFIAKETTLFLAATNICMDPLIYIFLCKKFTEKLPCMQGRKTTASSQENHSSQTDNITLGGSGGGGSGGSSSGGVFTLEDFVGDWEQTAAYNLDQVLEQGGVSSLLQNLAVSVTPIQRIVRSGENALKIDIHVIIPYEGLSADQMAQIEEVFKVVYPVDDHHFKVILPYGTLVIDGVTPNMLNYFGRPYEGIAVFDGKKITVTGTLWNGNKIIDERLITPDGSMLFRVTINSGGSGGGGSGGSSSGGLEVLFQGPGSAAAAVSKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLTYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSKLSKDPNEKRDHMVLLEFVTAAGITLGMDELYKSGLRSHHHHHHHH"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Escherichia coli"
+            },
+            {
+              "scientific_name": "Homo sapiens"
+            },
+            {
+              "scientific_name": "synthetic construct"
+            },
+            {
+              "scientific_name": "human respiratory syncytial virus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "R"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 42208230,
+          "title": "Structural insights into the ligand and G protein recognition by P2Y 13 R.",
+          "journal_abbrev": "Biochem.Biophys.Res.Commun."
+        }
+      ]
+    }
+  }
+}

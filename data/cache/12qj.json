@@ -1,0 +1,89 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "12QJ",
+      "struct": {
+        "title": "Pneumococcal choline binding CbpE surface protein bounds to 5992-2 Fab"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          3.35
+        ],
+        "experimental_method": "EM",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "5992-2 Fab Light Chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QSVLTQPPSLSGAPGQTVTISCTGSSSNIGAGYDVHWYRQLPGTAPTLLISVFDNRPLGVPGRISGSKSGTSASLAITGLQAEDEADYYCQSHDNMLSGSVFGGGTKLTVL"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "C"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "5992-2 Fab Heavy Chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QVQLQESGPRLVKVSETLSLTCSLSGHSISSGHHWAWIRQSPGRGLEWIATVDHNGRTYYNPSLRGRVILSKDTTKNSFSVQLTSVTAADTAVYYCARREAPSPGTGWYPPFGQWGQGALVTVST"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Choline binding protein E CbpE"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "SSGNKIHFINVQEGGSDAIILESNGHFAMVDTGEDYDFPDGSDSRYPWREGIETSYKHVLTDRVFRRLKELGVQKLDFILVTHTHSDHIGNVDELLSTYPVDRVYLKKYSDNRITNSERLWDNLYGYDKVLQTASEKGVSVIQNITQGDAHFQFGDMDIQLYNYENETDSSGELKKIWDDNSNSLISVVKVNGKKIYLGGDLDNVHGAEDKYGPLIGKVDLMKFNHHHDTNKSNTKDFIKNLSPSLIVQTSDSLPWKNGVDSEYVNWLKERGIERINAASKDYDATVFDIRQDGLVNISTSYKPIPSFQAGWHKSSYGNWWYQAPDSTGEYAVGWNEIKGEWYYFNQTGILLQNQWKKWNNRWFYLTDSGVAAKNWKKIAGIWYYFNKENQMEI"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Streptococcus pneumoniae"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": null,
+          "title": "BROADLY REACTIVE HUMAN MONOCLONAL ANTIBODY TARGETING CONSERVED PNEUMOCOCCAL CHOLINE BINDING DOMAIN INCREASES PROTECTION AGAINST LETHAL PNEUMOCOCCAL INFECTION",
+          "journal_abbrev": "To Be Published"
+        }
+      ]
+    }
+  }
+}

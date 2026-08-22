@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dataset Ab/ScFv–Ag · PBEE benchmark</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2" />
 </head>
 <body>
   <header class="page-header">
@@ -332,6 +332,7 @@ python scripts/05_analyze_results.py</pre>
                 <th class="num">ΔG exp</th>
                 <th class="num">ΔG PBEE</th>
                 <th class="num">Δ</th>
+                <th>Metodo Kd</th>
                 <th>Metodo</th>
                 <th>Fonte</th>
                 <th class="num">Res (Å)</th>
@@ -357,6 +358,6 @@ python scripts/05_analyze_results.py</pre>
     }
   </script>
   <script src="{{ url_for('static', filename='bio-pv.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script src="{{ url_for('static', filename='app.js') }}?v=3"></script>
 </body>
 </html>

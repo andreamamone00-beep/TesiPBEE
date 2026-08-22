@@ -50,6 +50,18 @@ BACKGROUND_TASKS: dict[str, dict] = {}
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
+# Configure logging
+import logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('flask_debug.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
 
 # ---------------------------------------------------------------------------
 # Caricamento dati
@@ -58,13 +70,15 @@ FLOAT_FIELDS = {
     "kd_nM", "resolution", "temperature_K", "ph", "pKd",
     "dG_exp_kcal_mol", "dG_exp_raw_kcal_mol",
     "dG_pred_kcal_mol", "dG_pred_electrostatic", "dG_pred_apolar",
-    "dG_pred_entropy",
+    "dG_pred_entropy", "delta_kcal_mol",
     "n_residues_ab", "n_residues_ag", "interface_area_A2",
     "pbee_runtime_s",
 }
 
 
 def load_dataset(dataset_name: str = "dataset1") -> list[dict]:
+    import sys
+    print(f"load_dataset called with: {dataset_name}", file=sys.stderr, flush=True)
     if dataset_name == "dataset1":
         path = DATA_PATH
     elif dataset_name == "dataset2":
@@ -72,28 +86,53 @@ def load_dataset(dataset_name: str = "dataset1") -> list[dict]:
     else:
         path = DATA_PATH
     
+    print(f"Loading from path: {path}", file=sys.stderr, flush=True)
     if not path.exists():
+        print(f"Path does not exist: {path}", file=sys.stderr, flush=True)
         return []
     rows = []
     with path.open("r", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             for k in FLOAT_FIELDS:
-                if k in row and row[k] not in ("", None):
-                    try:
-                        row[k] = float(row[k])
-                    except ValueError:
-                        pass
+                if k in row:
+                    if row[k] in ("", None):
+                        row[k] = None
+                    else:
+                        try:
+                            row[k] = float(row[k])
+                        except ValueError:
+                            row[k] = None
             rows.append(row)
+    print(f"Loaded {len(rows)} records from {dataset_name}", file=sys.stderr, flush=True)
     return rows
 
 
 def filter_records(records, args):
+    import sys
     fmt = args.get("format", "all")
     method = args.get("method", "all")
     source = args.get("source", "all")
-    res_max = args.get("res_max", type=float)
-    kd_min = args.get("kd_min", type=float)
-    kd_max = args.get("kd_max", type=float)
+    res_max = args.get("res_max")
+    if res_max is not None:
+        try:
+            res_max = float(res_max)
+        except ValueError:
+            res_max = None
+    kd_min = args.get("kd_min")
+    if kd_min is not None:
+        try:
+            kd_min = float(kd_min)
+        except ValueError:
+            kd_min = None
+    kd_max = args.get("kd_max")
+    if kd_max is not None:
+        try:
+            kd_max = float(kd_max)
+        except ValueError:
+            kd_max = None
+
+    print(f"filter_records called with {len(records)} records", file=sys.stderr, flush=True)
+    print(f"Filters: fmt={fmt}, method={method}, source={source}, res_max={res_max}, kd_min={kd_min}, kd_max={kd_max}", file=sys.stderr, flush=True)
 
     out = []
     for r in records:
@@ -103,13 +142,30 @@ def filter_records(records, args):
             continue
         if source != "all" and r.get("source") != source:
             continue
-        if res_max is not None and r.get("resolution", 99) > res_max:
-            continue
-        if kd_min is not None and r.get("kd_nM", 0) < kd_min:
-            continue
-        if kd_max is not None and r.get("kd_nM", 0) > kd_max:
-            continue
+        # Handle resolution filtering - convert to float if possible
+        res = r.get("resolution")
+        if res is not None and res != "":
+            try:
+                res = float(res)
+                if res_max is not None and res > res_max:
+                    continue
+            except (ValueError, TypeError):
+                # If resolution is not a valid number, skip the filter
+                pass
+        # Handle kd_nM filtering - convert to float if possible
+        kd = r.get("kd_nM")
+        if kd is not None and kd != "":
+            try:
+                kd = float(kd)
+                if kd_min is not None and kd < kd_min:
+                    continue
+                if kd_max is not None and kd > kd_max:
+                    continue
+            except (ValueError, TypeError):
+                # If kd_nM is not a valid number, skip the filter
+                pass
         out.append(r)
+    print(f"filter_records returned {len(out)} records", file=sys.stderr, flush=True)
     return out
 
 
@@ -123,14 +179,20 @@ def compute_metrics(records):
 
     # Check if prediction fields exist and are numeric
     has_predictions = all(r.get("dG_pred_kcal_mol") not in (None, "", "nan") for r in records)
+    has_experiments = all(r.get("dG_exp_kcal_mol") not in (None, "", "nan") for r in records)
     
-    if not has_predictions:
+    if not has_predictions or not has_experiments:
         return {"n": len(records), "rmse": None, "mae": None,
                 "pearson": None, "spearman": None, "bias": None, "kendall": None}
 
-    exp = [r["dG_exp_kcal_mol"] for r in records]
-    pred = [r["dG_pred_kcal_mol"] for r in records]
-    errs = [p - e for p, e in zip(pred, exp)]
+    try:
+        exp = [r["dG_exp_kcal_mol"] for r in records]
+        pred = [r["dG_pred_kcal_mol"] for r in records]
+        errs = [p - e for p, e in zip(pred, exp)]
+    except (KeyError, TypeError) as e:
+        print(f"Error computing metrics: {e}")
+        return {"n": len(records), "rmse": None, "mae": None,
+                "pearson": None, "spearman": None, "bias": None, "kendall": None}
 
     def _mean(xs): return sum(xs) / len(xs)
 
@@ -189,10 +251,32 @@ def sources_page():
 
 @app.route("/api/dataset")
 def api_dataset():
-    dataset_name = request.args.get("dataset", "dataset1")
-    records = load_dataset(dataset_name)
-    filtered = filter_records(records, request.args)
-    return jsonify({"records": filtered, "metrics": compute_metrics(filtered), "dataset": dataset_name})
+    import sys
+    try:
+        dataset_name = request.args.get("dataset", "dataset1")
+        with open("api_debug.log", "a") as f:
+            f.write(f"API /api/dataset called with dataset: {dataset_name}\n")
+            f.flush()
+        records = load_dataset(dataset_name)
+        with open("api_debug.log", "a") as f:
+            f.write(f"Loaded {len(records)} records from {dataset_name}\n")
+            f.flush()
+        filtered = filter_records(records, request.args)
+        with open("api_debug.log", "a") as f:
+            f.write(f"Filtered to {len(filtered)} records\n")
+            f.flush()
+        metrics = compute_metrics(filtered)
+        with open("api_debug.log", "a") as f:
+            f.write(f"Computed metrics\n")
+            f.flush()
+        return jsonify({"records": filtered, "metrics": metrics, "dataset": dataset_name})
+    except Exception as e:
+        with open("api_debug.log", "a") as f:
+            f.write(f"Error in /api/dataset: {e}\n")
+            import traceback
+            f.write(traceback.format_exc())
+            f.flush()
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route("/api/datasets/both")

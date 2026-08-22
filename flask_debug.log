@@ -1,0 +1,134 @@
+2026-07-26 13:45:46,118 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-26 13:45:46,118 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-07-26 13:46:29,435 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-26 13:46:29,435 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-07-26 13:47:09,200 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-26 13:47:09,200 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-08-04 17:47:04,915 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-08-04 17:47:04,915 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-08-04 17:47:15,490 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:15] "GET / HTTP/1.1" 200 -
+2026-08-04 17:47:15,638 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:15] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-04 17:47:15,691 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:15] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-04 17:47:15,742 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:15] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-04 17:47:15,768 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-08-04 17:47:15,792 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:15] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-04 17:47:15,807 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:15] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-04 17:47:16,075 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:16] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-04 17:47:32,532 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:32] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-04 17:47:32,545 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:47:32] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-04 17:48:41,495 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "GET / HTTP/1.1" 200 -
+2026-08-04 17:48:41,547 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-04 17:48:41,552 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-04 17:48:41,557 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-04 17:48:41,623 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-04 17:48:41,692 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-04 17:48:41,736 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-04 17:48:41,898 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 17:48:41] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-04 18:18:18,350 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:18] "GET / HTTP/1.1" 200 -
+2026-08-04 18:18:18,400 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:18] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-04 18:18:18,434 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:18] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-04 18:18:18,560 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:18] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-04 18:18:18,635 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:18] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-04 18:18:18,654 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:18] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-04 18:18:18,858 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:18] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-04 18:18:21,618 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:21] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-04 18:18:21,650 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:21] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-04 18:18:57,718 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:57] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-04 18:18:57,734 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:18:57] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-04 18:19:16,682 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:19:16] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-04 18:19:16,719 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2026 18:19:16] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:25:21,158 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-08-05 10:25:21,158 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-08-05 10:25:37,977 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:37] "GET / HTTP/1.1" 200 -
+2026-08-05 10:25:38,282 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:38] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-05 10:25:38,320 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:38] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-05 10:25:38,405 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:38] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-05 10:25:38,464 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-08-05 10:25:38,506 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:38] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-05 10:25:38,529 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:38] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:25:38,972 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:25:38] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-05 10:26:26,044 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:26:26] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-05 10:26:26,060 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:26:26] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:45:39,921 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:39] "GET / HTTP/1.1" 200 -
+2026-08-05 10:45:40,029 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:40] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-05 10:45:40,085 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:40] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-05 10:45:40,145 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:40] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-05 10:45:40,226 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:40] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-05 10:45:40,255 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:40] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:45:40,472 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:40] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-05 10:45:43,995 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:43] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-05 10:45:44,029 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:45:44] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:49:58,354 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:49:58] "GET / HTTP/1.1" 200 -
+2026-08-05 10:49:58,391 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:49:58] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-05 10:49:58,393 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:49:58] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-05 10:49:58,397 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:49:58] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-05 10:49:58,529 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:49:58] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-05 10:49:58,558 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:49:58] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:49:58,676 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:49:58] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-05 10:50:01,878 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:50:01] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-05 10:50:01,909 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:50:01] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:57:51,543 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:51] "GET / HTTP/1.1" 200 -
+2026-08-05 10:57:51,575 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:51] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-05 10:57:51,581 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:51] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-05 10:57:51,581 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:51] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-05 10:57:51,608 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:51] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-05 10:57:51,638 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:51] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:57:51,757 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:51] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-05 10:57:55,213 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:55] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-05 10:57:55,252 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:57:55] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:58:52,040 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-08-05 10:58:52,040 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-08-05 10:58:58,551 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:58:58] "GET / HTTP/1.1" 200 -
+2026-08-05 10:58:58,767 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:58:58] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-05 10:58:58,771 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:58:58] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-05 10:58:58,776 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:58:58] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-05 10:58:58,882 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:58:58] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-05 10:58:58,910 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:58:58] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-05 10:58:59,090 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:58:59] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-05 10:59:10,463 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:59:10] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-05 10:59:10,510 - werkzeug - INFO - 127.0.0.1 - - [05/Aug/2026 10:59:10] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-18 08:53:55,129 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-08-18 08:53:55,129 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-08-18 08:55:18,407 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:18] "GET / HTTP/1.1" 200 -
+2026-08-18 08:55:18,547 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:18] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-18 08:55:18,580 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:18] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-18 08:55:18,630 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:18] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-18 08:55:18,658 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-08-18 08:55:18,685 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:18] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-18 08:55:18,704 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:18] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-18 08:55:19,009 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:19] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-18 08:55:23,054 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:23] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-18 08:55:23,064 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 08:55:23] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-18 09:46:49,557 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:49] "GET / HTTP/1.1" 200 -
+2026-08-18 09:46:49,579 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:49] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-18 09:46:49,582 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:49] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-18 09:46:49,584 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:49] "GET /static/app.js?v=3 HTTP/1.1" 200 -
+2026-08-18 09:46:49,647 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:49] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-18 09:46:49,660 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:49] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-18 09:46:49,778 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:49] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-18 09:46:53,194 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:53] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-18 09:46:53,206 - werkzeug - INFO - 127.0.0.1 - - [18/Aug/2026 09:46:53] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-22 15:44:20,350 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-08-22 15:44:20,354 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-08-22 15:44:38,123 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "GET / HTTP/1.1" 200 -
+2026-08-22 15:44:38,370 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "[36mGET /static/style.css?v=2 HTTP/1.1[0m" 304 -
+2026-08-22 15:44:38,413 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "[36mGET /static/app.js?v=3 HTTP/1.1[0m" 304 -
+2026-08-22 15:44:38,491 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "[36mGET /static/bio-pv.min.js HTTP/1.1[0m" 304 -
+2026-08-22 15:44:38,520 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-08-22 15:44:38,548 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-22 15:44:38,566 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-22 15:44:38,901 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:38] "GET /api/manage/status HTTP/1.1" 200 -
+2026-08-22 15:44:42,192 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:42] "GET /api/metadata?dataset=dataset2 HTTP/1.1" 200 -
+2026-08-22 15:44:42,219 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:44:42] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-22 15:45:32,851 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:45:32] "GET /api/datasets/both?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-22 15:45:56,623 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:45:56] "GET /api/dataset?dataset=dataset2&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -
+2026-08-22 15:46:04,547 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:46:04] "GET /api/metadata?dataset=dataset1 HTTP/1.1" 200 -
+2026-08-22 15:46:04,562 - werkzeug - INFO - 127.0.0.1 - - [22/Aug/2026 15:46:04] "GET /api/dataset?dataset=dataset1&format=all&method=all&source=all&res_max=3.5 HTTP/1.1" 200 -

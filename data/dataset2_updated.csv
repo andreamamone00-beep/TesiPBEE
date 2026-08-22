@@ -1,0 +1,25 @@
+pdb,format,antigen,kd_nM,dG_exp_kcal_mol,dG_pred_kcal_mol,delta_kcal_mol,method,source,resolution
+10bt,Fab,X-ray Crystal Structure of A High-Affinity Monoclonal Antibody Sequesters Xylazine,,,,,X-RAY DIFFRACTION,SAbDab,
+10ev,Fab,"isoform 4 of glutamate receptor ionotropic, nmda 1",,,,,ELECTRON MICROSCOPY,SAbDab,4.2
+10fe,Fab,"glutamate receptor ionotropic, nmda 1",,,,,ELECTRON MICROSCOPY,SAbDab,4.55
+10gh,Fab,proto-oncogene tyrosine-protein kinase ros,,,,,ELECTRON MICROSCOPY,SAbDab,3.06
+10op,Fab,envelope glycoprotein 1,,,,,ELECTRON MICROSCOPY,SAbDab,2.63
+10or,Fab,envelope glycoprotein 1,,,,,ELECTRON MICROSCOPY,SAbDab,2.46
+11hk,Fab,e-fics-v3,,,,,ELECTRON MICROSCOPY,SAbDab,2.7
+11hw,Fab,e-fics-v3,,,,,ELECTRON MICROSCOPY,SAbDab,2.8
+11ol,Fab,sars-cov-2 omicron ba.4 spike protein,,,,,ELECTRON MICROSCOPY,SAbDab,3.2
+11oo,Fab,sars-cov-2 omicron ba.4 spike protein,,,,,ELECTRON MICROSCOPY,SAbDab,3.4
+11oq,Fab,sars-cov-2 omicron ba.1 spike protein,,,,,ELECTRON MICROSCOPY,SAbDab,3.2
+11or,Fab,NA,,,,,ELECTRON MICROSCOPY,SAbDab,3.2
+11ou,Fab,NA,,,,,ELECTRON MICROSCOPY,SAbDab,3.2
+11sz,Fab,"6-deoxyerythronolide-b synthase, erythronolide synthaseerya2",,,,,ELECTRON MICROSCOPY,SAbDab,2.94
+11td,Fab,"c-c chemokine receptor type 4,soluble cytochrome b562",,,,,ELECTRON MICROSCOPY,SAbDab,3.7
+11tf,Fab,Structure of human CCR4 in complex with PRT193,,,,,X-RAY DIFFRACTION,SAbDab,
+11th,Fab,Structure of human CCR4 in complex with FLX475,,,,,X-RAY DIFFRACTION,SAbDab,
+11tk,Fab,Structure of human CCR4 in complex with AZD2098,,,,,X-RAY DIFFRACTION,SAbDab,
+11tl,Fab,Structure of human CCR4 in complex with GSK2239633A,,,,,X-RAY DIFFRACTION,SAbDab,
+12fc,Fab,NA,,,,,X-RAY DIFFRACTION,SAbDab,2.29
+12fd,Fab,NA,,,,,X-RAY DIFFRACTION,SAbDab,2.39
+12fe,Fab,NA,,,,,X-RAY DIFFRACTION,SAbDab,2.29
+12qj,Fab,Pneumococcal choline binding CbpE surface protein bounds to 5992-2 Fab,,,,,X-RAY DIFFRACTION,SAbDab,
+13fj,Fab,TGFB1 IN COMPLEX WITH NIS793 FAB,,,,,X-RAY DIFFRACTION,SAbDab,

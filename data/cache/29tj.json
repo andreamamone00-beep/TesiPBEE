@@ -1,0 +1,68 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "29TJ",
+      "struct": {
+        "title": "Structure of the Porcine Reproductive and Respiratory Syndrome virus-2 glycoprotein GP4 antigenic region 59-69 bound to the neutralizing scFv#18"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          2.3
+        ],
+        "experimental_method": "X-ray",
+        "polymer_entity_count_protein": 2
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Envelope glycoprotein GP4"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "ASEAIRKIPQ"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "PRRSV VR2332"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "P"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "scFv no.18 antibody chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "EVQLQQSGPELLKPGASVRMSCKASGYTFTDYYMKWVKQSHGKSLEWIGDIDPKNGDILYNQKFKGKATLTLDKSSSTAYMQLSSLTSEDSAVYYCARSVDNYYEGFAHWGQGTLVTVSPAGTGGSGGGGSGGGGSGGGASDIVMTQSPSSLSVSAGEKVTMRCKSSQSLIHSGNQKNYLAWYQQKPGQPPKMLIYGASTRESGVPDRFTGSGSGTDFTLTITSVQAEDLAVYYCQNDHSYPYTFGGGTKLEIKDDDDKAGWSHPQFEKGGGSGGGSGGGSWSHPQFEK"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "B"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 42348291,
+          "title": "Structural basis of porcine reproductive and respiratory syndrome virus 2 neutralization by a GP4-targeting monoclonal antibody.",
+          "journal_abbrev": "J.Gen.Virol."
+        }
+      ]
+    }
+  }
+}

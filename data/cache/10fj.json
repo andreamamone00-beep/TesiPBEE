@@ -1,0 +1,89 @@
+{
+  "data": {
+    "entry": {
+      "rcsb_id": "10FJ",
+      "struct": {
+        "title": "FcgRIIa in complex with IV.3 Fab"
+      },
+      "rcsb_entry_info": {
+        "resolution_combined": [
+          3.5
+        ],
+        "experimental_method": "EM",
+        "polymer_entity_count_protein": 3
+      },
+      "polymer_entities": [
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "IV.3 Fab heavy chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MGWSCIILFLVATATGAHSQIQLVQSGPELKKPGETVKISCKASGYTFTNYGMNWVKQAPGKGLKWMGWLNTYTGESIYPDDFKGRFAFSSETSASTAYLQINNLKNEDMATYFCARGDYGYDDPLDYWGQGTSVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVV"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "B"
+            ],
+            "auth_asym_ids": [
+              "H"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "IV.3 Fab light chain"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "MGWSCIILFLVATATGVHSDIVMTQAAPSVPVTPGESVSISCRSSKSLLHTNGNTYLHWFLQRPGQSPQLLIYRMSVLASGVPDRFSGSGSGTAFTLSISRVEAEDVGVFYCMQHLEYPLTFGAGTKLELKRTVDAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Mus musculus"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "C"
+            ],
+            "auth_asym_ids": [
+              "L"
+            ]
+          }
+        },
+        {
+          "rcsb_polymer_entity": {
+            "pdbx_description": "Low affinity immunoglobulin gamma Fc region receptor II-a"
+          },
+          "entity_poly": {
+            "pdbx_seq_one_letter_code_can": "QAAAPPKAVLKLEPPWINVLQEDSVTLTCQGARSPESDSIQWFHNGNLIPTHTQPSYRFKANNNDSGEYTCQTGQTSLSDPVHLTVLSEWLVLQTPHLEFQEGETIMLRCHSWKDKPLVKVTFFQNGKSQKFSHLDPTFSIPQANHSHSGDYHCTGNIGYTLFSSKPVTITVQVPSMGSSSPMGI"
+          },
+          "rcsb_entity_source_organism": [
+            {
+              "scientific_name": "Homo sapiens"
+            }
+          ],
+          "rcsb_polymer_entity_container_identifiers": {
+            "asym_ids": [
+              "A"
+            ],
+            "auth_asym_ids": [
+              "A"
+            ]
+          }
+        }
+      ],
+      "citation": [
+        {
+          "pdbx_database_id_PubMed": 41867816,
+          "title": "Mechanistic Basis for the Selective Recognition of the Fc gamma Receptor IIa by Monoclonal Antibody IV.3.",
+          "journal_abbrev": "Biorxiv"
+        }
+      ]
+    }
+  }
+}
