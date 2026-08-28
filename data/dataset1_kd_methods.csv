@@ -1,0 +1,51 @@
+pdb,kd_method,kd_nM,antigen
+4jn2,Unknown,0,3-({2-[(4-CARBAMIMIDOYL-PHENYLAMINO)-METHYL]-3-METHYL-3H-BENZOIMIDAZOLE-5-CARBONYL}-PYRIDIN-2-YL-AMINO)-PROPIONIC ACID ETHYL ESTER
+5sy8,SPR,0.01,10e8 epitope scaffold t117v2
+5myo,Unknown,0.03,amyloid beta a4 protein
+3uzq,ELISA,0.08,envelope protein
+4hpy,Unknown,0.12,envelope glycoprotein gp160
+4cmh,Fluorescence,0.2,adp-ribosyl cyclase 1
+4n8c,Unknown,0.4,extracellular domain of influenza matrix protein 2
+6ddm,ITC,0.42,mhc class i polypeptide-related sequence a
+4al8,ELISA,0.45,envelope protein
+2e+027,,0.45,"3,7:6,10:9,14-TRIANHYDRO-2,5,11,12,13-PENTADEOXY-4-O-(METHOXYMETHYL)-L-ARABINO-L-ALLO-TETRADEC-12-ENONIC ACID"
+2vxt,SPR,0.53,interleukin-18
+4fqi,BLI,0.9,hemagglutinin ha2 | hemagglutinin ha1
+5myk,Unknown,0.99,amyloid beta a4 protein
+6b14,Unknown,5,rna (86-mer)
+5tkk,Unknown,5.3,hiv-1 fusion peptide residue 512-519
+4qyo,Unknown,6,merozoite surface antigen 2
+4r3s,Unknown,6,merozoite surface protein
+5myx,Unknown,6.8,pyroglutamate-abeta pe3-18
+5alc,Unknown,7.4,Ticagrelor
+3ifl,SPR,8.4,amyloid beta a4 protein
+5kvg,SPR,8.8,zika envelope diii
+4m1g,SPR,14,a33r | a33r
+4qxt,Unknown,16,merozoite surface antigen 2
+5cin,Unknown,18,peptide from mper region of hiv-1 env
+3wih,ITC,19,roundabout homolog 1
+5i8c,Unknown,25,hiv-1 clade a bg505 fusion peptide (residue 512-520)
+4hs6,Unknown,30,e2-peptide
+5e2w,Unknown,31,tau-phosphopeptide
+5kvf,SPR,32,zika envelope diii
+5kve,SPR,35,zika envelope diii
+3t0w,Unknown,50,"1-(3-SULFOPROPYL)-4-[(1E,3E)-3-(1,3,3-TRIMETHYL-1,3-DIHYDRO-2H-INDOL-2-YLIDENE)PROP-1-EN-1-YL]QUINOLINIUM"
+4qy8,Unknown,64,merozoite surface antigen 2
+3kdm,Other,100,TESTOSTERONE
+3uyr,Unknown,127,"h-2 class i histocompatibility antigen, l-d alpha chain"
+1q72,Unknown,140,COCAINE
+3g5y,SPR,154,egfr peptide
+5kvd,SPR,266,zika envelope diii
+5yy4,Unknown,370,c-c chemokine receptor type 5
+5a2k,Unknown,450,"antigen tn, thr is covalently bound to galnac"
+5e2v,Unknown,831,tau phosphopeptide
+5n88,SPR,1013,pc4 and sfrs1-interacting protein
+5a2j,Unknown,1400,the naked peptide apdtrp
+2xzc,ITC,2300,8-METHYL-8-AZABICYCLO[3.2.1]OCTAN-3-YL PHENYLPHOSPHONATE
+3ggw,ITC,2900,peptide b1
+3pp4,ITC,7000,b-lymphocyte antigen cd20
+2r1x,Unknown,16,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL
+2r1w,Unknown,25,(3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID)-2-O-ALLYL
+2r1y,Unknown,31,3-DEOXY-D-MANNO-OCT-2-ULOSONIC ACID
+2r2b,Unknown,63,polysaccharide
+2r23,Unknown,190,polysaccharide

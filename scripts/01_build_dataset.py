@@ -136,12 +136,14 @@ def build_from_rcsb(max_hits: int) -> list[dict]:
                 pmid = str(c["pdbx_database_id_PubMed"])
                 break
 
+        kd_method = (sabdab_entry.get('affinity_method') or sabdab_entry.get('method') or method or "SPR")
         rows.append({
             "pdb": pdb_id,
             "format": fmt,
             "antigen": antigen,
             "kd_nM": float(kd_nm),
-            "method": method or "SPR",  # usa metodo da SAbDab
+            "method": method or "SPR",  # metodo strutturale: X-RAY DIFFRACTION / ELECTRON MICROSCOPY
+            "kd_method": kd_method,  # metodo sperimentale usato per la misura del Kd
             "source": source,
             "resolution": resolution or 3.0,
             "temperature_K": 298.15,
@@ -187,12 +189,14 @@ def build_from_sabdab(tsv_path: Path, max_hits: Optional[int] = None) -> list[di
             resolution = float(r.get("resolution") or "3.0")
         except ValueError:
             resolution = 3.0
+        kd_method = (r.get("affinity_method") or r.get("method") or "SPR")
         rows.append({
             "pdb": pdb_id,
             "format": "Fab" if r.get("Lchain") else "VHH",
             "antigen": (r.get("antigen_name") or "unknown")[:80],
             "kd_nM": float(kd_nm),
             "method": r.get("method") or "SPR",
+            "kd_method": kd_method,
             "source": "SAbDab",
             "resolution": resolution,
             "temperature_K": 298.15,

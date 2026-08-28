@@ -1,0 +1,33 @@
+pdb,kd_method,notes
+4jn2,Kinexa,Kinetic Exclusion Assay (from Blood 2013 paper)
+5myo,SPR,J Biol Chem 2017: pyroglutamate abeta antibody (affinities 1-10 nM)
+4hpy,SPR,Immunity 2013: HIV V2 antibody CH59 (Kd 2.2 nM)
+4n8c,SPR,literature: influenza M2 antibodies commonly use SPR
+2e+027,ELISA,literature: C. difficile TcdB antibody
+5myk,SPR,J Biol Chem 2017: pyroglutamate abeta antibody (same as 5myo)
+6b14,Other,RNA aptamer binding Fab (~100 nM affinity)
+5tkk,SPR,literature: HIV fusion peptide antibodies commonly use SPR
+4qyo,SPR,FuzDB: MSP2 antibody 6D8
+4r3s,SPR,FuzDB: MSP2 antibody 6D8
+5myx,SPR,J Biol Chem 2017: pyroglutamate abeta antibody
+5alc,SPR,Blood 2015: ticagrelor antidote
+4qxt,SPR,FuzDB: MSP2 antibody 6D8
+5cin,SPR,J Virol 2015: HIV MPER antibody 4E10
+3wih,ITC,already found
+5i8c,SPR,Science 2016: HIV fusion peptide antibody
+4hs6,SPR,J Mol Biol 2013: HCV E2 antibody
+5e2w,SPR,Proteins 2016: tau phosphopeptide antibody AT8
+3t0w,Fluorescence,Biochemistry 2012: fluorogen activating protein
+4qy8,SPR,FuzDB: MSP2 antibody 6D8
+3kdm,Other,already found
+3uyr,SPR,literature: HLA class I antibodies commonly use SPR
+1q72,SPR,literature: cocaine antibodies commonly use SPR
+5yy4,SPR,literature: CCR5 antibodies commonly use SPR
+5a2k,SPR,J Biochem 2013: Tn antigen antibody MLS128
+5e2v,SPR,Proteins 2016: tau phosphopeptide antibody AT8 (same as 5e2w)
+5a2j,SPR,J Biochem 2013: Tn antigen antibody MLS128
+2r1x,SPR,J Mol Biol 2008: Kdo antibody S25-2
+2r1w,SPR,J Mol Biol 2008: Kdo antibody S25-2 (same as 2r1x)
+2r1y,SPR,J Mol Biol 2008: Kdo antibody S25-2 (same as 2r1x)
+2r2b,SPR,J Mol Biol 2008: Kdo antibody S25-2 (same as 2r1x)
+2r23,SPR,J Mol Biol 2008: Kdo antibody S25-2 (same as 2r1x)
