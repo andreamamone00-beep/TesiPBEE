@@ -1,17 +1,17 @@
 pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubmed_id,kd_method,dG_exp_kcal_mol,dG_pred_kcal_mol,dG_pred_electrostatic,dG_pred_apolar,dG_pred_entropy,delta_kcal_mol
-10bt,Fab,E. coli TGT covalent intermediate with 1 tRNA,2.06,X-RAY DIFFRACTION,SAbDab,1.99,298.15,7.0,human,,BLI,-11.84,-11.236,-3.725,-5.869,1.642,0.604
-10gh,Fab,proto-oncogene tyrosine-protein kinase ros,116,ELECTRON MICROSCOPY,SAbDab,3.06,298.15,7.0,human,,BLI,-9.45,-9.589,-5.733,-3.525,0.331,-0.139
-11hk,Fab,e-fics-v3,0.2,ELECTRON MICROSCOPY,SAbDab,2.7,298.15,7.0,human,,BLI,-13.23,-25.761,-14.562,-10.156,1.043,-12.531
-11hw,Fab,e-fics-v3,12,ELECTRON MICROSCOPY,SAbDab,2.8,298.15,7.0,human,,BLI,-10.8,-16.192,-8.146,-6.908,1.138,-5.392
-11ol,Fab,sars-cov-2 omicron ba.4 spike protein,1,ELECTRON MICROSCOPY,SAbDab,3.2,298.15,7.0,human,,BLI,-12.28,-20.513,-16.264,-3.399,0.85,-8.233
-11oo,Fab,sars-cov-2 omicron ba.4 spike protein,100,ELECTRON MICROSCOPY,SAbDab,3.4,298.15,7.0,human,,BLI,-9.54,-14.795,-7.059,-7.143,0.593,-5.255
-11oq,Fab,sars-cov-2 omicron ba.1 spike protein,50,ELECTRON MICROSCOPY,SAbDab,3.2,298.15,7.0,human,,BLI,-9.45,-13.11,-6.51,-5.277,1.324,-3.66
-13fj,Fab,transforming growth factor beta-1,0.0146,X-RAY DIFFRACTION,SAbDab,2.75,298.15,7.0,human,,SPR,-14.78,-18.316,-13.379,-4.225,0.713,-3.536
-10fd,Fab,"glutamate receptor ionotropic, nmda 2b",31,ELECTRON MICROSCOPY,SAbDab,3.09,298.15,7.0,human,,SPR,-10.24,-138.164,-5.264,79.9,212.8,-127.924
-10fj,Fab,FcgRIIa in complex with IV.3 Fab,0.787,ELECTRON MICROSCOPY,SAbDab,3.5,298.15,7.0,human,,SPR,-12.42,-18.445,0.355,11.6,30.4,-6.025
-11zw,Fab,pdcov il121_2014 receptor binding domain,0.155,ELECTRON MICROSCOPY,SAbDab,3.8,298.15,7.0,human,,BLI,-13.4,-31.015,-3.515,16.5,44.0,-17.615
-22gk,Fab,beta-arrestin-1,1.6,ELECTRON MICROSCOPY,SAbDab,2.84,298.15,7.0,human,,Radioligand binding assay,-12,-25.412,6.088,18.9,50.4,-13.412
-22gm,Fab,beta-arrestin-1,1.0,ELECTRON MICROSCOPY,SAbDab,2.7,298.15,7.0,human,,Radioligand binding assay,-12.3,-24.759,8.141,19.9,52.8,-12.459
-24xy,Fab,guanine nucleotide-binding protein g(i)/g(s)/g(o) subunit ga,17.2,ELECTRON MICROSCOPY,SAbDab,3.0,298.15,7.0,human,,Radioligand binding assay,-10.6,-58.89,-14.89,26.4,70.4,-48.29
-24xz,Fab,soluble cytochrome b562,50.9,ELECTRON MICROSCOPY,SAbDab,2.93,298.15,7.0,human,,Radioligand binding assay,-9.94,-35.095,6.205,25.1,66.4,-25.155
-29tj,Fab,envelope glycoprotein gp4,1.89,X-RAY DIFFRACTION,SAbDab,2.3,298.15,7.0,human,,Real-time SPR,-11.9,-8.529,-0.229,5.3,13.6,3.371
+10bt,Fab,E. coli TGT covalent intermediate with 1 tRNA,2.06,X-RAY DIFFRACTION,SAbDab,1.99,298.15,7.0,human,,BLI,-11.84,N/A,N/A,N/A,N/A,N/A
+10gh,Fab,proto-oncogene tyrosine-protein kinase ros,116,ELECTRON MICROSCOPY,SAbDab,3.06,298.15,7.0,human,,BLI,-9.45,N/A,N/A,N/A,N/A,N/A
+11hk,Fv,e-fics-v3,0.2,ELECTRON MICROSCOPY,SAbDab,2.7,298.15,7.0,human,,BLI,-13.23,-9.772,,,,-3.458
+11hw,Fv,e-fics-v3,12,ELECTRON MICROSCOPY,SAbDab,2.8,298.15,7.0,human,,BLI,-10.8,-10.331,,,,-0.469
+11ol,Fab/SD-H,sars-cov-2 omicron ba.4 spike protein,1,ELECTRON MICROSCOPY,SAbDab,3.2,298.15,7.0,human,,BLI,-12.28,N/A,N/A,N/A,N/A,N/A
+11oo,Fab/SD-H,sars-cov-2 omicron ba.4 spike protein,100,ELECTRON MICROSCOPY,SAbDab,3.4,298.15,7.0,human,,BLI,-9.54,N/A,N/A,N/A,N/A,N/A
+11oq,Fab/SD-H,sars-cov-2 omicron ba.1 spike protein,50,ELECTRON MICROSCOPY,SAbDab,3.2,298.15,7.0,human,,BLI,-9.45,N/A,N/A,N/A,N/A,N/A
+13fj,Fab,transforming growth factor beta-1,0.0146,X-RAY DIFFRACTION,SAbDab,2.75,298.15,7.0,human,,SPR,-14.78,-10.045,,,,-4.735
+10fd,Fv,"glutamate receptor ionotropic, nmda 2b",31,ELECTRON MICROSCOPY,SAbDab,3.09,298.15,7.0,human,,SPR,-10.24,N/A,N/A,N/A,N/A,N/A
+10fj,Fab,FcgRIIa in complex with IV.3 Fab,0.787,ELECTRON MICROSCOPY,SAbDab,3.5,298.15,7.0,human,,SPR,-12.42,-9.290,,,,-3.13
+11zw,Fab/SD-H,pdcov il121_2014 receptor binding domain,0.155,ELECTRON MICROSCOPY,SAbDab,3.8,298.15,7.0,human,,BLI,-13.4,-9.712,,,,-3.688
+22gk,Fv,beta-arrestin-1,1.6,ELECTRON MICROSCOPY,SAbDab,2.84,298.15,7.0,human,,Radioligand binding assay,-12,-9.410,,,,-2.59
+22gm,Fv,beta-arrestin-1,1.0,ELECTRON MICROSCOPY,SAbDab,2.7,298.15,7.0,human,,Radioligand binding assay,-12.3,-8.433,,,,-3.867
+24xy,Fv/SD-H,guanine nucleotide-binding protein g(i)/g(s)/g(o) subunit ga,17.2,ELECTRON MICROSCOPY,SAbDab,3.0,298.15,7.0,human,,Radioligand binding assay,-10.6,-7.036,,,,-3.564
+24xz,Fv,soluble cytochrome b562,50.9,ELECTRON MICROSCOPY,SAbDab,2.93,298.15,7.0,human,,Radioligand binding assay,-9.94,-7.551,,,,-2.389
+29tj,Fv,envelope glycoprotein gp4,1.89,X-RAY DIFFRACTION,SAbDab,2.3,298.15,7.0,human,,Real-time SPR,-11.9,-7.825,,,,-4.075

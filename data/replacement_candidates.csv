@@ -1,0 +1,137 @@
+pdb,antigen_name,antigen_species,heavy_species,light_species,affinity_nM,affinity_method,delta_g_kcal_mol,resolution,method,pmid,temperature
+5nmv,tissue factor pathway inhibitor,homo sapiens,mus,mus,1e-09,SPR,-12.27819680469229,1.65,X-RAY DIFFRACTION,TBD,
+5f3b,growth/differentiation factor 8,homo sapiens,mus musculus,mus musculus,3e-12,SPR,-15.720019221239749,1.76,X-RAY DIFFRACTION,TBD,
+5f3b,growth/differentiation factor 8,homo sapiens,mus musculus,mus musculus,3e-12,SPR,-15.720019221239749,1.76,X-RAY DIFFRACTION,TBD,
+1vfb,hen egg white lysozyme,gallus gallus,mus musculus,mus musculus,3.70e-09,ITC,-11.47,1.8,X-RAY DIFFRACTION,8302837,24
+1nby,lysozyme c,gallus gallus,mus musculus,mus musculus,9.09e-05,SPR,,1.8,X-RAY DIFFRACTION,12515535,25
+3a6c,lysozyme c,gallus gallus,mus musculus,mus musculus,7.14e-09,ITC,-11.28,1.8,X-RAY DIFFRACTION,20038580,30
+2ypv,lipoprotein,neisseria meningitidis mc58,mus musculus,mus musculus,3e-11,SPR,-14.355775131829494,1.8,X-RAY DIFFRACTION,TBD,
+4rgo,enterotoxin type b,staphylococcus aureus,mus musculus,mus musculus,7.900000000000001e-09,BLI,-11.053614350904786,1.8,X-RAY DIFFRACTION,TBD,
+1wej,cytochrome c,equus caballus,mus musculus,mus musculus,1.58e-08,ITC,-10.63,1.8,X-RAY DIFFRACTION,7539913,25
+3a67,lysozyme c,gallus gallus,mus musculus,mus musculus,5.62e-09,ITC,-11.44,1.8,X-RAY DIFFRACTION,20038580,30
+3a6b,lysozyme c,gallus gallus,mus musculus,mus musculus,1.08e-07,ITC,-9.63,1.8,X-RAY DIFFRACTION,20038580,30
+5hdq,abc transporter substrate-binding protein,staphylococcus aureus,mus musculus,mus musculus,1.2e-09,SPR,-12.170174257779676,1.83,X-RAY DIFFRACTION,TBD,
+4ala,envelope protein,dengue virus 3,mus musculus,mus musculus,4.7e-10,ELISA,-12.725535363908449,1.84,X-RAY DIFFRACTION,TBD,
+1nbz,lysozyme c,gallus gallus,mus musculus,mus musculus,1.06e-06,SPR,,1.85,X-RAY DIFFRACTION,12515535,25
+3rkd,capsid protein,hepatitis e virus,mus musculus,mus musculus,5.89e-09,SPR,-11.22,1.9,X-RAY DIFFRACTION,21642534,
+4h88,major prion protein,mus musculus,mus musculus,mus musculus,2.9e-09,SPR,-11.647373069103503,1.9,X-RAY DIFFRACTION,TBD,
+3qwo,motavizumab epitope scaffold,staphylococcus aureus,mus musculus,mus musculus,8.70e-08,SPR,-9.63,1.9,X-RAY DIFFRACTION,21549714,
+6ddr,mhc class i polypeptide-related sequence a,homo sapiens,mus musculus,mus musculus,9.4e-10,ITC,-12.314856971588666,1.9,X-RAY DIFFRACTION,TBD,
+5vpl,der f 1 variant,dermatophagoides farinae,mus musculus,mus musculus,1.7e-08,ITC,-10.599564136380756,1.9,X-RAY DIFFRACTION,TBD,
+3qwo,motavizumab epitope scaffold,staphylococcus aureus,mus musculus,mus musculus,8.70e-08,SPR,-9.63,1.9,X-RAY DIFFRACTION,21549714,
+3rkd,capsid protein,hepatitis e virus,mus musculus,mus musculus,5.89e-09,SPR,-11.22,1.9,X-RAY DIFFRACTION,21642534,
+5vpg,der p 1 allergen,dermatophagoides pteronyssinus,mus musculus,mus musculus,1.9e-08,ITC,-10.533664762780313,1.95,X-RAY DIFFRACTION,TBD,
+1dzb,turkey egg-white lysozyme c,meleagris gallopavo,mus musculus,,5.20e-07,Other,-8.57,2.0,X-RAY DIFFRACTION,10926506,25
+3l5w,interleukin-13,homo sapiens,"mus musculus, homo sapiens","mus musculus, homo sapiens",5.40e-11,SPR,-14,2.0,X-RAY DIFFRACTION,20226193,25
+3uyp,envelope protein,dengue virus 4,mus musculus,,4.1e-06,ELISA,-7.349477781845606,2.0,X-RAY DIFFRACTION,TBD,
+1dqj,lysozyme,gallus gallus,mus musculus,mus musculus,2.86e-09,SPR,-11.45,2.0,X-RAY DIFFRACTION,10828942,25
+1p2c,lysozyme c,gallus gallus,mus musculus,mus musculus,9.80e-11,SPR,-13.65,2.0,X-RAY DIFFRACTION,14988501,25
+1p2c,lysozyme c,gallus gallus,mus musculus,mus musculus,9.80e-11,SPR,-13.65,2.0,X-RAY DIFFRACTION,14988501,25
+6flc,domain iii of dengue virus 2,dengue virus 2,mus musculus,mus musculus,1.767e-07,SPR,-9.212417624520992,2.0,X-RAY DIFFRACTION,TBD,
+3l5w,interleukin-13,homo sapiens,"mus musculus, homo sapiens","mus musculus, homo sapiens",5.40e-11,SPR,-14,2.0,X-RAY DIFFRACTION,20226193,25
+1dzb,turkey egg-white lysozyme c,meleagris gallopavo,mus musculus,,5.20e-07,Other,-8.57,2.0,X-RAY DIFFRACTION,10926506,25
+6flc,domain iii of dengue virus 2,dengue virus 2,mus musculus,mus musculus,1.767e-07,SPR,-9.212417624520992,2.0,X-RAY DIFFRACTION,TBD,
+1fe8,von willebrand factor,homo sapiens,mus musculus,mus musculus,2e-06,Unknown,-7.7747861441417445,2.03,X-RAY DIFFRACTION,TBD,
+1fe8,von willebrand factor,homo sapiens,mus musculus,mus musculus,2e-06,Unknown,-7.7747861441417445,2.03,X-RAY DIFFRACTION,TBD,
+1fe8,von willebrand factor,homo sapiens,mus musculus,mus musculus,2e-06,Unknown,-7.7747861441417445,2.03,X-RAY DIFFRACTION,TBD,
+3uze,envelope protein,dengue virus 3,mus musculus,,8e-09,ELISA,-11.046161627732946,2.04,X-RAY DIFFRACTION,TBD,
+3uze,envelope protein,dengue virus 3,mus musculus,,8e-09,ELISA,-11.046161627732946,2.04,X-RAY DIFFRACTION,TBD,
+6ddv,mhc class i chain-related protein a,homo sapiens,mus musculus,mus musculus,5.78e-09,ITC,-11.238741254569952,2.05,X-RAY DIFFRACTION,TBD,
+5ikc,neuronal migration protein doublecortin,homo sapiens,mus musculus,mus musculus,2.7e-08,SPR,-10.325467249642376,2.06,X-RAY DIFFRACTION,TBD,
+5ikc,neuronal migration protein doublecortin,homo sapiens,mus musculus,mus musculus,2.7e-08,SPR,-10.325467249642376,2.06,X-RAY DIFFRACTION,TBD,
+1sy6,t-cell surface glycoprotein cd3 gamma/epsilonchain ,homo sapiens,mus musculus,mus musculus,2.73e-06,SPR,-7.59,2.1,X-RAY DIFFRACTION,15136729,25
+4etq,imv membrane protein,vaccinia virus,mus musculus,mus musculus,1.8e-10,SPR,-13.29418688782641,2.1,X-RAY DIFFRACTION,TBD,
+2aep,neuraminidase,influenza a virus,mus musculus,mus musculus,1.20e-08,Other,-10.8,2.1,X-RAY DIFFRACTION,16384583,
+4etq,imv membrane protein,vaccinia virus,mus musculus,mus musculus,1.8e-10,SPR,-13.29418688782641,2.1,X-RAY DIFFRACTION,TBD,
+3uzv,envelope protein,dengue virus 2,mus musculus,,4.3e-10,ELISA,-12.77823529775025,2.1,X-RAY DIFFRACTION,TBD,
+6ejm,cd81 antigen,homo sapiens,mus musculus,,8.6e-10,SPR,-12.367556905430469,2.15,X-RAY DIFFRACTION,TBD,
+6ejm,cd81 antigen,homo sapiens,mus musculus,,8.6e-10,SPR,-12.367556905430469,2.15,X-RAY DIFFRACTION,TBD,
+6bit,tyrosine-protein phosphatase non-receptor type substrate 1,homo sapiens,mus musculus,mus musculus,2.6e-09,SPR,-11.712071867460315,2.191,X-RAY DIFFRACTION,TBD,
+6bit,tyrosine-protein phosphatase non-receptor type substrate 1,homo sapiens,mus musculus,mus musculus,2.6e-09,SPR,-11.712071867460315,2.191,X-RAY DIFFRACTION,TBD,
+6flb,domain iii of dengue virus 2,dengue virus 2,mus musculus,mus musculus,1e-09,SPR,-12.27819680469229,2.2,X-RAY DIFFRACTION,TBD,
+2b2x,integrin alpha-1,rattus norvegicus,mus musculus,mus musculus,1.72e-09,Other,-11.95,2.2,X-RAY DIFFRACTION,16597831,
+2b2x,integrin alpha-1,rattus norvegicus,mus musculus,mus musculus,1.72e-09,Other,-11.95,2.2,X-RAY DIFFRACTION,16597831,
+4aei,alpha-mammal toxin aah2,androctonus australis hector,mus musculus,mus musculus,8.000000000000001e-10,Unknown,-12.410405717143199,2.3,X-RAY DIFFRACTION,TBD,
+4aei,alpha-mammal toxin aah2,androctonus australis hector,mus musculus,mus musculus,8.000000000000001e-10,Unknown,-12.410405717143199,2.3,X-RAY DIFFRACTION,TBD,
+4lqf,a33r,vaccinia virus,mus musculus,mus musculus,6.45e-11,SPR,-13.902247927796981,2.3,X-RAY DIFFRACTION,TBD,
+4aei,alpha-mammal toxin aah2,androctonus australis hector,mus musculus,mus musculus,8.000000000000001e-10,Unknown,-12.410405717143199,2.3,X-RAY DIFFRACTION,TBD,
+6a0z,"hemagglutinin,envelope glycoprotein","influenza a virus, human immunodeficiency virus1 ",mus musculus,mus musculus,5.3000000000000005e-08,SPR,-9.925863641076687,2.329,X-RAY DIFFRACTION,TBD,
+5dfw,cd81 antigen,homo sapiens,mus musculus,,5e-10,SPR,-12.68887519701207,2.33,X-RAY DIFFRACTION,TBD,
+5mi0,"reticulocyte binding-like protein 5,reticulocyte bindingprotein 5 ",plasmodium falciparum,mus musculus,mus musculus,4.0999999999999994e-07,SPR,-8.713721871255862,2.35,X-RAY DIFFRACTION,TBD,
+1bj1,vascular endothelial growth factor,homo sapiens,mus musculus,mus musculus,3.40e-09,SPR,-11.55,2.4,X-RAY DIFFRACTION,9753694,25
+4dgi,major prion protein,homo sapiens,mus musculus,mus musculus,4.5e-07,ITC,-8.658567314824953,2.4,X-RAY DIFFRACTION,TBD,
+1cz8,vascular endothelial growth factor,homo sapiens,mus musculus,mus musculus,1.10e-10,SPR,-14.12,2.4,X-RAY DIFFRACTION,10543973,37
+1bj1,vascular endothelial growth factor,homo sapiens,mus musculus,mus musculus,3.40e-09,SPR,-11.55,2.4,X-RAY DIFFRACTION,9753694,25
+1cz8,vascular endothelial growth factor,homo sapiens,mus musculus,mus musculus,1.10e-10,SPR,-14.12,2.4,X-RAY DIFFRACTION,10543973,37
+5jq6,clumping factor a,staphylococcus aureus,"mus musculus, homo sapiens","mus musculus, homo sapiens",7.900000000000001e-10,SPR,-12.41785844031504,2.4,X-RAY DIFFRACTION,TBD,
+5do2,s protein,middle east respiratory syndrome coronavirus,mus musculus,mus musculus,1.6200000000000002e-07,SPR,-9.263879005639293,2.409,X-RAY DIFFRACTION,TBD,
+5do2,s protein,middle east respiratory syndrome coronavirus,mus musculus,mus musculus,1.6200000000000002e-07,SPR,-9.263879005639293,2.409,X-RAY DIFFRACTION,TBD,
+4k2u,erythrocyte binding antigen 175,plasmodium falciparum,mus musculus,mus musculus,1.53e-11,SPR,-14.754720790655165,2.45,X-RAY DIFFRACTION,TBD,
+4k2u,erythrocyte binding antigen 175,plasmodium falciparum,mus musculus,mus musculus,1.53e-11,SPR,-14.754720790655165,2.45,X-RAY DIFFRACTION,TBD,
+5aam,envelope protein,dengue virus,mus musculus,,3.8e-09,SPR,-11.487230459870787,2.49,X-RAY DIFFRACTION,TBD,
+5aam,envelope protein,dengue virus,mus musculus,,3.8e-09,SPR,-11.487230459870787,2.49,X-RAY DIFFRACTION,TBD,
+1nca,influenza a subtype n9 neuraminidase,influenza a virus,mus musculus,mus musculus,8.30e-09,Other,-11.02,2.5,X-RAY DIFFRACTION,9692956,25
+1mlc,hen egg white lysozyme,gallus gallus,mus musculus,mus musculus,9.10e-08,SPR,-9.6,2.5,X-RAY DIFFRACTION,10229844,25
+1mlc,hen egg white lysozyme,gallus gallus,mus musculus,mus musculus,9.10e-08,SPR,-9.6,2.5,X-RAY DIFFRACTION,10229844,25
+2jel,histidine-containing protein,escherichia coli,mus musculus,mus musculus,3.70e-09,Other,-11.49,2.5,X-RAY DIFFRACTION,9671548,23
+2bdn,small inducible cytokine a2,,mus musculus,mus musculus,4.60e-12,Other,-15.46,2.53,X-RAY DIFFRACTION,16682434,25
+5jyl,cadherin-3,homo sapiens,mus musculus,,8.7e-09,SPR,-10.996463217420198,2.55,X-RAY DIFFRACTION,TBD,
+5jyl,cadherin-3,homo sapiens,mus musculus,,8.7e-09,SPR,-10.996463217420198,2.55,X-RAY DIFFRACTION,TBD,
+4f37,colicin-e7 immunity protein,escherichia coli,mus musculus,mus musculus,5.5000000000000004e-09,SPR,-11.268161381529886,2.57,X-RAY DIFFRACTION,TBD,
+4f37,colicin-e7 immunity protein,escherichia coli,mus musculus,mus musculus,5.5000000000000004e-09,SPR,-11.268161381529886,2.57,X-RAY DIFFRACTION,TBD,
+4zpt,spike glycoprotein,human coronavirus emc (isolate unitedkingdom/h123990006/2012) ,mus musculus,mus musculus,9.93e-09,BLI,-10.91811468499047,2.591,X-RAY DIFFRACTION,TBD,
+4zpt,spike glycoprotein,human coronavirus emc (isolate unitedkingdom/h123990006/2012) ,mus musculus,mus musculus,9.93e-09,BLI,-10.91811468499047,2.591,X-RAY DIFFRACTION,TBD,
+4liq,macrophage colony-stimulating factor 1 receptor,homo sapiens,mus musculus,mus musculus,2.0000000000000003e-10,SPR,-13.231762501782761,2.6,X-RAY DIFFRACTION,TBD,
+1tzh,vascular endothelial growth factor a,homo sapiens,mus musculus,mus musculus,1.80E-09,SPR,-12.4,2.6,X-RAY DIFFRACTION,15306681,37
+1tzh,vascular endothelial growth factor a,homo sapiens,mus musculus,mus musculus,1.80E-09,SPR,-12.4,2.6,X-RAY DIFFRACTION,15306681,37
+5w06,tissue factor,homo sapiens,mus musculus,mus musculus,1.4000000000000003e-10,SPR,-13.443086585131377,2.6,X-RAY DIFFRACTION,TBD,
+1yy9,epidermal growth factor receptor,homo sapiens,"mus musculus, homo sapiens","mus musculus, homo sapiens",2.30e-09,SPR,-11.78,2.605,X-RAY DIFFRACTION,15837620,25
+4leo,receptor tyrosine-protein kinase erbb-3,homo sapiens,mus musculus,mus musculus,5e-10,SPR,-12.68887519701207,2.64,X-RAY DIFFRACTION,TBD,
+2iff,hen egg white lysozyme,gallus gallus,mus musculus,mus musculus,1e-08,Unknown,-10.913952715282035,2.65,X-RAY DIFFRACTION,TBD,
+4rgm,enterotoxin type b,staphylococcus aureus,mus musculus,mus musculus,2.29e-08,BLI,-10.423049285339754,2.689,X-RAY DIFFRACTION,TBD,
+4rgm,enterotoxin type b,staphylococcus aureus,mus musculus,mus musculus,2.29e-08,BLI,-10.423049285339754,2.689,X-RAY DIFFRACTION,TBD,
+3q3g,integrin alpha-m,homo sapiens,mus musculus,mus musculus,4.97e-09,SPR,-11.32,2.7,X-RAY DIFFRACTION,22095715,25
+4k9e,mast/stem cell growth factor receptor kit,homo sapiens,mus musculus,mus musculus,6.4e-12,SPR,-15.271102808414621,2.7,X-RAY DIFFRACTION,TBD,
+3q3g,integrin alpha-m,homo sapiens,mus musculus,mus musculus,4.97e-09,SPR,-11.32,2.7,X-RAY DIFFRACTION,22095715,25
+3vg9,adenosine receptor a2a,homo sapiens,mus musculus,mus musculus,4.4000000000000005e-09,SPR,-11.400370293980798,2.7,X-RAY DIFFRACTION,TBD,
+3q3g,integrin alpha-m,homo sapiens,mus musculus,mus musculus,4.97e-09,SPR,-11.32,2.7,X-RAY DIFFRACTION,22095715,25
+3q3g,integrin alpha-m,homo sapiens,mus musculus,mus musculus,4.97e-09,SPR,-11.32,2.7,X-RAY DIFFRACTION,22095715,25
+1jrh,interferon-gamma receptor alpha chain,homo sapiens,mus musculus,mus musculus,1.42e-08,SPR,-10.7,2.8,X-RAY DIFFRACTION,9367779,25
+1nsn,staphylococcal nuclease,staphylococcus aureus,mus musculus,mus musculus,1.00e-10,Other,-13.63,2.8,X-RAY DIFFRACTION,1704035,
+1qfu,protein (hemagglutinin (ha1 chain)),influenza a virus (a/x-31(h3n2)),mus musculus,mus musculus,3.00E-09,SPR,-11.5,2.8,X-RAY DIFFRACTION,10360354,22
+5dfv,cd81 antigen,homo sapiens,mus musculus,mus musculus,5e-10,SPR,-12.68887519701207,2.8,X-RAY DIFFRACTION,TBD,
+1tzi,vascular endothelial growth factor a,homo sapiens,mus musculus,mus musculus,1.00E-08,SPR,-11.35,2.8,X-RAY DIFFRACTION,15306681,37
+5dfv,cd81 antigen,homo sapiens,mus musculus,mus musculus,5e-10,SPR,-12.68887519701207,2.8,X-RAY DIFFRACTION,TBD,
+1eo8,hemagglutinin (ha1 chain),influenza a virus (a/x-31(h3n2)),mus musculus,mus musculus,8.90e-09,SPR,-10.87,2.8,X-RAY DIFFRACTION,10899782,22
+4jzj,interleukin-3 receptor subunit alpha,homo sapiens,mus musculus,mus musculus,4e-09,SPR,-11.456840020052727,2.801,X-RAY DIFFRACTION,TBD,
+4jzj,interleukin-3 receptor subunit alpha,homo sapiens,mus musculus,mus musculus,4e-09,SPR,-11.456840020052727,2.801,X-RAY DIFFRACTION,TBD,
+6ejg,cd81 antigen,homo sapiens,mus musculus,,8.100000000000001e-10,SPR,-12.403045576779583,2.82,X-RAY DIFFRACTION,TBD,
+6ejg,cd81 antigen,homo sapiens,mus musculus,,8.100000000000001e-10,SPR,-12.403045576779583,2.82,X-RAY DIFFRACTION,TBD,
+4krp,epidermal growth factor receptor,homo sapiens,"mus musculus, homo sapiens","mus musculus, homo sapiens",1.66e-07,SPR,-9.249427467731744,2.823,X-RAY DIFFRACTION,TBD,
+4rdq,bestrophin-1,gallus gallus,mus musculus,mus musculus,1.5000000000000002e-08,Unknown,-10.67372125591851,2.85,X-RAY DIFFRACTION,TBD,
+4rdq,bestrophin-1,gallus gallus,mus musculus,mus musculus,1.5000000000000002e-08,Unknown,-10.67372125591851,2.85,X-RAY DIFFRACTION,TBD,
+4rdq,bestrophin-1,gallus gallus,mus musculus,mus musculus,1.5000000000000002e-08,Unknown,-10.67372125591851,2.85,X-RAY DIFFRACTION,TBD,
+4rdq,bestrophin-1,gallus gallus,mus musculus,mus musculus,1.5000000000000002e-08,Unknown,-10.67372125591851,2.85,X-RAY DIFFRACTION,TBD,
+4rdq,bestrophin-1,gallus gallus,mus musculus,mus musculus,1.5000000000000002e-08,Unknown,-10.67372125591851,2.85,X-RAY DIFFRACTION,TBD,
+1ob1,major merozoite surface protein,plasmodium falciparum,mus musculus,mus musculus,2.00e-10,Other,-12.29,2.9,X-RAY DIFFRACTION,12729744,4
+5vyf,"chimera of major allergen i polypeptide chain 2,majorallergen i polypeptide chain 1 ",felis catus,mus musculus,mus musculus,1.87e-10,SPR,-13.271582589129338,2.9,X-RAY DIFFRACTION,TBD,
+2w9e,major prion protein,homo sapiens,mus musculus,mus musculus,1.00e-10,Other,-13.63,2.9,X-RAY DIFFRACTION,19204296,
+1fsk,major pollen allergen bet v 1-a,betula pendula,mus musculus,mus musculus,2.4e-10,Unknown,-13.12373995487015,2.9,X-RAY DIFFRACTION,TBD,
+1fsk,major pollen allergen bet v 1-a,betula pendula,mus musculus,mus musculus,2.4e-10,Unknown,-13.12373995487015,2.9,X-RAY DIFFRACTION,TBD,
+4lu5,a33r,vaccinia virus,mus musculus,mus musculus,6.59e-11,SPR,-13.889525396748654,2.9,X-RAY DIFFRACTION,TBD,
+4lu5,a33r,vaccinia virus,mus musculus,mus musculus,6.59e-11,SPR,-13.889525396748654,2.9,X-RAY DIFFRACTION,TBD,
+1fsk,major pollen allergen bet v 1-a,betula pendula,mus musculus,mus musculus,2.4e-10,Unknown,-13.12373995487015,2.9,X-RAY DIFFRACTION,TBD,
+1fsk,major pollen allergen bet v 1-a,betula pendula,mus musculus,mus musculus,2.4e-10,Unknown,-13.12373995487015,2.9,X-RAY DIFFRACTION,TBD,
+1ob1,major merozoite surface protein,plasmodium falciparum,mus musculus,mus musculus,2.00e-10,Other,-12.29,2.9,X-RAY DIFFRACTION,12729744,4
+5vyf,"chimera of major allergen i polypeptide chain 2,majorallergen i polypeptide chain 1 ",felis catus,mus musculus,mus musculus,1.87e-10,SPR,-13.271582589129338,2.9,X-RAY DIFFRACTION,TBD,
+4gms,hemagglutinin ha1 chain,influenza a virus,mus musculus,mus musculus,2e-08,BLI,-10.503274322962254,2.95,X-RAY DIFFRACTION,TBD,
+4gms,hemagglutinin ha1 chain,influenza a virus,mus musculus,mus musculus,2e-08,BLI,-10.503274322962254,2.95,X-RAY DIFFRACTION,TBD,
+4gms,hemagglutinin ha1 chain,influenza a virus,mus musculus,mus musculus,2e-08,BLI,-10.503274322962254,2.95,X-RAY DIFFRACTION,TBD,
+5t5f,factor h binding protein variant b24,neisseria meningitidis,mus musculus,mus musculus,1.9000000000000002e-10,SPR,-13.26215294160082,2.98,X-RAY DIFFRACTION,TBD,
+1e6j,capsid protein p24,human immunodeficiency virus type 1(clone 12) ,mus musculus,mus musculus,2.90e-08,SPR,-10.28,3.0,X-RAY DIFFRACTION,11080628,
+4qti,urokinase plasminogen activator surface receptor,homo sapiens,mus musculus,mus musculus,1.7200000000000002e-08,SPR,-10.592634423700435,3.0,X-RAY DIFFRACTION,TBD,
+3bgf,spike protein s1,sars coronavirus,mus musculus,mus musculus,2.60e-08,SPR,-10.34,3.0,X-RAY DIFFRACTION,19324051,25
+2aeq,neuraminidase,influenza a virus,mus musculus,mus musculus,1.20e-08,Other,-10.8,3.0,X-RAY DIFFRACTION,16384583,
+1nma,n9 neuraminidase,influenza a virus,mus musculus,mus musculus,1.40e-08,Other,-10.8,3.0,X-RAY DIFFRACTION,7517697,
+5jhl,envelope protein,zika virus,mus,mus,2.7e-09,SPR,-11.689711339052632,3.0,X-RAY DIFFRACTION,TBD,
+3bgf,spike protein s1,sars coronavirus,mus musculus,mus musculus,2.60e-08,SPR,-10.34,3.0,X-RAY DIFFRACTION,19324051,25

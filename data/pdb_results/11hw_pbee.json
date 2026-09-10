@@ -1,0 +1,33 @@
+{
+  "pdb": "11hw",
+  "created": "2026-09-02 09:19:43",
+  "status": "done",
+  "kd_nM": 0.2,
+  "chain_ids_a": [
+    "C",
+    "D"
+  ],
+  "chain_ids_b": [
+    "A",
+    "B"
+  ],
+  "result": {
+    "electrostatic": -1.4266045808572974,
+    "apolar": 16.3,
+    "entropy": 43.2,
+    "total": -28.3266045808573,
+    "n_atoms": 163,
+    "n_charges": 163,
+    "chain_ids_a": [
+      "C",
+      "D"
+    ],
+    "chain_ids_b": [
+      "A",
+      "B"
+    ],
+    "dg_exp": -13.231789135765252,
+    "kd_exp_nM": 0.2,
+    "error": -15.094815445092047
+  }
+}

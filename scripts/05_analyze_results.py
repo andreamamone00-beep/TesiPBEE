@@ -124,7 +124,7 @@ def load_dataset() -> list[dict]:
     with DATASET_FINAL.open("r", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             for k in float_fields:
-                if k in row and row[k] not in ("", None):
+                if k in row and row[k] not in ("", None, "N/A"):
                     try:
                         row[k] = float(row[k])
                     except ValueError:
@@ -137,12 +137,30 @@ def load_dataset() -> list[dict]:
 # Metriche globali
 # ---------------------------------------------------------------------------
 def global_metrics(records: list[dict]) -> dict:
-    exp = [r["dG_exp_kcal_mol"] for r in records]
-    pred = [r["dG_pred_kcal_mol"] for r in records]
+    # Filter out records with N/A or missing PBEE predictions
+    valid_records = [r for r in records if isinstance(r.get("dG_pred_kcal_mol"), (int, float))
+                     and isinstance(r.get("dG_exp_kcal_mol"), (int, float))]
+
+    if len(valid_records) < 2:
+        return {
+            "n_complexes": len(records),
+            "n_valid": len(valid_records),
+            "rmse_kcal_mol": None,
+            "mae_kcal_mol": None,
+            "pearson_r": None,
+            "spearman_rho": None,
+            "kendall_tau": None,
+            "bias_mean": None,
+            "bias_std": None,
+            "by_affinity_class": {},
+        }
+
+    exp = [r["dG_exp_kcal_mol"] for r in valid_records]
+    pred = [r["dG_pred_kcal_mol"] for r in valid_records]
     errs = [p - e for p, e in zip(pred, exp)]
 
     by_class = defaultdict(list)
-    for r in records:
+    for r in valid_records:
         cls = classify_affinity(r["kd_nM"])
         by_class[cls].append(r["dG_pred_kcal_mol"] - r["dG_exp_kcal_mol"])
 
@@ -158,6 +176,7 @@ def global_metrics(records: list[dict]) -> dict:
 
     return {
         "n_complexes": len(records),
+        "n_valid": len(valid_records),
         "rmse_kcal_mol": round(math.sqrt(mean([e ** 2 for e in errs])), 3),
         "mae_kcal_mol": round(mean([abs(e) for e in errs]), 3),
         "pearson_r": round(pearson(exp, pred), 3),

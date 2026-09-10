@@ -173,25 +173,21 @@ def filter_records(records, args):
 # Metriche
 # ---------------------------------------------------------------------------
 def compute_metrics(records):
-    if len(records) < 2:
-        return {"n": len(records), "rmse": None, "mae": None,
-                "pearson": None, "spearman": None, "bias": None, "kendall": None}
-
-    # Check if prediction fields exist and are numeric
-    has_predictions = all(r.get("dG_pred_kcal_mol") not in (None, "", "nan") for r in records)
-    has_experiments = all(r.get("dG_exp_kcal_mol") not in (None, "", "nan") for r in records)
+    # Filter out records with N/A or missing PBEE predictions
+    valid_records = [r for r in records if r.get("dG_pred_kcal_mol") not in (None, "", "nan", "N/A")
+                     and r.get("dG_exp_kcal_mol") not in (None, "", "nan", "N/A")]
     
-    if not has_predictions or not has_experiments:
-        return {"n": len(records), "rmse": None, "mae": None,
+    if len(valid_records) < 2:
+        return {"n": len(records), "n_valid": len(valid_records), "rmse": None, "mae": None,
                 "pearson": None, "spearman": None, "bias": None, "kendall": None}
 
     try:
-        exp = [r["dG_exp_kcal_mol"] for r in records]
-        pred = [r["dG_pred_kcal_mol"] for r in records]
+        exp = [r["dG_exp_kcal_mol"] for r in valid_records]
+        pred = [r["dG_pred_kcal_mol"] for r in valid_records]
         errs = [p - e for p, e in zip(pred, exp)]
     except (KeyError, TypeError) as e:
         print(f"Error computing metrics: {e}")
-        return {"n": len(records), "rmse": None, "mae": None,
+        return {"n": len(records), "n_valid": len(valid_records), "rmse": None, "mae": None,
                 "pearson": None, "spearman": None, "bias": None, "kendall": None}
 
     def _mean(xs): return sum(xs) / len(xs)
