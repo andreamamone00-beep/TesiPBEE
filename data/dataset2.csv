@@ -15,3 +15,8 @@ pdb,format,antigen,kd_nM,method,source,resolution,temperature_K,ph,species,pubme
 24xy,Fv/SD-H,guanine nucleotide-binding protein g(i)/g(s)/g(o) subunit ga,17.2,ELECTRON MICROSCOPY,SAbDab,3.0,298.15,7.0,human,,Radioligand binding assay,-10.6,-7.036,,,,-3.564
 24xz,Fv,soluble cytochrome b562,50.9,ELECTRON MICROSCOPY,SAbDab,2.93,298.15,7.0,human,,Radioligand binding assay,-9.94,-7.551,,,,-2.389
 29tj,Fv,envelope glycoprotein gp4,1.89,X-RAY DIFFRACTION,SAbDab,2.3,298.15,7.0,human,,Real-time SPR,-11.9,-7.825,,,,-4.075
+35ui,Fab,tissue factor pathway inhibitor,5.46,X-RAY DIFFRACTION,SAbDab,1.75,298.15,7.0,human,,SPR,-11.27,-9.561,,,,-1.709
+35uh,Fab,tissue factor pathway inhibitor,9.89,X-RAY DIFFRACTION,SAbDab,3.11,298.15,7.0,human,,SPR,-10.92,-9.718,,,,-1.202
+35uj,Fab,tissue factor pathway inhibitor,1.25,X-RAY DIFFRACTION,SAbDab,2.9,298.15,7.0,human,,SPR,-12.15,-9.638,,,,-2.512
+9tvt,Fab,unknown,0.242,X-RAY DIFFRACTION,SAbDab,2.85,298.15,7.0,human,,SPR,-13.12,-10.288,,,,-2.832
+25rg,Fab,unknown,8.76,ELECTRON MICROSCOPY,SAbDab,2.5,298.15,7.0,human,,SPR,-10.99,-9.539,,,,-1.451
